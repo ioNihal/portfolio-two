@@ -19,7 +19,7 @@ const Contact = forwardRef((props, ref) => {
 
         try {
             console.log(formData)
-            const response = await fetch('https://9000-idx-portfolio-two-1733750856348.cluster-fu5knmr55rd44vy7k7pxk74ams.cloudworkstations.dev/api/contact', {
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
