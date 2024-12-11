@@ -54,6 +54,7 @@ const Contact = forwardRef((props, ref) => {
                         placeholder=" "
                         id="name"
                         className={styles.input}
+                        required
                     />
                     <label htmlFor="name">Name</label>
                 </div>
@@ -66,6 +67,7 @@ const Contact = forwardRef((props, ref) => {
                         placeholder=" "
                         id="email"
                         className={styles.input}
+                        required
                     />
                     <label htmlFor="email">Email</label>
                 </div>
@@ -77,12 +79,13 @@ const Contact = forwardRef((props, ref) => {
                         placeholder=" "
                         id="message"
                         className={styles.textarea}
+                        required
                     />
                     <label htmlFor="message">Tell me something...</label>
                 </div>
                 <button className={styles.button} type="submit">Submit</button>
             </form>
-            {status && <p>{status}</p>}
+            {status && <div className={styles.error}>{status}</div>}
         </div>
     );
 });
