@@ -1,7 +1,8 @@
 import mongoose from "mongoose"
+require('dotenv').config()
 
 export const connectToDB = async () => {
-    const mongoUri = import.meta.env.VITE_MONGO_URI;
+    const mongoUri = process.env.MONGO_URI;
     const connection = {};
 
     try {
