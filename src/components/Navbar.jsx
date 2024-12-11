@@ -8,6 +8,11 @@ const Navbar = ({ targetRefs }) => {
         ref.current.scrollIntoView({ behavior: "smooth" })
     }
 
+    const handleOpenPDF = () => {
+        const pdfUrl = "docs/resume.pdf"; 
+        window.open(pdfUrl, "_blank"); 
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.icon} onClick={() => handleClick(homeRef)}>
