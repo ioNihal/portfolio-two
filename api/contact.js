@@ -2,7 +2,6 @@ import { Contact } from "../src/lib/models.js"
 import { connectToDB } from "../src/lib/utils.js"
 
 export default async function handler(req, res) {
-    res.send("Hi")
     console.log(req)
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
