@@ -9,8 +9,8 @@ const Navbar = ({ targetRefs }) => {
     }
 
     const handleOpenPDF = () => {
-        const pdfUrl = "docs/resume.pdf"; 
-        window.open(pdfUrl, "_blank"); 
+        const pdfUrl = "docs/resume.pdf";
+        window.open(pdfUrl, "_blank");
     };
 
     return (
@@ -21,7 +21,7 @@ const Navbar = ({ targetRefs }) => {
             <div className={styles.navbarContainer}>
                 <ul className={styles.navbar}>
                     <li className={styles.navbarItem} onClick={() => handleClick(aboutRef)}>About</li>
-                    <li className={styles.navbarItem}>Resume</li>
+                    <li className={styles.navbarItem} onClick={handleOpenPDF}>Resume</li>
                     <li className={styles.navbarItem} onClick={() => handleClick(contactRef)}>Contact</li>
                 </ul>
             </div>
