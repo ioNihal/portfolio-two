@@ -18,7 +18,7 @@ const Contact = forwardRef((props, ref) => {
         e.preventDefault();
 
         try {
-            console.log(formData)
+            
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
