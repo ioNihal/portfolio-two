@@ -9,7 +9,7 @@ const Navbar = ({ targetRefs }) => {
     }
 
     const handleOpenPDF = () => {
-        const pdfUrl = "data/resume.pdf";
+        const pdfUrl = "docs/resume.pdf";
         window.open(pdfUrl, "_blank");
     };
 
