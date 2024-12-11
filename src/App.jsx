@@ -14,14 +14,16 @@ function App() {
   const aboutRef = useRef();
   const contactRef = useRef();
   const homeRef = useRef();
+  const projectsRef = useRef();
+
   return (
     <div className="container">
-      <Navbar targetRefs={[homeRef, aboutRef, contactRef]}/>
-      <Intro ref={homeRef} />
+      <Navbar targetRefs={[homeRef, aboutRef, contactRef]} />
+      <Intro ref={homeRef} targetRef={projectsRef} />
       <Github />
       <About ref={aboutRef} />
       <Skills />
-      <Projects />
+      <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
     </div>
   )

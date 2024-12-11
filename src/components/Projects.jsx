@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { forwardRef, useEffect, useState } from "react"
 import styles from "../styles/Projects.module.css"
 
-const Project = () => {
+const Project = forwardRef((props, ref) => {
     const [projects, setProjects] = useState([])
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const Project = () => {
     }, [])
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={ref}>
             {
                 projects.map(project => (
                     <div key={project.id} className={styles.project}>
@@ -27,6 +27,6 @@ const Project = () => {
             }
         </div>
     )
-}
+})
 
 export default Project
