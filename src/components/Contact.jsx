@@ -43,7 +43,7 @@ const Contact = forwardRef((props, ref) => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container}  ref={ref}>
             <div className={styles.title}>Contact Me!</div>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.field}>
