@@ -25,11 +25,11 @@ const Contact = forwardRef((props, ref) => {
                 body: JSON.stringify(formData),
             });
 
-            console.log(response)
+
 
             if (response.ok) {
                 const result = await response.json();
-                console.log(result)
+
                 setStatus(result.message);
                 setFormData({ name: '', email: '', message: '' });
             } else {
@@ -38,12 +38,11 @@ const Contact = forwardRef((props, ref) => {
             }
         } catch (error) {
             setStatus('Error connecting to the server.');
-            console.log(error);
         }
     }
 
     return (
-        <div className={styles.container}  ref={ref}>
+        <div className={styles.container} ref={ref}>
             <div className={styles.title}>Contact Me!</div>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.field}>
