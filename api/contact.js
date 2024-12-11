@@ -1,5 +1,5 @@
-import { Contact } from "../src/lib/models"
-import { connectToDB } from "../src/lib/utils"
+import { Contact } from "./lib/models"
+import { connectToDB } from "./lib/utils"
 
 export default async function handler(req, res) {
     res.send("Hi")
