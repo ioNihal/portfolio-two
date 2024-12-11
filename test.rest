@@ -1,0 +1,9 @@
+### Test POST Request to /api/contact
+POST https://9000-idx-portfolio-two-1733750856348.cluster-fu5knmr55rd44vy7k7pxk74ams.cloudworkstations.dev/api/contact
+Content-Type: application/json
+
+{
+  "name": "Nihal K",
+  "email": "nihal04x@gmail.com",
+  "message": "Hello, this is a test message!"
+}

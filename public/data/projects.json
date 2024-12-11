@@ -1,0 +1,30 @@
+[
+    {
+        "id": 0,
+        "img": "images/gameCom.png",
+        "title": "GameCom",
+        "desc": "GameCom is a Website built on ReactJS for a SA-MP gaming community",
+        "url": "https://gamecom-react.vercel.app"
+    },
+    {
+        "id": 1,
+        "img": "images/lyrics.png",
+        "title": "Project Lyrics",
+        "desc": "Project Lyrics has 3 preloaded song which users can play and control",
+        "url": "https://lyrics.ionihal.xyz"
+    },
+    {
+        "id": 2,
+        "img": "images/pixels.png",
+        "title": "Project Pixels",
+        "desc": "Pixels is an art inspired webpage built using Vanilla JS, HTML, CSS",
+        "url": "https://ionihal.github.io/Pixels-art"
+    },
+    {
+        "id": 3,
+        "img": "images/splitter.png",
+        "title": "Splitter",
+        "desc": "Splitter is a Website built on ReactJS for calculating and splitting group expenses",
+        "url": "https://budget-splitter.vercel.app"
+    }
+]

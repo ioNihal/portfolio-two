@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 20px auto;
+
+    background-color: var(--bgLight);
+
+    padding: 20px;
+    border-radius: 10px;
+
+    scroll-margin-top: 100px;
+}
+
+.title,
+.about {
+    color: var(--textDark);
+}
+
+.title {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.about {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+
+    font-size: 1rem;
+    max-width: 60vw;
+}
+
+.about span {
+    color: var(--textDark);
+    cursor: pointer;
+    position: relative;
+}
+
+.about span::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--textLight);
+    color: var(--textLight);
+    transition: width 0.5s ease-in-out;
+}
+
+.about span:hover::after {
+    width: 100%;
+}
+
+.about span:hover {
+    color: var(--textLight);
+}
+
+/* Default: Large devices such as laptops, computers (greater than 1024px) */
+
+/* Medium devices such as tablets (1024px or lesser) */
+@media only screen and (max-width: 1024px) {
+    .about {
+        max-width: 70vw;
+        font-size: 0.8rem;
+    }
+}
+
+/* Small devices such as phones (768px or lesser) */
+@media only screen and (max-width: 768px) {
+    .about {
+        max-width: 80vw;
+        font-size: 0.6rem;
+    }
+}
