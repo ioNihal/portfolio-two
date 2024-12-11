@@ -7,7 +7,7 @@
 
     background-color: var(--bgLight);
     border-radius: 10px;
-    margin: 50px auto;
+    margin: 50px auto 100px auto;
     padding: 20px;
 
     scroll-margin-top: 100px;
