@@ -48,7 +48,7 @@ const Skills = () => {
                     setExpanded(false); 
                 }
             },
-            { threshold: 0.1 }
+            { threshold: 0.5 }
         );
 
         observer.observe(container);
@@ -60,8 +60,7 @@ const Skills = () => {
             className={styles.container}
             ref={containerRef}
             style={{
-                width: expanded ? "500" : "400", 
-                height: expanded ? "250px" : "200px", 
+                
             }}
         >
             {icons.map((Icon, index) => (
@@ -71,8 +70,12 @@ const Skills = () => {
                     style={{
                         transition: "all 1s ease", 
                         transform: expanded
-                            ? "scale(1.1)" 
-                            : "scale(1)", 
+                            ? "translateY(0px) scale(1.1)" 
+                            : "translateY(100px) scale(0.1)", 
+                        
+                        opacity: expanded
+                            ? "1" 
+                            : "0.1", 
                         
                     }}
                 >
