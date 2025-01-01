@@ -69,10 +69,24 @@
         width: auto;
     }
 
+    .project {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        max-width: 90vw;
+    }
+
     .img {
-        max-width: 85vw;
+        max-width: 30vw;
+        max-height: 10vh;
         width: max-content;
     }
+
+    .title {
+        flex: 1;
+    }
+
+    
 }
 
 @media only screen and (max-width: 768px) and (orientation: landscape) {

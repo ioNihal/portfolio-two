@@ -115,6 +115,9 @@
     -webkit-user-select: none;
     -moz-user-select: none;
 }
+.form button:hover {
+    background-color: rgb(82, 12, 212);
+}
 
 input:focus+label,
 input:not(:placeholder-shown)+label,

@@ -23,9 +23,9 @@ const Project = forwardRef((props, ref) => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    setExpanded(true); 
+                    setExpanded(true);
                 } else {
-                    setExpanded(false); 
+                    setExpanded(false);
                 }
             },
             { threshold: 0.1 }
@@ -35,23 +35,27 @@ const Project = forwardRef((props, ref) => {
         return () => observer.disconnect();
     }, []);
 
+    const handleProjectClick = (project) => {
+        window.open(project.url, '_blank');
+    }
+
     return (
         <div className={styles.container} ref={ref}>
             {
                 projects.map(project => (
-                    <div key={project.id} className={styles.project}
-                    style={{
-                        transition: "all 1s ease", 
-                        transform: expanded
-                            ? "translateY(0px) scale(1)" 
-                            : "translateY(50px) scale(0.9)", 
-                        
-                        opacity: expanded
-                            ? "1" 
-                            : "0.5", 
-                        
-                    }}>
-                        <img src="images/test.png" className={styles.img} />
+                    <div key={project.id} className={styles.project} onClick={() => handleProjectClick(project)}
+                        style={{
+                            transition: "all 1s ease",
+                            transform: expanded
+                                ? "translateY(0px) scale(1)"
+                                : "translateY(50px) scale(0.9)",
+
+                            opacity: expanded
+                                ? "1"
+                                : "0.5",
+
+                        }}>
+                        <img src={project.img} className={styles.img} />
                         <div className={styles.title}>{project.title}</div>
                     </div>
                 ))
