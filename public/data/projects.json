@@ -36,7 +36,7 @@
     },
     {
         "id": 5,
-        "img": "images/restaurant.jpg",
+        "img": "images/restaurant.png",
         "title": "Restaurant Page",
         "desc": "Developed a stunning Restaurant page with visually appealing design using HTML, CSS, Vanilla JS",
         "url": "https://ionihal.github.io/restaurant-page"
