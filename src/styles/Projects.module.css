@@ -86,10 +86,10 @@
 
   .img {
     height: 100%;
-    flex: 0 0 180px; /* Ensures all images stay at 180px */
-    min-width: 120px; /* Allows shrinking on smaller screens */
-    max-width: 180px; /* Prevents it from exceeding */
-    object-fit: cover; /* Keeps image filling the box */
+    flex: 0 0 150px; 
+    min-width: 120px; 
+    max-width: 180px; 
+    object-fit: cover;
 }
     .title {
         flex: 1;
