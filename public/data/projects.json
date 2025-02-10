@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "img": "images/gamecom.jpg",
+        "img": "images/gamecom.png",
         "title": "GameCom",
         "desc": "GameCom is a Website built on ReactJS for a SA-MP gaming community",
         "url": "https://gamecom-react.vercel.app"
