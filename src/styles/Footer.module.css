@@ -1,0 +1,59 @@
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.wrapper {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 0;
+}
+
+.linkWrapper a {
+    text-decoration: none;
+    color: rgb(182, 181, 181);
+    font-size: 2rem;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.linkWrapper a:hover {
+    transform: translateY(-5px);
+}
+
+.linkWrapper:nth-child(2) a {
+    color: rgb(31, 99, 248);
+}
+
+.linkWrapper:nth-child(4) a {
+    background-color: rgb(175, 6, 77);
+    border-radius: 5px;
+    padding: 0;
+}
+
+.linkWrapper:nth-child(7) a {
+    color: rgb(69, 83, 207);
+}
+
+/* Default: Large devices such as laptops, computers (greater than 1024px) */
+
+/* Medium devices such as tablets (1024px or lesser) */
+@media only screen and (max-width: 1024px) {}
+
+/* Small devices such as phones (768px or lesser) */
+@media only screen and (max-width: 768px) {
+    .container {
+        margin-bottom: 3rem;
+    }
+    .wrapper {
+        gap: 0.9rem;
+    }
+
+    .linkWrapper a {
+        font-size: 1.7rem;
+    }
+}

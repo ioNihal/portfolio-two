@@ -8,6 +8,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import { useRef } from 'react'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
       <Skills />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
+      <Footer />
     </div>
   )
 }
