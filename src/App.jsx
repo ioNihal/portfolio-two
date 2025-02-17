@@ -9,6 +9,7 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import { useRef } from 'react'
 import Footer from './components/Footer'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="container">
+      <Analytics />
       <Navbar targetRefs={[homeRef, aboutRef, contactRef]} />
       <Intro ref={homeRef} targetRef={projectsRef} />
       <Github />
