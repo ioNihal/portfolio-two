@@ -1,4 +1,4 @@
-import { FaDev, FaDiscord, FaGithubSquare, FaInstagramSquare, FaLinkedin } from 'react-icons/fa'
+import { FaDev, FaDiscord, FaGithubSquare, FaInstagram, FaInstagramSquare, FaLinkedin } from 'react-icons/fa'
 import styles from '../styles/Footer.module.css'
 import { FaSquareXTwitter } from 'react-icons/fa6'
 import { SiMedium } from 'react-icons/si'
@@ -12,51 +12,38 @@ const links = [
     {
         icon: <FaLinkedin />,
         title: 'Linkedin',
-        url: 'https://github.com/ionihal'
+        url: 'https://linkedin.com/in/n1hal'
     },
     {
         icon: <FaSquareXTwitter />,
         title: 'X',
-        url: 'https://github.com/ionihal'
+        url: 'https://x.com/n1haaaal'
     },
     {
-        icon: <FaInstagramSquare />,
+        icon: <FaInstagram />,
         title: 'Instagram',
-        url: 'https://github.com/ionihal'
+        url: 'https://instagram.com/io.nihal'
     },
-    {
-        icon: <FaDev />,
-        title: 'Dev',
-        url: 'https://github.com/ionihal'
-    },
-    {
-        icon: <SiMedium />,
-        title: 'Medium',
-        url: 'https://github.com/ionihal'
-    },
-    {
-        icon: <FaDiscord />,
-        title: 'Discord',
-        url: 'https://github.com/ionihal'
-    },
-
-
 ]
 
 
 const Footer = () => {
     return (
-        <div className={styles.container}>
+        <footer className={styles.container}>
             <ul className={styles.wrapper}>
                 {
                     links.map((item, index) => (
                         <li key={index} className={styles.linkWrapper}>
-                            <a href={item.url}>{item.icon}</a>
+                            <a href={item.url} target="_blank" rel="noopener noreferrer">
+                                {item.icon}
+                            </a>
                         </li>
                     ))
                 }
             </ul>
-        </div>
+            <p className={styles.footerText}>© {new Date().getFullYear()} ioNihal</p>
+            <hr className={styles.hr} />
+        </footer>
     )
 }
 

@@ -145,6 +145,6 @@ textarea:not(:placeholder-shown)+label {
 @media only screen and (max-width: 768px) {
     .container {
         width: 80vw;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 }
