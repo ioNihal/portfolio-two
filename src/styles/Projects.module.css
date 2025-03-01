@@ -86,9 +86,10 @@
     }
 
     .img {
+       
         width: calc(100% / 3);
         height: 100%;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 3 / 4;
     }
 
     .title {
