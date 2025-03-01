@@ -55,7 +55,7 @@ const Project = forwardRef((props, ref) => {
                                 : "0.5",
 
                         }}>
-                        <img src={project.img} className={styles.img} />
+                        <img src={project.img} className={styles.img} loading="lazy" />
                         <div className={styles.title}>{project.title}</div>
                     </div>
                 ))
