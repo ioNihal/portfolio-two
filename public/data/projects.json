@@ -14,18 +14,18 @@
         "url": "https://github.com/ioNihal/sims-dashboard-front"
     },
     {
-        "id": 2,
-        "img": "images/restaurantsmall.webp",
-        "title": "Restaurant Page",
-        "desc": "Developed a stunning Restaurant page with visually appealing design using HTML, CSS, Vanilla JS",
-        "url": "https://ionihal.github.io/restaurant-page"
-    },
-    {
-        "id": 3,
+        "id": 4,
         "img": "images/game2d.jpeg",
         "title": "2D Stickman Game",
         "desc": "Developed a challenging and fun stickman style 1v1 fighting game using HTML Canvas, CSS, Vanilla JS",
         "url": "https://ionihal.github.io/game2dsite"
+    },
+    {
+        "id": 3,
+        "img": "images/restaurantsmall.webp",
+        "title": "Restaurant Page",
+        "desc": "Developed a stunning Restaurant page with visually appealing design using HTML, CSS, Vanilla JS",
+        "url": "https://ionihal.github.io/restaurant-page"
     },
     {
         "id": 4,
