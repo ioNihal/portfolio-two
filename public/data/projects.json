@@ -50,7 +50,7 @@
     },
     {
         "id": 7,
-        "img": "images/sims-dash.jpg",
+        "img": "images/sims-dash.jpeg",
         "title": "Smart Inventory Management System (SIMS)",
         "desc": "Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.",
         "url": "https://github.com/ioNihal/sims-dashboard-front"
