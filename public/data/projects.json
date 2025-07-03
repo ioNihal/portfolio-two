@@ -47,5 +47,12 @@
         "title": "2D Stickman Game",
         "desc": "Developed a challenging and fun stickman style 1v1 fighting game using HTML Canvas, CSS, Vanilla JS",
         "url": "https://ionihal.github.io/game2dsite"
+    },
+    {
+        "id": 7,
+        "img": "images/sims-dash.jpg",
+        "title": "Smart Inventory Management System (SIMS)",
+        "desc": "Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.",
+        "url": "https://github.com/ioNihal/sims-dashboard-front"
     }
 ]
