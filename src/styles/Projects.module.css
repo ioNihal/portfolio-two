@@ -85,6 +85,7 @@
         gap: 1rem;
         width: 80vw;
         height: 100px;
+        padding-bottom: 5px;
     }
 
     .img {
