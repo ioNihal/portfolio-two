@@ -1,0 +1,6 @@
+# Allow all crawlers full access
+User-agent: *
+Allow: /
+
+# Point to your sitemap
+Sitemap: https://ionihal.vercel.app/sitemap.xml
