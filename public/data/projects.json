@@ -25,7 +25,7 @@
         "img": "images/lyricssmall.webp",
         "title": "Project Lyrics",
         "desc": "Project Lyrics has 3 preloaded song which users can play and control",
-        "url": "https://lyrics.ionihal.xyz"
+        "url": "https://ionihal.github.io/project-lyric"
     },
     {
         "id": 4,
@@ -39,7 +39,7 @@
         "img": "images/splittersmall.webp",
         "title": "Splitter",
         "desc": "Splitter is a Website built on ReactJS for calculating and splitting group expenses",
-        "url": "https://splitter.ionihal.xyz"
+        "url": "https://budget-splitter.vercel.app"
     },
     {
         "id": 6,
