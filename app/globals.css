@@ -10,12 +10,44 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-wiggle: wiggle 3s ease-in-out infinite;
+
+  @keyframes wiggle {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(138, 66, 245, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 66, 245, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-flow 1s linear infinite;
+}
+
+
+@keyframes grid-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 40px;
   }
 }
 
