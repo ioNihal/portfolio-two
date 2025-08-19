@@ -3,8 +3,8 @@ import HeroContent from "./HeroContent";
 export default function HeroSection() {
 
   return (
-    <div className="h-[60vh] lg:h-screen w-full relative">
-      <div className="absolute -z-1 inset-0 bg-grid bg-indigo-950/35" />
+    <section className="h-[60vh] lg:h-screen w-full relative">
+      <div className="absolute -z-0 inset-0 bg-grid bg-indigo-950/35 " />
       <div className="absolute -top-10 lg:top-10 -left-5 lg:left-10 2xl:left-[10%] 2xl:top-[15%] w-auto h-auto animate-wiggle p-2 lg:p-4 bg-gray-900/50 backdrop-blur-sm rounded-lg shadow-2xl md:block">
         <pre><code className="language-javascript text-[0.6rem] lg:text-xs 2xl:text-xl text-cyan-300"><span className="text-purple-400">const</span> <span className="text-yellow-300">component</span> = () =&gt; (<br />
           <span className="text-gray-500">  &lt;</span><span className="text-green-400">div</span> <span className="text-red-400">className</span>=<span className="text-yellow-300">"awesome"</span><span className="text-gray-500">&gt;<br /></span>
@@ -23,6 +23,6 @@ export default function HeroSection() {
 
 
       <HeroContent />
-    </div>
+    </section>
   )
 }
