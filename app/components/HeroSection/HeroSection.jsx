@@ -1,7 +1,7 @@
 import HeroContent from "./HeroContent";
 
-
 export default function HeroSection() {
+
   return (
     <div className="h-[60vh] lg:h-screen w-full relative">
       <div className="absolute -z-1 inset-0 bg-grid bg-indigo-950/35" />

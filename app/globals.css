@@ -51,6 +51,45 @@
   }
 }
 
+
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    filter: blur(6px);
+  }
+}
+
+.slideIn {
+  animation: slideIn 0.5s ease forwards;
+}
+
+.slideOut {
+  animation: slideOut 0.5s ease forwards;
+}
+
+
 body {
   background: var(--background);
   color: var(--foreground);
