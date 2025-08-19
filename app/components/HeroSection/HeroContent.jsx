@@ -27,7 +27,7 @@ export default function HeroContent() {
                     }, 500);
                     step = step === titles.length - 1 ? 0 : step + 1;
                 }
-            }, 2000)
+            }, 3000)
         }
 
         return () => clearInterval(id);
