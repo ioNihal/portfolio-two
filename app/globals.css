@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,21 +9,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  --staatliches: "Staatliches", sans-serif;
+  --urbanist: "Urbanist", sans-serif;
+
   --animate-wiggle: wiggle 3s ease-in-out infinite;
-
-  @keyframes wiggle {
-
-    0%,
-    100% {
-      transform: translateY(0px) translateX(0px);
-    }
-
-    50% {
-      transform: translateY(-10px) translateX(-5px);
-    }
-  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +32,18 @@
     linear-gradient(to bottom, rgba(138, 66, 245, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: grid-flow 1s linear infinite;
+}
+
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-5px);
+  }
 }
 
 
@@ -89,11 +95,26 @@
   animation: slideOut 0.5s ease forwards;
 }
 
+.project-item {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.project-item:hover {
+  @apply scale-90;
+}
+
+.project-item .project-card {
+  @apply invisible opacity-0 scale-95 transition-discrete backdrop-blur-none;
+}
+
+.project-item:hover .project-card {
+  @apply visible opacity-100 scale-100 backdrop-blur-2xl;
+}
+
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 html {

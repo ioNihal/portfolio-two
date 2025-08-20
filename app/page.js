@@ -1,5 +1,6 @@
 
 import HeroSection from "./components/HeroSection/HeroSection";
+import ProjectSection from "./components/ProjectSection/ProjectSection";
 import SkillSection from "./components/SkilllSection/SkillSection";
 
 
@@ -8,6 +9,7 @@ export default function Home() {
     <div className="w-screen overflow-x-hidden">
       <HeroSection />
       <SkillSection />
+      <ProjectSection />
     </div>
   );
 }
