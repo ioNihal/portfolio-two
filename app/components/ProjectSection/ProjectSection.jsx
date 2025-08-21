@@ -2,55 +2,55 @@
 const projectsMock = [
     {
         id: 0,
-        title: "Blog Platform",
-        desc: " A blog platform with features for creating, editing, and publishing blog posts, as well as user comments and categories.",
-        tech: ["Gatsby", "GraphQL", "Contentful"],
+        title: "Toolight",
+        desc: "A light and color based fun & serious utility tools web app, helping designers and boring humans find something useless.",
+        tech: ["ReactJS", "CSS Modules", "React Router"],
         repo: "repoLink",
         preview: "previewLink",
     },
     {
         id: 1,
-        title: "E-commerce Platform",
-        desc: "A full-featured e-commerce platform with user authentication product catalog, shopping cart, and checkout process.",
-        tech: ["React", "Node.js", "MongoDB"],
-        repo: "repoLink",
-        preview: "previewLink",
+        title: "2D Stickman Game",
+        desc: "Developed a challenging and fun stickman style 1v1 fighting game using HTML Canvas, CSS, Vanilla JS.",
+        tech: ["HTML5 Canvas", "Javascript", "CSS"],
+        repo: "https://github.com/ioNihal/Game2D",
+        preview: "https://ionihal.github.io/game2dsite",
     },
     {
         id: 2,
-        title: "Personal Portfolio Website",
-        desc: " A personal portfolio website showcasing my skills, projects, and experience as a frontend developer.",
-        tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-        repo: "repoLink",
-        preview: "previewLink",
+        title: "Inventory Management System",
+        desc: "Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.",
+        tech: ["ReactJS", "ExpressJS", "MongoDB"],
+        repo: "https://github.com/ioNihal/sims-dashboard-front",
+        preview: null,
     },
     {
         id: 3,
-        title: "Social Media Dashboard",
-        desc: "A dashboard for managing social media accounts, scheduling posts, and tracking engagement metrics.",
-        tech: ["Vue.js", "Firebase", "Chart.js"],
-        repo: "repoLink",
-        preview: "previewLink",
+        title: "Project Lyrics",
+        desc: "Project Lyrics has 3 preloaded song which users can play and control.",
+        tech: ["HTML5", "JavaScript", "CSS3"],
+        repo: "https://github.com/ioNihal/project-lyric",
+        preview: "https://ionihal.github.io/project-lyric",
     },
     {
         id: 4,
-        title: "Task Management App",
-        desc: "A task management application with features for creating, organizing, and tracking tasks and projects.",
-        tech: ["Angular", "NgRx", "TypeScript"],
-        repo: "repoLink",
-        preview: "previewLink",
+        title: "Splitter",
+        desc: "Splitter is a Website built on ReactJS for calculating and splitting group expenses.",
+        tech: ["ReactJS", "CSS", "LocalStorage"],
+        repo: "https://github.com/ioNihal/budget-splitter",
+        preview: "https://budget-splitter.vercel.app",
     },
 ]
 
 
 export default function ProjectSection() {
     return (
-        <section className="h-screen w-full flex flex-col items-center justify-center relative bg-slate-950/20">
+        <section id="workSection" className="h-screen w-full flex flex-col items-center justify-center relative bg-slate-950">
             <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-5">
                     {projectsMock.map((project) => (
                         <div key={project.id} className="project-item group">
-                            <h2 className=" py-2 text-4xl md:text-7xl lg:text-6xl staatliches text-center text-white/80 transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer" style={{ fontFamily: 'var(--font-staatliches)' }}>
+                            <h2 className=" py-2 text-4xl md:text-7xl lg:text-6xl font-[family-name:--anton] text-center text-white/80 transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer" style={{ fontFamily: 'var(--font-anton)' }}>
                                 {project?.title?.toUpperCase()}
                             </h2>
                             <div className="project-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-1/2 lg:w-1/3 h-auto flex flex-col items-start gap-[0.5em] transition-all duration-300 ease-in-out cursor-pointer
@@ -69,9 +69,9 @@ export default function ProjectSection() {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="flex gap-2 *:cursor-pointer urbanist" style={{fontFamily: 'var(--urbanist)'}}>
-                                    <a className="inline-block  bg-violet-600 hover:bg-violet-700 text-white  py-1 px-3 rounded-md transition-colors duration-300" href="#">Repository</a>
-                                    <a className="inline-block bg-white/10 hover:bg-white/20 text-white py-1 px-3 rounded-md transition-colors duration-300" href="#">Live Preview</a>
+                                <div className="flex gap-2 *:cursor-pointer urbanist" style={{ fontFamily: 'var(--urbanist)' }}>
+                                    <a className="inline-block  bg-violet-600 hover:bg-violet-700 text-white  py-1 px-3 rounded-md transition-colors duration-300" href={project.repo}>Repository</a>
+                                    {project?.preview && (<a className="inline-block bg-white/10 hover:bg-white/20 text-white py-1 px-3 rounded-md transition-colors duration-300" href={project.preview}>Live Preview</a>)}
                                 </div>
 
                             </div>
