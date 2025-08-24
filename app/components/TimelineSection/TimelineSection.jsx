@@ -35,7 +35,7 @@ export default function TimelineSection() {
       </div>
 
       {/* Timeline grid */}
-      <div className="relative max-w-5xl mx-auto">
+      <div className="relative max-w-5xl mx-auto hidden md:block">
         <div className="grid grid-cols-[1fr_auto_1fr] gap-y-16 sm:gap-y-24">
           {timelineData.map((item) => {
             const isLeft = item.side === "left"

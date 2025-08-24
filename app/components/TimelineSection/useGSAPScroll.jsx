@@ -12,7 +12,6 @@ export default function useGSAPScroll() {
       { scaleY: 0 },
       {
         scaleY: 1,
-        ease: "power1.inOut",
         scrollTrigger: {
           trigger: ".timeline-line",
           start: "top 80%",
