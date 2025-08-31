@@ -63,64 +63,75 @@
 
 
 
-@keyframes slideIn {
+
+@keyframes zoomFirst {
   0% {
+    transform: translateX(-110%);
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
-    filter: blur(6px);
+  }
+
+  10%,
+  50%,
+  90% {
+    transform: translateX(0);
+    opacity: 1;
   }
 
   100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translateX(110%);
+    opacity: 0;
   }
 }
 
-@keyframes slideOut {
+@keyframes zoomSecond {
   0% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-
-  100% {
+    transform: translateX(110%);
     opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-    filter: blur(6px);
   }
-}
 
-@keyframes swingFirst {
+  10%,
+  50%,
+  90% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 
-  0%,
   100% {
-    transform: rotate(-5deg) translateX(5px);
-  }
-
-  50% {
-    transform: rotate(-3deg) translateX(-5px);
+    transform: translateX(-110%);
+    opacity: 0;
   }
 }
 
-@keyframes swingSecond {
+@keyframes zoomThird {
 
-  0%,
+  0% {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+
+  10%,
+  50%,
+  90% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
   100% {
-    transform: rotate(3deg)translateX(-5px);
-  }
-
-  50% {
-    transform: rotate(5deg)  translateX(5px);
+    transform: translateX(110%);
+    opacity: 0;
   }
 }
 
-.swingFirst {
-  animation: swingFirst 2s ease-in-out infinite;
+.zoomFirst {
+  animation: zoomFirst 7s ease infinite;
 }
 
-.swingSecond {
-  animation: swingSecond 2s ease-in-out infinite;
+.zoomSecond {
+  animation: zoomSecond 7.01s ease infinite;
+}
+
+.zoomThird {
+  animation: zoomThird 7.02s ease infinite;
 }
 
 
