@@ -113,6 +113,7 @@
 
 .project-item:hover .project-card {
   @apply visible opacity-100 scale-100 backdrop-blur-2xl;
+  
 }
 
 
