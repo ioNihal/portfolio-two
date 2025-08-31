@@ -91,13 +91,38 @@
   }
 }
 
-.slideIn {
-  animation: slideIn 0.5s ease forwards;
+@keyframes swingFirst {
+
+  0%,
+  100% {
+    transform: rotate(-5deg) translateX(5px);
+  }
+
+  50% {
+    transform: rotate(-3deg) translateX(-5px);
+  }
 }
 
-.slideOut {
-  animation: slideOut 0.5s ease forwards;
+@keyframes swingSecond {
+
+  0%,
+  100% {
+    transform: rotate(3deg)translateX(-5px);
+  }
+
+  50% {
+    transform: rotate(5deg)  translateX(5px);
+  }
 }
+
+.swingFirst {
+  animation: swingFirst 2s ease-in-out infinite;
+}
+
+.swingSecond {
+  animation: swingSecond 2s ease-in-out infinite;
+}
+
 
 .project-item {
   @apply transition-all duration-300 ease-in-out;
@@ -113,7 +138,7 @@
 
 .project-item:hover .project-card {
   @apply visible opacity-100 scale-100 backdrop-blur-2xl;
-  
+
 }
 
 
