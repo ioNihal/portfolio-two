@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -121,6 +122,72 @@
     opacity: 0;
   }
 }
+
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    box-shadow:
+      0 0 15px rgba(75, 0, 130, 0.45),
+      0 0 35px rgba(75, 0, 130, 0.28),
+      0 0 60px rgba(75, 0, 130, 0.18);
+  }
+
+  25% {
+    transform: translateY(-8px) translateX(6px) rotate(1deg) scale(1.02);
+    box-shadow:
+      0 0 25px rgba(88, 24, 200, 0.55),
+      0 0 45px rgba(88, 24, 200, 0.36),
+      0 0 70px rgba(88, 24, 200, 0.22);
+  }
+
+  50% {
+    transform: translateY(-14px) translateX(-6px) rotate(-1deg) scale(1.03);
+    box-shadow:
+      0 0 30px rgba(111, 89, 255, 0.70),
+      0 0 55px rgba(111, 89, 255, 0.45),
+      0 0 80px rgba(111, 89, 255, 0.30);
+  }
+
+  75% {
+    transform: translateY(-8px) translateX(6px) rotate(1deg) scale(1.01);
+    box-shadow:
+      0 0 25px rgba(88, 24, 200, 0.55),
+      0 0 45px rgba(88, 24, 200, 0.36),
+      0 0 70px rgba(88, 24, 200, 0.22);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    box-shadow:
+      0 0 15px rgba(75, 0, 130, 0.45),
+      0 0 35px rgba(75, 0, 130, 0.28),
+      0 0 60px rgba(75, 0, 130, 0.18);
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(111, 89, 255, 0.32),
+      0 0 30px rgba(75, 0, 130, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(111, 89, 255, 0.55),
+      0 0 50px rgba(75, 0, 130, 0.28);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
+  transition: transform 0.28s ease;
+}
+
 
 .zoomFirst {
   animation: zoomFirst 7s ease infinite;

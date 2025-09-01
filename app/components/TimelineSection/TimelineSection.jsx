@@ -50,7 +50,7 @@ export default function TimelineSection() {
         ))}
       </div>
       <div className="bg-cover absolute inset-0 -z-1">
-        <Image src={ExpSVG} alt="exp-svg" width={1000} height={1000} className='h-full w-full object-cover opacity-[0.02]' />
+        <Image src={ExpSVG} alt="exp-svg" width={1000} height={1000} className='h-full w-full object-cover animate-wiggle opacity-[0.04]' />
       </div>
     </section>
   )
