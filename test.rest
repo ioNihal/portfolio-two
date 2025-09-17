@@ -1,9 +1,0 @@
-
-POST https://portfolio-two-six-gamma.vercel.app/api/contact
-Content-Type: application/json
-
-{
-  "name": "Nihal K",
-  "email": "nihal04x@gmail.com",
-  "message": "Hello, this is a test message!"
-}

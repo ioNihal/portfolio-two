@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --staatliches: "Staatliches", sans-serif;
+  --urbanist: "Urbanist", sans-serif;
+  --anton: "Anton", sans-serif;
+
+  --animate-wiggle: wiggle 3s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(138, 66, 245, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 66, 245, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-flow 1s linear infinite;
+}
+
+
+
+
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-5px);
+  }
+}
+
+
+@keyframes grid-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 40px;
+  }
+}
+
+
+
+
+@keyframes enter-first {
+  0% {
+    transform: translateX(-110%) scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes leave-first {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(110%) scale(0.5);
+    opacity: 0;
+  }
+}
+
+
+
+@keyframes enter-second {
+  0% {
+    transform: translateX(110%) scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes leave-second {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-110%) scale(0.5);
+    opacity: 0;
+  }
+}
+
+
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    box-shadow:
+      0 0 15px rgba(75, 0, 130, 0.45),
+      0 0 35px rgba(75, 0, 130, 0.28),
+      0 0 60px rgba(75, 0, 130, 0.18);
+  }
+
+  25% {
+    transform: translateY(-8px) translateX(6px) rotate(1deg) scale(1.02);
+    box-shadow:
+      0 0 25px rgba(88, 24, 200, 0.55),
+      0 0 45px rgba(88, 24, 200, 0.36),
+      0 0 70px rgba(88, 24, 200, 0.22);
+  }
+
+  50% {
+    transform: translateY(-14px) translateX(-6px) rotate(-1deg) scale(1.03);
+    box-shadow:
+      0 0 30px rgba(111, 89, 255, 0.70),
+      0 0 55px rgba(111, 89, 255, 0.45),
+      0 0 80px rgba(111, 89, 255, 0.30);
+  }
+
+  75% {
+    transform: translateY(-8px) translateX(6px) rotate(1deg) scale(1.01);
+    box-shadow:
+      0 0 25px rgba(88, 24, 200, 0.55),
+      0 0 45px rgba(88, 24, 200, 0.36),
+      0 0 70px rgba(88, 24, 200, 0.22);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    box-shadow:
+      0 0 15px rgba(75, 0, 130, 0.45),
+      0 0 35px rgba(75, 0, 130, 0.28),
+      0 0 60px rgba(75, 0, 130, 0.18);
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(111, 89, 255, 0.32),
+      0 0 30px rgba(75, 0, 130, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(111, 89, 255, 0.55),
+      0 0 50px rgba(75, 0, 130, 0.28);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
+  transition: transform 0.28s ease;
+}
+
+
+.enter-first {
+  animation: enter-first 500ms ease both;
+}
+
+.enter-second {
+  animation: enter-second 500ms ease both;
+}
+
+.leave-first {
+  animation: leave-first 500ms ease both;
+}
+
+.leave-second {
+  animation: leave-second 500ms.01s ease both;
+}
+
+
+
+.project-item {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.project-item:hover {
+  @apply scale-90;
+}
+
+.project-item .project-card {
+  @apply invisible opacity-0 scale-95 transition-discrete backdrop-blur-none;
+}
+
+.project-item:hover .project-card {
+  @apply visible opacity-100 scale-100 backdrop-blur-2xl;
+
+}
+
+
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
