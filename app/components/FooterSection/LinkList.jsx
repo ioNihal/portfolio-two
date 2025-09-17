@@ -26,7 +26,7 @@ export default function LinkList({ links, action = null }) {
         if (action === "social" && typeof lin === "object") {
           return (
             <li key={lin.name}>
-              <Link href={lin.url || "#"} target="_blank" rel="noopener noreferrer">
+              <Link href={lin.url || "#"} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:underline">
                 {lin.name}
               </Link>
             </li>
