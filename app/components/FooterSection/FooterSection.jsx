@@ -49,7 +49,6 @@ export default function FooterSection() {
             <LinkList links={socials} action={"social"} />
           </div>
         </div>
-
       </div>
     </section>
   )
