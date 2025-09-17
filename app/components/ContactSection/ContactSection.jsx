@@ -100,7 +100,7 @@ export default function ContactSection() {
 
   return (
     <section
-      className="min-h-screen w-full bg-gray-950 border-t border-gray-600 relative px-4 sm:px-6 text-white isolate flex flex-col items-center justify-center"
+      className="min-h-screen w-full bg-gray-950 border-t border-gray-600 relative py-5 px-4 sm:px-6 text-white isolate flex flex-col items-center justify-center"
       style={{ fontFamily: "var(--urbanist)" }}
       id="contact"
     >

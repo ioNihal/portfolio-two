@@ -35,7 +35,7 @@ export default function TimelineSection() {
     <section className="min-h-screen w-full bg-slate-950 relative px-4 py-16 sm:px-6 sm:py-20 overflow-hidden
     text-white isolate grid place-items-center"
       style={{ fontFamily: "var(--staatliches)" }}>
-      <div className="flex flex-col items-center justify-center overflow-hidden lg:overflow-visible max-w-lg  m-auto">
+      <div className="flex flex-col items-center justify-center max-w-lg  m-auto">
         {timelineData.map((t) => {
           const direction = (t.id === 1 || t.id === 3) ? "first" : "second";
           return (

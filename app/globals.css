@@ -116,6 +116,50 @@
 }
 
 
+@media (max-width: 1023px) {
+
+  /* vertical keyframes */
+  @keyframes enter-first {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes leave-first {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes enter-second {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes leave-second {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
 
 @keyframes float {
 
@@ -195,7 +239,7 @@
 }
 
 .leave-second {
-  animation: leave-second 500ms.01s ease both;
+  animation: leave-second 500ms ease both;
 }
 
 

@@ -21,7 +21,7 @@ export default function IntersectionObserverClient() {
           el.classList.add(`leave-${dir}`);
         }
       });
-    }, { threshold: 0.35 });
+    }, { threshold: 0.50 });
 
     items.forEach((i) => observer.observe(i));
     return () => observer.disconnect();
