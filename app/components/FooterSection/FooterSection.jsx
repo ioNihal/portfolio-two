@@ -44,7 +44,7 @@ export default function FooterSection() {
           <div className="absolute inset-0 z-0">
             <FooterLottie />
           </div>
-          <div className="relative z-10 flex-1 flex gap-20 *:flex *:flex-col *:gap-1 backdrop-blur-[3px]">
+          <div className="relative z-10 flex-1 flex gap-20 *:flex *:flex-col *:gap-1 backdrop-blur-[2px]">
             <LinkList links={linksArr} action={"navigation"} />
             <LinkList links={socials} action={"social"} />
           </div>
