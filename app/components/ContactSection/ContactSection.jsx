@@ -26,7 +26,7 @@ export default function ContactSection() {
       ok = false;
     }
 
-    if (!values.body || String(values.body).trim().length < 10) {
+    if (!values.message || String(values.message).trim().length < 10) {
       err.body = "Message must be at least 10 characters.";
       ok = false;
     }
