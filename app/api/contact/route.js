@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 
+export const runtime = "nodejs";
+
+
 function shortId() {
     return crypto.randomBytes(4).toString("hex");
 }

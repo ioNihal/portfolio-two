@@ -1,6 +1,7 @@
 import nacl from "tweetnacl";
-import { TextEncoder } from "util";
 import nodemailer from "nodemailer";
+
+export const runtime = "nodejs";
 
 async function verifySignature(signature, timestamp, body, publicKeyHex) {
   const message = new TextEncoder().encode(timestamp + body);
