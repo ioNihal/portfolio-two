@@ -4,9 +4,9 @@ import HalftoneSVG from '../../assets/halftone_1756709950.svg';
 export default function AboutSection() {
     return (
         <section className="min-h-screen w-full bg-slate-950 relative px-4 sm:px-6 
-    text-white isolate grid place-items-center">
+    text-white isolate grid place-items-center" id='about'>
             <div className='flex justify-between flex-col-reverse lg:flex-row
-            gap-10 lg:gap-0 items-center ' style={{fontFamily: "var(--urbanist)"}}>
+            gap-10 lg:gap-0 items-center ' style={{ fontFamily: "var(--urbanist)" }}>
                 <p className='lg:text-2xl 2xl:text-4xl 
                 flex-1 p-4 lg:pl-10 xl:p-20 2xl:p-30 text-justify'>
                     I'm Nihal from Kasaragod, Kerala. A BCA graduate who cares about clean design and the small moments that make apps feel human.

@@ -31,7 +31,7 @@ const icons = [
 
 export default function SkillSection() {
     return (
-        <section className="h-auto lg:h-screen w-full flex flex-col items-center justify-center px-6 py-16 relative bg-slate-950/20">
+        <section className="h-auto lg:h-screen w-full flex flex-col items-center justify-center px-6 py-16 relative bg-slate-950/20" id="skills">
             <h2 className="text-3xl font-bold text-white mb-4">
                 Tools and Tech's
             </h2>

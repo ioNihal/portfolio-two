@@ -65,63 +65,56 @@
 
 
 
-@keyframes zoomFirst {
+@keyframes enter-first {
   0% {
-    transform: translateX(-110%);
+    transform: translateX(-110%) scale(0.5);
     opacity: 0;
   }
 
-  10%,
-  50%,
-  90% {
-    transform: translateX(0);
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes leave-first {
+  0% {
+    transform: translateX(0) scale(1);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(110%);
+    transform: translateX(110%) scale(0.5);
     opacity: 0;
   }
 }
 
-@keyframes zoomSecond {
+
+
+@keyframes enter-second {
   0% {
-    transform: translateX(110%);
+    transform: translateX(110%) scale(0.5);
     opacity: 0;
   }
 
-  10%,
-  50%,
-  90% {
-    transform: translateX(0);
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes leave-second {
+  0% {
+    transform: translateX(0) scale(1);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-110%);
+    transform: translateX(-110%) scale(0.5);
     opacity: 0;
   }
 }
 
-@keyframes zoomThird {
-
-  0% {
-    transform: translateX(-110%);
-    opacity: 0;
-  }
-
-  10%,
-  50%,
-  90% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(110%);
-    opacity: 0;
-  }
-}
 
 
 @keyframes float {
@@ -189,17 +182,22 @@
 }
 
 
-.zoomFirst {
-  animation: zoomFirst 7s ease infinite;
+.enter-first {
+  animation: enter-first 500ms ease both;
 }
 
-.zoomSecond {
-  animation: zoomSecond 7.01s ease infinite;
+.enter-second {
+  animation: enter-second 500ms ease both;
 }
 
-.zoomThird {
-  animation: zoomThird 7.02s ease infinite;
+.leave-first {
+  animation: leave-first 500ms ease both;
 }
+
+.leave-second {
+  animation: leave-second 500ms.01s ease both;
+}
+
 
 
 .project-item {

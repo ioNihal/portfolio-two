@@ -36,7 +36,7 @@ export default function HeroContent() {
 
     const handleCTA = (mode) => {
         if (mode === "works") {
-            const target = document.getElementById("workSection");
+            const target = document.getElementById("projects");
             target?.scrollIntoView({ behavior: "smooth" });
         } else if (mode === "resume") {
             window.open("/docs/resume.pdf", "_blank");

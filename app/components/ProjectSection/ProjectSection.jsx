@@ -45,7 +45,7 @@ const projectsMock = [
 
 export default function ProjectSection() {
     return (
-        <section id="workSection" className="h-screen w-full flex flex-col items-center justify-center bg-slate-950 relative">
+        <section id="projects" className="h-screen w-full flex flex-col items-center justify-center bg-slate-950 relative">
             <h2 className="absolute top-20 landscape:top-0  left-1/2  -translate-x-1/2  rotate-0 text-violet-600  text-lg lg:text-3xl flex gap-7 sm:gap-10 lg:gap-20 font-[family-name:--urbanist] " style={{fontFamily: "var(--urbanist)"}}><span>P</span><span>R</span><span>O</span><span>J</span><span>E</span><span>C</span><span>T</span><span>S</span></h2>
             <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-5 landscape:md:gap-3 landscape:lg:gap-5">
