@@ -160,7 +160,7 @@ export default function ContactSection() {
             id="body"
             name="body"
             rows="5"
-            placeholder={errors.body || "Your Message (Min 10 characters)"}
+            placeholder="Your Message (Min 10 characters)"
             required
             className={inputClass(!!errors.body) + " h-[200px] resize-none"}
             aria-invalid={!!errors.body}
