@@ -253,7 +253,7 @@
 }
 
 .project-item .project-card {
-  @apply invisible opacity-0 scale-95 transition-discrete backdrop-blur-none;
+  @apply invisible opacity-0 scale-95 transition-discrete;
 }
 
 .project-item:hover .project-card {
