@@ -54,8 +54,9 @@ export default function ProjectSection() {
                             <h2 className=" py-2 text-2xl sm:text-3xl md:text-5xl landscape:md:text-xl lg:text-6xl landscape:lg:text-6xl font-[family-name:--anton] text-center text-white/80 transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer" style={{ fontFamily: 'var(--font-anton)' }}>
                                 {project?.title?.toUpperCase()}
                             </h2>
-                            <div className="project-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-1/2 lg:w-1/3 h-auto flex flex-col items-start gap-[0.5em] transition-all duration-300 ease-in-out cursor-pointer
-                            rounded-2xl p-3 shadow-2xl border border-white/10">
+                            <div className="project-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-1/2 lg:w-1/3 h-auto 
+                            flex flex-col items-start gap-[0.5em] transition-all duration-300 ease-in-out cursor-pointer
+                            rounded-2xl p-3 shadow-2xl border-2 border-white/10">
                                 <h3 className="text-xl font-bold text-white">
                                     {project.title}
                                 </h3>
