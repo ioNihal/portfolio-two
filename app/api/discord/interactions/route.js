@@ -19,7 +19,7 @@ async function verifySignature(signature, timestamp, body, publicKeyHex) {
 }
 
 export async function POST(req) {
-  const signature = req.headers.get("x-signature-ed25519") || req.headers.get("x-signature");
+  const signature = req.headers.get("x-signature-ed25519");
   const timestamp = req.headers.get("x-signature-timestamp");
   const rawBody = await req.text();
 
@@ -41,13 +41,11 @@ export async function POST(req) {
     return new Response(JSON.stringify({ type: 1 }), { headers: { "Content-Type": "application/json" } });
   }
 
-  // Handle message component interactions
-  // Component interactions usually come in as type === 3 (MESSAGE_COMPONENT).
+  // MESSAGE_COMPONENT interactions
   if (interaction.type === 3 && interaction.data?.custom_id) {
-    const customId = interaction.data.custom_id; // "reply_btn" or "ignore_btn"
+    const customId = interaction.data.custom_id;
     const channelId = interaction.channel_id || interaction.message?.channel_id;
     const messageId = interaction.message?.id;
-    const userId = interaction.member?.user?.id || interaction.user?.id;
 
     if (!channelId || !messageId) {
       return new Response(JSON.stringify({
@@ -56,7 +54,7 @@ export async function POST(req) {
       }), { headers: { "Content-Type": "application/json" } });
     }
 
-    // Extract email from embed footer: "Email:someone@example.com"
+    // Extract email from embed footer
     let email = null;
     try {
       const embedFooter = interaction.message?.embeds?.[0]?.footer?.text;
@@ -64,11 +62,9 @@ export async function POST(req) {
         const m = embedFooter.match(/Email:\s*(.+)/i);
         if (m) email = m[1].trim();
       }
-    } catch (err) {
-      console.warn("Failed to parse embed footer for email", err);
-    }
+    } catch {}
 
-    // Helper to remove buttons from original message (edit message components -> [])
+    // Helper to edit message (remove buttons)
     const removeButtons = async () => {
       try {
         await fetch(`https://discord.com/api/v10/channels/${channelId}/messages/${messageId}`, {
@@ -84,7 +80,7 @@ export async function POST(req) {
       }
     };
 
-    // Helper to add reaction (emoji should be urlencoded in path)
+    // Helper to add reaction
     const addReaction = async (emoji) => {
       try {
         const emojiEncoded = encodeURIComponent(emoji);
@@ -97,38 +93,29 @@ export async function POST(req) {
       }
     };
 
+    // IGNORE
     if (customId === "ignore_btn") {
-      // React with red cross and remove buttons. Reply ephemeral to user confirming action.
       await addReaction("❌");
       await removeButtons();
       return new Response(JSON.stringify({
         type: 4,
-        data: {
-          content: "Message ignored and marked ❌.",
-          flags: 64
-        }
+        data: { content: "Message ignored and marked ❌.", flags: 64 }
       }), { headers: { "Content-Type": "application/json" } });
     }
 
+    // REPLY
     if (customId === "reply_btn") {
-      // Build subject and mailto properly: do NOT encode the email itself,
-      // only encode query params (subject/body).
-      const subject = `reply from Nihal K`;
+      const subject = "reply from Nihal K";
       const encodedSubject = encodeURIComponent(subject);
       const mailto = email ? `mailto:${email}?subject=${encodedSubject}&body=` : null;
 
-      // Add green check reaction and remove buttons immediately
-      await addReaction("✅");
-      await removeButtons();
-
-      // Components: link button only if we have a mailto
       const components = mailto ? [
         {
           type: 1,
           components: [
             {
               type: 2,
-              style: 5, // LINK
+              style: 5, // LINK button
               label: "Open Email Client",
               url: mailto
             }
@@ -136,22 +123,15 @@ export async function POST(req) {
         }
       ] : [];
 
-      // Content: include a plain mailto fallback so Discord will show a clickable link
-      // Wrap in angle brackets to force auto-linking: <mailto:...>
       const content = mailto
-        ? `Open your email client using the button below, or click this link: <${mailto}>.\n\nSubject is prefilled as "${subject}". Type the body there and send.`
-        : "No email address was found in the message footer.";
+        ? `Click below to open your email client, or use this link: <${mailto}>.\n\nSubject is prefilled as "${subject}".`
+        : "No email address found in message footer.";
 
       return new Response(JSON.stringify({
         type: 4,
-        data: {
-          content,
-          flags: 64,     // ephemeral
-          components
-        }
+        data: { content, flags: 64, components }
       }), { headers: { "Content-Type": "application/json" } });
     }
-
 
     // fallback
     return new Response(JSON.stringify({
@@ -160,6 +140,5 @@ export async function POST(req) {
     }), { headers: { "Content-Type": "application/json" } });
   }
 
-  console.warn("Unhandled interaction type:", interaction.type);
   return new Response("Unhandled interaction", { status: 400 });
 }
