@@ -253,11 +253,11 @@
 }
 
 .project-item .project-card {
-  @apply invisible opacity-0 scale-95 backdrop-blur-none;
+  @apply invisible opacity-0 scale-95 backdrop-blur-sm bg-indigo-500/20;
 }
 
 .project-item:hover .project-card {
-  @apply visible opacity-100 scale-100 backdrop-blur-sm bg-indigo-900/20;
+  @apply visible opacity-100 scale-100 ;
 }
 
 

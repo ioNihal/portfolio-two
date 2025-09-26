@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import HalftoneSVG from '../../assets/halftone_1756709950.svg';
+import HalftoneSVG from '../../assets/halftone.svg';
 
 export default function AboutSection() {
     return (

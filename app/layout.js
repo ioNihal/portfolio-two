@@ -1,4 +1,4 @@
-import { Anton, Fredoka, Geist, Geist_Mono, Sniglet, Staatliches, Urbanist } from "next/font/google";
+import { Anton, Fredoka, Geist, Geist_Mono, Staatliches, Urbanist } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,6 +29,10 @@ const anton = Anton({
   subsets: ["latin"],
   weight: ["400"],
 })
+
+export function reportWebVitals(metric) {
+  console.log(metric);
+}
 
 export const metadata = {
   title: "Nihal K - Portfolio",
