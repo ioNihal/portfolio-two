@@ -1,5 +1,4 @@
 import nacl from "tweetnacl";
-import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
@@ -19,46 +18,6 @@ async function verifySignature(signature, timestamp, body, publicKeyHex) {
   } catch (err) {
     console.error("[verifySignature] error:", err);
     return false;
-  }
-}
-
-async function sendEmail(to, subject, text) {
-  console.log("[sendEmail] preparing to send", { to, subject });
-
-  if (!process.env.MAIL_USER || !process.env.MAIL_PASS) {
-    console.error("[sendEmail] Missing MAIL_USER or MAIL_PASS env vars");
-    throw new Error("Missing email configuration!");
-  }
-
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASS,
-    },
-  });
-
-  try {
-    console.log("[sendEmail] verifying transporter...");
-    await transporter.verify();
-    console.log("[sendEmail] transporter verified OK");
-  } catch (err) {
-    console.error("[sendEmail] transporter verification failed:", err);
-    throw new Error(`Email configuration error: ${err.message}`);
-  }
-
-  try {
-    const info = await transporter.sendMail({
-      from: process.env.MAIL_USER,
-      to,
-      subject,
-      text,
-    });
-    console.log("[sendEmail] sendMail success:", info);
-    return info;
-  } catch (err) {
-    console.error("[sendEmail] sendMail failed:", err);
-    throw new Error(`Failed to send email: ${err.message}`);
   }
 }
 
@@ -180,6 +139,7 @@ export async function POST(req) {
     }
 
     try {
+      // fetch original message to extract email
       console.log("[POST] fetching original message", { channelId, targetMessageId });
       const msgRes = await fetch(`https://discord.com/api/v10/channels/${channelId}/messages/${targetMessageId}`, {
         headers: { Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}` },
@@ -199,15 +159,9 @@ export async function POST(req) {
       }
 
       const msg = await msgRes.json();
-      console.log("[POST] fetched message payload:", {
-        embedsCount: Array.isArray(msg.embeds) ? msg.embeds.length : 0,
-        footer: msg.embeds?.[0]?.footer?.text
-      });
-
       let email = null;
       if (msg.embeds && msg.embeds[0] && msg.embeds[0].footer?.text) {
         const ft = msg.embeds[0].footer.text;
-        console.log("[POST] footer text:", ft);
         const m = ft.match(/Email:(.+)/);
         if (m) email = m[1].trim();
       }
@@ -225,58 +179,51 @@ export async function POST(req) {
 
       console.log("[POST] got email:", email);
 
-      // Immediate ack so Discord UI doesn't time out
+      // Build mailto URL (subject + body template)
+      const subject = `Reply from Nihal K}`;
+      const body = replyText;
+      const mailtoUrl = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Mark the original message with a ✅ reaction synchronously (so it's 'ticked' after modal)
+      try {
+        const emoji = encodeURIComponent("✅"); // becomes %E2%9C%85
+        const reactRes = await fetch(`https://discord.com/api/v10/channels/${channelId}/messages/${targetMessageId}/reactions/${emoji}/@me`, {
+          method: "PUT",
+          headers: { Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}` },
+        });
+        console.log("[POST] reaction add status:", reactRes.status, reactRes.statusText);
+        if (!reactRes.ok) {
+          const txt = await reactRes.text().catch(() => null);
+          console.warn("[POST] reaction add failed:", reactRes.status, reactRes.statusText, txt);
+        }
+      } catch (reactErr) {
+        console.error("[POST] failed to add reaction:", reactErr);
+        // Not fatal — still continue to respond to interaction
+      }
+
+      // Immediate ephemeral ack with a Link button to open user's email client
       const response = {
         type: 4,
         data: {
-          content: "Processing your reply...",
-          flags: 64
+          content: "Click the button to open your email client and send the reply. The message has been marked ✅.",
+          flags: 64, // ephemeral
+          components: [
+            {
+              type: 1,
+              components: [
+                {
+                  type: 2,
+                  style: 5, // Link button
+                  label: "Open Email Client",
+                  url: mailtoUrl
+                }
+              ]
+            }
+          ]
         }
       };
 
-      const webhookUrl = `https://discord.com/api/v10/webhooks/${process.env.DISCORD_APP_ID}/${interaction.token}/messages/@original`;
-      console.log("[POST] webhookUrl prepared");
-
-      // ======== START: Background task (may be killed on Vercel) =========
-      (async () => {
-        try {
-          console.log("[BG] sendEmail start");
-          const subject = `Here is a response from ioNihal`;
-          await sendEmail(email, subject, replyText);
-          console.log("[BG] sendEmail finished");
-
-          console.log("[BG] PATCHing webhook with success");
-          const patchRes = await fetch(webhookUrl, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              content: `✅ Email sent successfully to ${email.replace(/^(.{3})(.*)(@.*)$/, '$1***$3')}`,
-              flags: 64
-            })
-          });
-          console.log("[BG] webhook patch status:", patchRes.status, patchRes.statusText);
-        } catch (err) {
-          console.error("[BG] Email sending failed:", err);
-          try {
-            const failRes = await fetch(webhookUrl, {
-              method: 'PATCH',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                content: `❌ Failed to send email: ${err.message}`,
-                flags: 64
-              })
-            });
-            console.log("[BG] failure patch status:", failRes.status, failRes.statusText);
-          } catch (patchErr) {
-            console.error("[BG] failed to patch webhook after email error:", patchErr);
-          }
-        }
-      })().catch((bgErr) => {
-        console.error("[BG] background IIFE threw:", bgErr);
-      });
-      // ======== END background =========
-
-      console.log("[POST] returning immediate ack");
+      console.log("[POST] returning immediate ack with mailto button");
       return new Response(JSON.stringify(response), {
         headers: { 'Content-Type': 'application/json' }
       });
