@@ -1,5 +1,6 @@
 import { Anton, Fredoka, Geist, Geist_Mono, Staatliches, Urbanist } from "next/font/google";
 import "./globals.css";
+import { WebVitals } from "./components/web-vitals";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,6 @@ const anton = Anton({
   weight: ["400"],
 })
 
-export function reportWebVitals(metric) {
-  console.log(metric);
-}
 
 export const metadata = {
   title: "Nihal K - Portfolio",
@@ -45,6 +43,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${staatliches.variable} ${urbanist.variable} ${anton.variable} antialiased`}
       >
+        <WebVitals />
         {children}
       </body>
     </html>
