@@ -26,7 +26,7 @@ export async function POST(req) {
                 { name: "Subject", value: subject.slice(0, 1024), inline: true },
                 { name: "Message", value: message.slice(0, 1024) },
             ],
-            footer: { text: `Email:${email}` }, 
+            footer: { text: `Email:${email}` },
             timestamp: new Date().toISOString(),
         };
 
@@ -37,8 +37,30 @@ export async function POST(req) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                content: `New Message submission`,
-                embeds: [embed],
+                body: JSON.stringify({
+                    content: `New Message submission`,
+                    embeds: [embed],
+                    components: [
+                        {
+                            type: 1, 
+                            components: [
+                                {
+                                    type: 2,      
+                                    style: 1,              
+                                    label: "Reply",
+                                    custom_id: "reply_btn" 
+                                },
+                                {
+                                    type: 2,
+                                    style: 4,              
+                                    label: "Ignore",
+                                    custom_id: "ignore_btn"
+                                }
+                            ]
+                        }
+                    ]
+                })
+
             }),
         });
 
@@ -56,24 +78,3 @@ export async function POST(req) {
     }
 }
 
-
-
-/*
-Add more validation:
-   - Add email format validation
-   - Add length restrictions
-   - Add spam prevention
-
-Embed customization:
-embed = {
-    title: "💌 New Contact Message", // Change emoji/title
-    color: 0x00ff00,                // Add color
-    author: { name: `submission id: ${id}` },
-    fields: [
-        { name: "Subject", value: subject, inline: true },
-        { name: "Message", value: message },
-        { name: "Sent At", value: new Date().toLocaleString() } // Add more fields
-    ],
-    footer: { text: `Email:${email}` }
-}
-*/
