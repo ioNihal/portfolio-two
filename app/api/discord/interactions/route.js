@@ -53,7 +53,7 @@ export async function POST(req) {
       return new Response(JSON.stringify({
         type: 4,
         data: { content: "Could not find message context.", flags: 64 }
-      }), { headers: { "Content-Type": "application/json" }});
+      }), { headers: { "Content-Type": "application/json" } });
     }
 
     // Extract email from embed footer: "Email:someone@example.com"
@@ -111,22 +111,24 @@ export async function POST(req) {
     }
 
     if (customId === "reply_btn") {
-      // If we found the email, build mailto URL; else instruct the user
+      // Build subject and mailto properly: do NOT encode the email itself,
+      // only encode query params (subject/body).
       const subject = `reply from Nihal K`;
-      const mailto = email ? `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=` : null;
+      const encodedSubject = encodeURIComponent(subject);
+      const mailto = email ? `mailto:${email}?subject=${encodedSubject}&body=` : null;
 
       // Add green check reaction and remove buttons immediately
       await addReaction("✅");
       await removeButtons();
 
-      // Respond ephemerally with a link-button (mailto) so user's email client opens.
+      // Components: link button only if we have a mailto
       const components = mailto ? [
         {
           type: 1,
           components: [
             {
               type: 2,
-              style: 5, // link
+              style: 5, // LINK
               label: "Open Email Client",
               url: mailto
             }
@@ -134,19 +136,22 @@ export async function POST(req) {
         }
       ] : [];
 
+      // Content: include a plain mailto fallback so Discord will show a clickable link
+      // Wrap in angle brackets to force auto-linking: <mailto:...>
       const content = mailto
-        ? "Open your email client using the button below. Subject is prefilled as `reply from Nihal K`. Type the body there and send."
+        ? `Open your email client using the button below, or click this link: <${mailto}>.\n\nSubject is prefilled as "${subject}". Type the body there and send.`
         : "No email address was found in the message footer.";
 
       return new Response(JSON.stringify({
         type: 4,
         data: {
           content,
-          flags: 64,
+          flags: 64,     // ephemeral
           components
         }
       }), { headers: { "Content-Type": "application/json" } });
     }
+
 
     // fallback
     return new Response(JSON.stringify({
