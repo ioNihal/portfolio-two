@@ -89,11 +89,34 @@ export default function JsonLd() {
         ]
     };
 
+    const projects = [
+        {
+            name: 'Toolight',
+            description: 'A light and color based fun & serious utility tools web app, helping designers and boring humans find something useless.',
+            url: 'https://toolight.vercel.app',
+            techs: ['React', 'JavaScript', 'CSS Modules']
+        },
+        {
+            name: '2D Stickman Game',
+            description: 'Developed a challenging and fun stickman style 1v1 fighting game using HTML Canvas, CSS, Vanilla JS.',
+            url: 'https://ionihal.github.io/game2dsite',
+            techs: ['HTML5 Canvas', 'JavaScript', 'CSS']
+        },
+        {
+            name: 'Inventory Management System',
+            description: 'Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.',
+            url: 'https://github.com/ioNihal/sims-dashboard-front',
+            techs: ['React', 'Express.js', 'MongoDB']
+        }
+    ];
+
     // Project collection schema (ItemList)
     const projectListSchema = {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        itemListElement: workExample.map((project, index) => ({
+        numberOfItems: projects.length,
+        itemListOrder: "https://schema.org/ItemListOrderDescending",
+        itemListElement: projects.map((project, index) => ({
             '@type': 'ListItem',
             position: index + 1,
             item: {
@@ -101,7 +124,9 @@ export default function JsonLd() {
                 name: project.name,
                 description: project.description,
                 url: project.url,
-                programmingLanguage: ['JavaScript', 'React', 'Next.js'],
+                programmingLanguage: project.techs,
+                codeRepository: project.url.includes('github.com') ? project.url : undefined,
+                runtimePlatform: "Browser",
                 author: {
                     '@type': 'Person',
                     name: 'Nihal K',
@@ -135,6 +160,7 @@ export default function JsonLd() {
     const organizationSchema = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        name: personSchema.hasOccupation.name,
         employee: {
             '@type': 'Person',
             name: 'Nihal K',
@@ -142,7 +168,12 @@ export default function JsonLd() {
             alumniOf: {
                 '@type': 'CollegeOrUniversity',
                 name: 'Srinivas University ICIS'
-            }
+            },
+            worksFor: {
+                '@type': 'Organization',
+                name: personSchema.hasOccupation.name
+            },
+            skills: personSchema.knowsAbout
         }
     };
 
