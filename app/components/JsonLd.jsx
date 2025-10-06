@@ -2,21 +2,27 @@ export default function JsonLd() {
     // Main personal information schema
     const personSchema = {
         '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Nihal K',
-        url: 'https://ionihal.vercel.app',
-        sameAs: [
-            'https://github.com/ioNihal',
-            'https://linkedin.com/in/n1hal',
-            'https://instagram.com/io.nihal'
-        ],
-        jobTitle: 'Frontend Developer Intern',
-        description: 'Full Stack Developer from Kasaragod, Kerala, specializing in modern web technologies with a BCA degree in Software Development and Web Design',
-        address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Kasaragod',
-            addressRegion: 'Kerala',
-            addressCountry: 'India'
+        '@type': 'WebPage',
+        mainEntity: {
+            '@type': 'Person',
+            name: 'Nihal K',
+            givenName: 'Nihal',
+            familyName: 'K',
+            alternateName: 'ioNihal',
+            url: 'https://ionihal.vercel.app',
+            sameAs: [
+                'https://github.com/ioNihal',
+                'https://linkedin.com/in/n1hal',
+                'https://instagram.com/io.nihal'
+            ],
+            jobTitle: 'Frontend Developer Intern',
+            description: 'Frontend Developer Intern from Kasaragod, Kerala, specializing in modern web technologies with a BCA degree in Software Development and Web Design',
+            address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Kasaragod',
+                addressRegion: 'Kerala',
+                addressCountry: 'India'
+            },
         },
         alumniOf: {
             '@type': 'CollegeOrUniversity',
@@ -115,18 +121,17 @@ export default function JsonLd() {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         numberOfItems: projects.length,
-        itemListOrder: "https://schema.org/ItemListOrderDescending",
+        itemListOrder: "Desc",
         itemListElement: projects.map((project, index) => ({
             '@type': 'ListItem',
             position: index + 1,
             item: {
-                '@type': 'SoftwareSourceCode',
+                '@type': 'CreativeWork',
                 name: project.name,
                 description: project.description,
                 url: project.url,
+                keywords: project.techs.join(', '),
                 programmingLanguage: project.techs,
-                codeRepository: project.url.includes('github.com') ? project.url : undefined,
-                runtimePlatform: "Browser",
                 author: {
                     '@type': 'Person',
                     name: 'Nihal K',
@@ -141,7 +146,7 @@ export default function JsonLd() {
         '@context': 'https://schema.org',
         '@type': 'Course',
         name: 'Bachelor of Computer Applications (BCA)',
-        description: 'Software Development and Web Design specialization',
+        description: 'Software Development and Web Design specialization at Srinivas University ICIS',
         provider: {
             '@type': 'CollegeOrUniversity',
             name: 'Srinivas University ICIS',
@@ -152,29 +157,51 @@ export default function JsonLd() {
                 addressCountry: 'India'
             }
         },
+        courseCode: 'BCA',
+        educationalLevel: 'Undergraduate',
         educationalCredentialAwarded: 'Bachelor Degree',
-        timeRequired: 'P3Y'
+        timeRequired: 'P3Y',
+        hasCourseInstance: {
+            '@type': 'CourseInstance',
+            courseMode: 'full-time',
+            location: {
+                '@type': 'Place',
+                name: 'Srinivas University ICIS Campus',
+                address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Mangalore',
+                    addressRegion: 'Karnataka',
+                    addressCountry: 'India'
+                }
+            }
+        }
     };
 
     // Organization schema for current workplace
-    const organizationSchema = {
+    const websiteSchema = {
         '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: personSchema.hasOccupation.name,
-        employee: {
+        '@type': 'WebSite',
+        name: 'Nihal K - Portfolio',
+        url: 'https://ionihal.vercel.app',
+        description: 'Personal portfolio website of Nihal K, a Frontend Developer from Kasaragod, Kerala',
+        author: {
             '@type': 'Person',
-            name: 'Nihal K',
-            jobTitle: 'Frontend Developer Intern',
-            alumniOf: {
-                '@type': 'CollegeOrUniversity',
-                name: 'Srinivas University ICIS'
-            },
-            worksFor: {
-                '@type': 'Organization',
-                name: personSchema.hasOccupation.name
-            },
-            skills: personSchema.knowsAbout
+            name: 'Nihal K'
         }
+    };
+
+    // Skills schema
+    const skillsSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Skills & Technologies',
+        description: 'Technical skills and technologies used by Nihal K',
+        numberOfItems: personSchema.knowsAbout.length,
+        itemListElement: personSchema.knowsAbout.map((skill, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: skill
+        }))
     };
 
     // Breadcrumb schema for better navigation structure
@@ -191,12 +218,30 @@ export default function JsonLd() {
             {
                 '@type': 'ListItem',
                 position: 2,
+                name: 'Skills',
+                item: 'https://ionihal.vercel.app/#skills'
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
                 name: 'Projects',
                 item: 'https://ionihal.vercel.app/#projects'
             },
             {
                 '@type': 'ListItem',
-                position: 3,
+                position: 4,
+                name: 'Experience',
+                item: 'https://ionihal.vercel.app/#experience'
+            },
+            {
+                '@type': 'ListItem',
+                position: 5,
+                name: 'About',
+                item: 'https://ionihal.vercel.app/#about'
+            },
+            {
+                '@type': 'ListItem',
+                position: 6,
                 name: 'Contact',
                 item: 'https://ionihal.vercel.app/#contact'
             }
@@ -207,11 +252,11 @@ export default function JsonLd() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(projectListSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
             />
             <script
                 type="application/ld+json"
@@ -219,11 +264,15 @@ export default function JsonLd() {
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(projectListSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(skillsSchema) }}
             />
         </>
     );
