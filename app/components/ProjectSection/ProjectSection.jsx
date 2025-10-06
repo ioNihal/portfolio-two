@@ -45,18 +45,18 @@ const projectsMock = [
 
 export default function ProjectSection() {
     return (
-        <section id="projects" className="h-screen w-full flex flex-col items-center justify-center bg-slate-950 relative">
-            <h2 className="absolute top-20 landscape:top-0  left-1/2  -translate-x-1/2  rotate-0 text-violet-600  text-lg lg:text-3xl flex gap-7 sm:gap-10 lg:gap-20 font-[family-name:--urbanist] " style={{fontFamily: "var(--urbanist)"}}><span>P</span><span>R</span><span>O</span><span>J</span><span>E</span><span>C</span><span>T</span><span>S</span></h2>
+        <section id="projects" aria-label="Projects Section" className="h-screen w-full flex flex-col items-center justify-center bg-slate-950 relative">
+            <h2 className="absolute top-20 landscape:top-0 left-1/2 -translate-x-1/2 rotate-0 text-violet-600 text-lg lg:text-3xl flex gap-7 sm:gap-10 lg:gap-20" style={{fontFamily: "var(--urbanist)"}}>PROJECTS</h2>
             <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 gap-5 landscape:md:gap-3 landscape:lg:gap-5">
+                <div role="list" aria-label="Project list" className="grid grid-cols-1 gap-5 landscape:md:gap-3 landscape:lg:gap-5">
                     {projectsMock.map((project) => (
-                        <div key={project.id} className="project-item group">
-                            <h2 className=" py-2 text-2xl sm:text-3xl md:text-5xl landscape:md:text-xl lg:text-6xl landscape:lg:text-6xl font-[family-name:--anton] text-center text-white/80 transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer" style={{ fontFamily: 'var(--font-anton)' }}>
+                        <article key={project.id} className="project-item group" role="listitem">
+                            <h3 className="py-2 text-2xl sm:text-3xl md:text-5xl landscape:md:text-xl lg:text-6xl landscape:lg:text-6xl font-[family-name:--anton] text-center text-white/80 transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer" style={{ fontFamily: 'var(--font-anton)' }}>
                                 {project?.title?.toUpperCase()}
-                            </h2>
+                            </h3>
                             <div className="project-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-1/2 lg:w-1/3 h-auto 
                             flex flex-col items-start gap-[0.5em] transition-all duration-300 ease-in-out cursor-pointer
-                            rounded-2xl p-3 shadow-2xl border-2 border-white/10">
+                            rounded-2xl p-3 shadow-2xl border-2 border-white/10" role="article" aria-label={`Project: ${project.title}`}>
                                 <h3 className="text-xl font-bold text-white">
                                     {project.title}
                                 </h3>
@@ -77,7 +77,7 @@ export default function ProjectSection() {
                                 </div>
 
                             </div>
-                        </div>
+                        </article>
                     ))}
                 </div>
             </div>

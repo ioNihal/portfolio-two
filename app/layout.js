@@ -1,6 +1,7 @@
 import { Anton, Fredoka, Geist, Geist_Mono, Staatliches, Urbanist } from "next/font/google";
 import "./globals.css";
 import { WebVitals } from "./components/web-vitals";
+import JsonLd from "./components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,8 +34,41 @@ const anton = Anton({
 
 
 export const metadata = {
-  title: "Nihal K - Portfolio",
-  description: "Updated Portfolio v3",
+  title: "Nihal K - Full Stack Developer Portfolio",
+  description: "Full Stack Developer specializing in modern web technologies. Explore my projects, skills, and professional journey.",
+  metadataBase: new URL('https://ionihal.vercel.app'),
+  keywords: ['Full Stack Developer', 'Frontend Developer Intern', 'Web Development', 'React', 'Next.js', 'JavaScript', 'TypeScript', 'Portfolio'],
+  authors: [{ name: 'Nihal K' }],
+  creator: 'Nihal K',
+  publisher: 'Nihal K',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    title: 'Nihal K - Full Stack Developer Portfolio',
+    description: 'Full Stack Developer specializing in modern web technologies. Explore my projects, skills, and professional journey.',
+    url: 'https://ionihal.vercel.app',
+    siteName: 'Nihal K Portfolio',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nihal K - Full Stack Developer Portfolio',
+    description: 'Full Stack Developer specializing in modern web technologies. Explore my projects, skills, and professional journey.',
+    creator: '@nihal',
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google verification code here
+  },
+  alternates: {
+    canonical: 'https://ionihal.vercel.app',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -43,6 +77,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${staatliches.variable} ${urbanist.variable} ${anton.variable} antialiased`}
       >
+        <JsonLd />
         <WebVitals />
         {children}
       </body>

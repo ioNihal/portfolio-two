@@ -11,7 +11,7 @@ import FooterSection from "./components/FooterSection/FooterSection";
 
 export default function Home() {
   return (
-    <div className="w-screen overflow-x-hidden">
+    <main className="w-screen overflow-x-hidden">
       <HeroSection />
       <SkillSection />
       <ProjectSection />
@@ -19,6 +19,6 @@ export default function Home() {
       <AboutSection />
       <ContactSection />
       <FooterSection />
-    </div>
+    </main>
   );
 }

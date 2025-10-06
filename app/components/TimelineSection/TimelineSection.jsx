@@ -53,7 +53,15 @@ export default function TimelineSection() {
         })}
       </div>
       <div className="bg-cover absolute inset-0 -z-1">
-        <Image src={ExpSVG} alt="exp-svg" width={1000} height={1000} className='h-full w-full object-cover animate-wiggle opacity-[0.04]' />
+        <Image 
+          src={ExpSVG} 
+          alt="Experience timeline background pattern" 
+          width={1000} 
+          height={1000} 
+          loading="lazy"
+          className='h-full w-full object-cover animate-wiggle opacity-[0.04]'
+          priority={false}
+        />
       </div>
       <IntersectionObserverClient />
     </section>
