@@ -2,27 +2,23 @@ export default function JsonLd() {
     // Main personal information schema
     const personSchema = {
         '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        mainEntity: {
-            '@type': 'Person',
-            name: 'Nihal K',
-            givenName: 'Nihal',
-            familyName: 'K',
-            alternateName: 'ioNihal',
-            url: 'https://ionihal.vercel.app',
-            sameAs: [
-                'https://github.com/ioNihal',
-                'https://linkedin.com/in/n1hal',
-                'https://instagram.com/io.nihal'
-            ],
-            jobTitle: 'Frontend Developer Intern',
-            description: 'Frontend Developer Intern from Kasaragod, Kerala, specializing in modern web technologies with a BCA degree in Software Development and Web Design',
-            address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Kasaragod',
-                addressRegion: 'Kerala',
-                addressCountry: 'India'
-            },
+        '@type': 'Person',
+        name: 'Nihal K',
+        givenName: 'Nihal',
+        familyName: 'K',
+        url: 'https://ionihal.vercel.app',
+        sameAs: [
+            'https://github.com/ioNihal',
+            'https://linkedin.com/in/n1hal',
+            'https://instagram.com/io.nihal'
+        ],
+        jobTitle: 'Frontend Developer Intern',
+        description: 'Frontend Developer Intern from Kasaragod, Kerala, specializing in modern web technologies',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Kasaragod',
+            addressRegion: 'Kerala',
+            addressCountry: 'India'
         },
         alumniOf: {
             '@type': 'CollegeOrUniversity',
@@ -149,32 +145,10 @@ export default function JsonLd() {
         description: 'Software Development and Web Design specialization at Srinivas University ICIS',
         provider: {
             '@type': 'CollegeOrUniversity',
-            name: 'Srinivas University ICIS',
-            address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Mangalore',
-                addressRegion: 'Karnataka',
-                addressCountry: 'India'
-            }
+            name: 'Srinivas University ICIS'
         },
-        courseCode: 'BCA',
         educationalLevel: 'Undergraduate',
-        educationalCredentialAwarded: 'Bachelor Degree',
-        timeRequired: 'P3Y',
-        hasCourseInstance: {
-            '@type': 'CourseInstance',
-            courseMode: 'full-time',
-            location: {
-                '@type': 'Place',
-                name: 'Srinivas University ICIS Campus',
-                address: {
-                    '@type': 'PostalAddress',
-                    addressLocality: 'Mangalore',
-                    addressRegion: 'Karnataka',
-                    addressCountry: 'India'
-                }
-            }
-        }
+        educationalCredentialAwarded: 'Bachelor Degree'
     };
 
     // Organization schema for current workplace
@@ -252,10 +226,6 @@ export default function JsonLd() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-            />
-            <script
-                type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
             />
             <script
@@ -265,14 +235,6 @@ export default function JsonLd() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(projectListSchema) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(skillsSchema) }}
             />
         </>
     );
