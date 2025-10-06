@@ -30,18 +30,18 @@ const personSchema = {
     givenName: 'Nihal',
     familyName: 'K',
     url: 'https://ionihal.vercel.app',
-    image: 'https://ionihal.vercel.app/profile-photo.webp', 
+    image: 'https://ionihal.vercel.app/profile-photo.webp',
 
-    jobTitle: 'Frontend Developer Intern', 
+    jobTitle: 'Frontend Developer Intern',
     description: 'Frontend Developer Intern and Full Stack Enthusiast from Kasaragod, Kerala, specializing in React, Next.js, and MongoDB.',
-    
+
     // Social and Professional Profiles
     sameAs: [
         'https://github.com/ioNihal',
         'https://linkedin.com/in/n1hal',
         'https://instagram.com/io.nihal',
     ],
-    
+
     // Geographical Location
     address: {
         '@type': 'PostalAddress',
@@ -49,7 +49,7 @@ const personSchema = {
         addressRegion: 'Kerala',
         addressCountry: 'India'
     },
-    
+
     // Education 
     alumniOf: {
         '@type': 'CollegeOrUniversity',
@@ -61,7 +61,7 @@ const personSchema = {
             addressRegion: 'Karnataka',
             addressCountry: 'India'
         },
-       
+
         hasCredential: {
             '@type': 'EducationalOccupationalCredential',
             credentialCategory: 'Bachelor degree',
@@ -69,13 +69,13 @@ const personSchema = {
             educationalLevel: 'Undergraduate degree',
         }
     },
-    
+
     // Technical Skills
     knowsAbout: [
-        'Web Development', 'JavaScript', 'TypeScript', 'React', 'Next.js', 
+        'Web Development', 'JavaScript', 'TypeScript', 'React', 'Next.js',
         'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'Full Stack Development'
     ],
-    
+
     // Professional Experience
     hasOccupation: {
         '@type': 'Occupation',
@@ -86,22 +86,16 @@ const personSchema = {
             unitText: 'MONTH',
             // OPTIONAL: Add a range or single value if comfortable
             // value: { '@type': 'QuantitativeValue', minValue: 20000, maxValue: 40000 }
-        },
-        // Reference current organization
-        mainEntityOfPage: {
-            '@type': 'Organization',
-            name: 'Warewee Consultancy Ltd',
-            url: 'https://warewe.com', 
         }
     },
-    
+
     // Project Portfolio (Work Examples)
-    workExample: projectsData.map(project => ({
+    subjectOf: projectsData.map(project => ({
         '@type': 'CreativeWork',
         name: project.name,
         description: project.description,
         url: project.url,
-        genre: 'Web Application Development', 
+        genre: 'Web Application Development',
         keywords: project.techs.join(', '),
         author: {
             '@type': 'Person',

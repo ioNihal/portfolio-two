@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Nihal K | Full Stack Developer Portfolio
 
-## Getting Started
+This repository hosts the source code for the personal portfolio of **Nihal K**, a **Full Stack Developer** specializing in modern web technologies and the **MERN Stack** (MongoDB, Express.js, React, Node.js).
 
-First, run the development server:
+The live application showcases my technical expertise through real-world projects, focusing on responsive design, clean code, and intuitive user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔗 View the Live Portfolio
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**[https://ionihal.vercel.app](https://ionihal.vercel.app)**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Technology Stack & Focus
 
-To learn more about Next.js, take a look at the following resources:
+The projects within this portfolio (and the portfolio itself) are built using:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Frontend:** React, Next.js, TypeScript, Tailwind CSS
+* **Backend:** Node.js, Express.js, MongoDB (MERN Stack)
+* **Tools:** Git, Figma, Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ Key Projects Featured
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The live site contains detailed write-ups, but here are quick links to the key repositories:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **[Inventory Management System](https://github.com/ioNihal/sims-dashboard-front):** Built with the MERN stack for real-time tracking.
+* **[2D Stickman Game](https://ionihal.github.io/game2dsite):** HTML5 Canvas and Vanilla JavaScript game development.
+* **[Toolight](https://toolight.vercel.app):** A set of utility tools built with React.
+
+---
+
+## Connect with Me
+
+* **LinkedIn:** <https://linkedin.com/in/n1hal>
+* **GitHub:** <https://github.com/ioNihal>
