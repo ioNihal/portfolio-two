@@ -64,7 +64,7 @@ export const metadata = {
     creator: '@nihal',
   },
   verification: {
-    google: 'your-google-verification-code', // Add your Google verification code here
+    google: 'nJTi0WblYTwIGSD_CRF7Gzz5CI2BhPvHV0Uq6qSYoIw',
   },
   alternates: {
     canonical: 'https://ionihal.vercel.app',
