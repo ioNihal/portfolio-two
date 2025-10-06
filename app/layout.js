@@ -34,42 +34,72 @@ const anton = Anton({
 
 
 export const metadata = {
-  title: "Nihal K - Full Stack Developer Portfolio",
-  description: "Full Stack Developer specializing in modern web technologies. Explore my projects, skills, and professional journey.",
+  title: "Nihal K - Full Stack Developer | React & Next.js Portfolio",
+  description: "Full Stack Developer specializing in modern web technologies, including React, Next.js, and the MERN stack. Explore my projects, skills, and professional journey.",
   metadataBase: new URL('https://ionihal.vercel.app'),
-  keywords: ['Full Stack Developer', 'Frontend Developer Intern', 'Web Development', 'React', 'Next.js', 'JavaScript', 'TypeScript', 'Portfolio'],
+
+  // Keywords: Expanded to cover the full stack technologies mentioned
+  keywords: [
+    'Full Stack Developer',
+    'Frontend Developer Intern',
+    'Web Development',
+    'React',
+    'Next.js',
+    'JavaScript',
+    'TypeScript',
+    'MERN Stack',
+    'MongoDB',
+    'Portfolio'
+  ],
+
   authors: [{ name: 'Nihal K' }],
   creator: 'Nihal K',
   publisher: 'Nihal K',
+
+
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
   },
+
+  // Open Graph
   openGraph: {
     title: 'Nihal K - Full Stack Developer Portfolio',
-    description: 'Full Stack Developer specializing in modern web technologies. Explore my projects, skills, and professional journey.',
+    description: 'MERN stack enthusiast and Frontend Developer Intern showcasing projects built with React, Next.js, and modern web technologies.',
     url: 'https://ionihal.vercel.app',
     siteName: 'Nihal K Portfolio',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://ionihal.vercel.app/social-share-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Nihal K Portfolio Banner'
+      }
+    ]
   },
+
+  // Twitter Card:
   twitter: {
     card: 'summary_large_image',
     title: 'Nihal K - Full Stack Developer Portfolio',
-    description: 'Full Stack Developer specializing in modern web technologies. Explore my projects, skills, and professional journey.',
-    creator: '@nihal',
+    description: 'MERN stack enthusiast and Frontend Developer Intern showcasing projects built with React, Next.js, and modern web technologies.',
+    creator: '@n1haaaal', 
+    images: ['https://ionihal.vercel.app/social-share-image.jpg'],
   },
+
+  // Verification
   verification: {
     google: 'nJTi0WblYTwIGSD_CRF7Gzz5CI2BhPvHV0Uq6qSYoIw',
   },
+
+  // Canonical
   alternates: {
     canonical: 'https://ionihal.vercel.app/',
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (
