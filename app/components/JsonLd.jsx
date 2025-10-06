@@ -1,5 +1,6 @@
 export default function JsonLd() {
-    const jsonLd = {
+    // Main personal information schema
+    const personSchema = {
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Nihal K',
@@ -88,10 +89,111 @@ export default function JsonLd() {
         ]
     };
 
+    // Project collection schema (ItemList)
+    const projectListSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: workExample.map((project, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+                '@type': 'SoftwareSourceCode',
+                name: project.name,
+                description: project.description,
+                url: project.url,
+                programmingLanguage: ['JavaScript', 'React', 'Next.js'],
+                author: {
+                    '@type': 'Person',
+                    name: 'Nihal K',
+                    url: 'https://ionihal.vercel.app'
+                }
+            }
+        }))
+    };
+
+    // Course/Education schema
+    const educationSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: 'Bachelor of Computer Applications (BCA)',
+        description: 'Software Development and Web Design specialization',
+        provider: {
+            '@type': 'CollegeOrUniversity',
+            name: 'Srinivas University ICIS',
+            address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Mangalore',
+                addressRegion: 'Karnataka',
+                addressCountry: 'India'
+            }
+        },
+        educationalCredentialAwarded: 'Bachelor Degree',
+        timeRequired: 'P3Y'
+    };
+
+    // Organization schema for current workplace
+    const organizationSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        employee: {
+            '@type': 'Person',
+            name: 'Nihal K',
+            jobTitle: 'Frontend Developer Intern',
+            alumniOf: {
+                '@type': 'CollegeOrUniversity',
+                name: 'Srinivas University ICIS'
+            }
+        }
+    };
+
+    // Breadcrumb schema for better navigation structure
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://ionihal.vercel.app'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Projects',
+                item: 'https://ionihal.vercel.app/#projects'
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Contact',
+                item: 'https://ionihal.vercel.app/#contact'
+            }
+        ]
+    };
+
     return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(projectListSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(educationSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+        </>
     );
 }
