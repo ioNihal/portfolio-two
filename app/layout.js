@@ -38,7 +38,7 @@ export const metadata = {
   description: "Full Stack Developer specializing in modern web technologies, including React, Next.js, and the MERN stack. Explore my projects, skills, and professional journey.",
   metadataBase: new URL('https://ionihal.vercel.app'),
 
-  // Keywords: Expanded to cover the full stack technologies mentioned
+  // Keywords
   keywords: [
     'Full Stack Developer',
     'Frontend Developer Intern',
@@ -49,7 +49,11 @@ export const metadata = {
     'TypeScript',
     'MERN Stack',
     'MongoDB',
-    'Portfolio'
+    'Portfolio',
+    'Kasaragod',
+    'ionihal',
+    'Nihal',
+    'Nihal K'
   ],
 
   authors: [{ name: 'Nihal K' }],

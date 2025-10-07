@@ -40,6 +40,7 @@ const personSchema = {
         'https://github.com/ioNihal',
         'https://linkedin.com/in/n1hal',
         'https://instagram.com/io.nihal',
+        'https://x.com/n1haaaal',
     ],
 
     // Geographical Location
