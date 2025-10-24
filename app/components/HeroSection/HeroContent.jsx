@@ -52,11 +52,11 @@ export default function HeroContent() {
             <div
                 className="flex justify-between gap-[1em]
              *:py-2 lg:*:py-3 *:px-3 lg:*:px-6  *:text-xs lg:*:text-lg *:font-bold
-              *:rounded-sm lg:*:rounded-lg *:cursor-pointer *:transition-colors *:duration-500 *:ease-in-out"
+              *:rounded-sm lg:*:rounded-lg *:cursor-pointer *:transition-colors *:duration-300 *:ease-in-out"
               style={{fontFamily: "var(--urbanist)"}}>
-                <button className="text-amber-50 bg-indigo-500 hover:bg-indigo-600 drop-shadow-lg/50 drop-shadow-indigo-500 hover:drop-shadow-indigo-600"
+                <button className="text-amber-50 bg-indigo-600 hover:bg-indigo-700 "
                     onClick={() => handleCTA("works")}>View Works</button>
-                <button className="text-amber-50 bg-gray-500 hover:bg-gray-600 drop-shadow-lg/50 drop-shadow-gray-500 hover:drop-shadow-gray-600"
+                <button className="text-amber-50 bg-gray-800 "
                     onClick={() => handleCTA("resume")}>Resume</button>
             </div>
         </div>
