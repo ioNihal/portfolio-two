@@ -5,8 +5,8 @@ const projectsMock = [
         title: "Toolight",
         desc: "A light and color based fun & serious utility tools web app, helping designers and boring humans find something useless.",
         tech: ["ReactJS", "CSS Modules", "React Router"],
-        repo: "repoLink",
-        preview: "previewLink",
+        repo: "https://github.com/ioNihal/light.io",
+        preview: "https://toolight.vercel.app",
     },
     {
         id: 1,
