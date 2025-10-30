@@ -23,7 +23,7 @@ export default function FooterSection() {
     >
       <div className='w-full 2xl:w-7/10  px-6 lg:px-10 pt-10 lg:pt-8 pb-10 flex flex-col-reverse lg:flex-row gap-10 lg:gap-30'>
         <div className="flex flex-col gap-3">
-          <h1 className="text-4xl lg:text-7xl font-semibold tracking-widest">ioNihal</h1>
+          <h2 className="text-4xl lg:text-7xl font-semibold tracking-widest">ioNihal</h2>
 
           <div className=" text-slate-400 flex flex-col gap-1">
             <p className="flex items-center gap-2 text-md lg:text-lg">
