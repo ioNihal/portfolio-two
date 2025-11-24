@@ -3,8 +3,6 @@
 
 This repository contains the source for my personal portfolio and the assets used to showcase my work. I am Nihal K — a frontend-focused Full Stack Developer building fast, accessible, and maintainable web experiences using modern web technologies.
 
-Location: Kasaragod, Kerala | Phone: +91 79024 23075 | Email: nihal004x@gmail.com
-
 ---
 
 ## 🔗 Portfolio Website
