@@ -1,37 +1,33 @@
-"use client"
 
-import { useEffect, useRef, useState } from "react"
-
-const titles = ['Frontend Developer', 'Backend Developer', 'Humble Hoooooooman', 'Freshhhh Graduate']
 
 export default function HeroContent() {
-    const [title, setTitle] = useState("Frontend Developer");
-    const titleRef = useRef(null);
+    // const [title, setTitle] = useState("Frontend Developer");
+    // const titleRef = useRef(null);
 
-    useEffect(() => {
-        if (title.length > 0) {
-            let step = 0;
-            const id = setInterval(() => {
-                if (titleRef.current) {
-                    titleRef.current.classList.add("slideOut");
+    // useEffect(() => {
+    //     if (title.length > 0) {
+    //         let step = 0;
+    //         const id = setInterval(() => {
+    //             if (titleRef.current) {
+    //                 titleRef.current.classList.add("slideOut");
 
-                    setTimeout(() => {
-                        setTitle(titles[step]);
-                        titleRef.current.classList.remove("slideOut");
-                        titleRef.current.classList.add("slideIn");
+    //                 setTimeout(() => {
+    //                     setTitle(titles[step]);
+    //                     titleRef.current.classList.remove("slideOut");
+    //                     titleRef.current.classList.add("slideIn");
 
 
-                        setTimeout(() => {
-                            titleRef.current.classList.remove("slideIn");
-                        }, 500);
-                    }, 500);
-                    step = step === titles.length - 1 ? 0 : step + 1;
-                }
-            }, 3000)
-        }
+    //                     setTimeout(() => {
+    //                         titleRef.current.classList.remove("slideIn");
+    //                     }, 500);
+    //                 }, 500);
+    //                 step = step === titles.length - 1 ? 0 : step + 1;
+    //             }
+    //         }, 3000)
+    //     }
 
-        return () => clearInterval(id);
-    }, []);
+    //     return () => clearInterval(id);
+    // }, []);
 
 
     const handleCTA = (mode) => {
@@ -47,7 +43,7 @@ export default function HeroContent() {
     return (
         <div className="w-full h-full flex flex-col items-center justify-center gap-[0.8em] lg:gap-[1.5em]">
             <h1 className="dark:text-white text-gray-800 text-4xl lg:text-7xl font-extrabold">Nihal K</h1>
-            <h2 className="text-md lg:text-3xl dark:text-white/70 text-gray-900 font-semibold">I'm a <span ref={titleRef} className="text-indigo-500 inline-block font-mono w-[18ch]">{title}</span></h2>
+            <h2 className="text-md lg:text-3xl dark:text-white/70 text-gray-900 font-semibold">I'm a <span className="text-indigo-500 inline-block font-mono w-[18ch]">Frontend Developer</span></h2>
             <p className="opacity-60 text-xs lg:text-xl font-medium max-w-xs lg:max-w-lg text-center">Passionate about building modern, responsive and beautifull web applications</p>
             <div
                 className="flex justify-between gap-[1em]
