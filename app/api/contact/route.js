@@ -10,48 +10,53 @@ function shortId() {
 export async function POST(req) {
   try {
     const { subject, email, message } = await req.json();
+
+    // basic validation
     if (!subject || !email || !message) {
-      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Missing fields" },
+        { status: 400 }
+      );
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    }
+
+    if (message.length > 5000) {
+      return NextResponse.json(
+        { error: "Message too long" },
+        { status: 400 }
+      );
     }
 
     const id = shortId();
 
-    // build embed with email stored in footer
+    // Discord embed
     const embed = {
-      title: "New Message from Portfolio!",
-      author: { name: `Anonymous User: ${id}` },
-      color: 0x00ff00,
+      title: "📩 New Portfolio Message",
+      author: { name: `Anonymous User · ${id}` },
+      color: 0x5865f2, // Discord purple
       fields: [
-        { name: "Subject", value: String(subject).slice(0, 1024), inline: true },
-        { name: "Message", value: String(message).slice(0, 1024) },
+        {
+          name: "Subject",
+          value: String(subject).slice(0, 1024),
+        },
+        {
+          name: "Message",
+          value: String(message).slice(0, 1024),
+        },
       ],
-      footer: { text: `Email:${email}` },
+      footer: {
+        text: `Email: ${email}`,
+      },
       timestamp: new Date().toISOString(),
     };
 
-    // <-- FIX: payload is the message object itself (not nested inside another `body` field) -->
+
     const payload = {
-      content: "New Message submission",
+      content: "You received a new contact form submission.",
       embeds: [embed],
-      components: [
-        {
-          type: 1, // action row
-          components: [
-            {
-              type: 2, // button
-              style: 1, // primary
-              label: "Reply",
-              custom_id: "reply_btn",
-            },
-            {
-              type: 2,
-              style: 4, // danger
-              label: "Ignore",
-              custom_id: "ignore_btn",
-            },
-          ],
-        },
-      ],
     };
 
     const res = await fetch(
@@ -62,20 +67,30 @@ export async function POST(req) {
           Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload), // <-- correct: single JSON.stringify
+        body: JSON.stringify(payload),
       }
     );
 
     if (!res.ok) {
-      const txt = await res.text();
-      console.error("Discord post error:", txt);
-      return NextResponse.json({ error: "Failed to post to Discord", details: txt }, { status: 500 });
+      const text = await res.text();
+      console.error("Discord API error:", text);
+
+      return NextResponse.json(
+        { error: "Failed to send message" },
+        { status: 500 }
+      );
     }
 
-    const data = await res.json();
-    return NextResponse.json({ ok: true, id, discordMessageId: data.id });
+    return NextResponse.json({
+      ok: true,
+      id,
+    });
   } catch (err) {
-    console.error(err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    console.error("Contact API error:", err);
+
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
