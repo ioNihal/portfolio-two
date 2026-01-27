@@ -63,8 +63,6 @@
 }
 
 
-
-
 @keyframes enter-first {
   0% {
     transform: translateX(-110%) scale(0.5);
@@ -88,8 +86,6 @@
     opacity: 0;
   }
 }
-
-
 
 @keyframes enter-second {
   0% {
@@ -257,10 +253,8 @@
 }
 
 .project-item:hover .project-card {
-  @apply visible opacity-100 scale-100 ;
+  @apply visible opacity-100 scale-100;
 }
-
-
 
 
 body {
@@ -273,7 +267,15 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
+button,
+img,
+.no-select {
   user-select: none;
-  -moz-user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

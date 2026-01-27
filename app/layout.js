@@ -1,6 +1,6 @@
-import { Anton, Fredoka, Geist, Geist_Mono, Staatliches, Urbanist } from "next/font/google";
+import { Anton, Geist, Geist_Mono, Staatliches, Urbanist } from "next/font/google";
 import "./globals.css";
-import { WebVitals } from "./components/web-vitals";
+// import { WebVitals } from "./components/web-vitals";
 import JsonLd from "./components/JsonLd";
 
 const geistSans = Geist({
@@ -35,57 +35,26 @@ const anton = Anton({
 
 export const metadata = {
   title: "Nihal K - Full Stack Developer | React & Next.js Portfolio",
-  description: "Full Stack Developer specializing in modern web technologies, including React, Next.js, and the MERN stack. Explore my projects, skills, and professional journey.",
+  description: "Frontend / Full-Stack Developer specializing in modern web technologies, including React, Next.js, and the MERN stack. Explore my projects, skills, and professional journey.",
   metadataBase: new URL('https://ionihal.vercel.app'),
 
   // Keywords
   keywords: [
     'Full Stack Developer',
-    'Frontend Developer Intern',
-    'Web Development',
-    'React',
-    'Next.js',
-    'JavaScript',
-    'TypeScript',
+    'React Developer',
+    'Next.js Portfolio',
     'MERN Stack',
-    'MongoDB',
-    'Portfolio',
-    'Kasaragod',
-    'ionihal',
-    'Nihal',
-    'Nihal K',
-    'activities',
-    'react js',
-    'reactjs',
-    'vite react',
-    'mern stack',
-    'what is mern stack',
-    'next js',
-    'next',
-    'what is next js',
-    'website developer',
-    'web developer',
-    'web dev',
-    'website development',
-    'what is web development',
-    'kasaragod district',
-    'nihal sarin'
+    'Web Developer India'
   ],
 
   authors: [{ name: 'Nihal K' }],
   creator: 'Nihal K',
   publisher: 'Nihal K',
 
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
   // Open Graph
   openGraph: {
     title: 'Nihal K - Full Stack Developer Portfolio',
-    description: 'MERN stack enthusiast and Frontend Developer Intern showcasing projects built with React, Next.js, and modern web technologies.',
+    description: 'Frontend / Full-Stack Developer showcasing projects built with React, Next.js, and modern web technologies.',
     url: 'https://ionihal.vercel.app',
     siteName: 'Nihal K Portfolio',
     locale: 'en_US',
@@ -104,8 +73,8 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Nihal K - Full Stack Developer Portfolio',
-    description: 'MERN stack enthusiast and Frontend Developer Intern showcasing projects built with React, Next.js, and modern web technologies.',
-    creator: '@n1haaaal', 
+    description: 'Frontend / Full-Stack Developer showcasing projects built with React, Next.js, and modern web technologies.',
+    creator: '@n1haaaal',
     images: ['https://ionihal.vercel.app/social-share-image.jpg'],
   },
 
@@ -128,7 +97,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${staatliches.variable} ${urbanist.variable} ${anton.variable} antialiased`}
       >
         <JsonLd />
-        <WebVitals />
+        {/* <WebVitals /> */}
         {children}
       </body>
     </html>
