@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import HalftoneSVG from '../../assets/halftone.svg';
 
 export default function AboutSection() {
     return (
@@ -17,7 +16,7 @@ export default function AboutSection() {
                     When I'm not coding, you'll find me exploring Kasaragod's beautiful coastline, sketching UI ideas, or enjoying a cup of filter coffee while learning new technologies.
                 </div>
                 <div className='flex-1'>
-                    <Image width={500} height={600} src={HalftoneSVG} alt='Nihal K profile illustration' loading='lazy'
+                    <Image width={500} height={600} src={"/assets/halftone.svg"} alt='Nihal K profile illustration' loading='lazy'
                         className='w-[200px] lg:w-xs 2xl:w-md h-auto aspect-3/4 object-cover
                          border-8 border-indigo-900/40 rounded-full
                         m-auto float select-none' />

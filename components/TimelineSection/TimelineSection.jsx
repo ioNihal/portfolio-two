@@ -1,6 +1,5 @@
 import IntersectionObserverClient from './IntersectionObserverClient';
 import Image from 'next/image';
-import ExpSVG from '../../assets/exp.svg';
 
 
 
@@ -54,7 +53,7 @@ export default function TimelineSection() {
       </div>
       <div className="bg-cover absolute inset-0 -z-1">
         <Image 
-          src={ExpSVG} 
+          src={"/assets/exp.svg"} 
           alt="Experience timeline background pattern" 
           width={1000} 
           height={1000} 

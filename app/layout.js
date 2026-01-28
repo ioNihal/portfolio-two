@@ -1,7 +1,8 @@
 import { Anton, Geist, Geist_Mono, Staatliches, Urbanist } from "next/font/google";
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
 // import { WebVitals } from "./components/web-vitals";
-import JsonLd from "./components/JsonLd";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

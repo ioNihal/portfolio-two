@@ -273,6 +273,7 @@ img,
   user-select: none;
 }
 
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;

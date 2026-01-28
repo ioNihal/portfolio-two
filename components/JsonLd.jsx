@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Data used in the schemas
 const projectsData = [
@@ -22,7 +22,7 @@ const projectsData = [
     }
 ];
 
-// --- Main Person Schema ---
+// Main Person Schema
 const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',

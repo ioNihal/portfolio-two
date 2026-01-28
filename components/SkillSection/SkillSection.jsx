@@ -12,7 +12,7 @@ import {
     SiFigma,
     SiBlender,
 } from "react-icons/si";
-import { BirdsLottie } from "./BirdsLottie";
+
 
 const icons = [
     { name: "HTML", img: SiHtml5 },
@@ -40,27 +40,31 @@ export default function SkillSection() {
             </p>
 
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 bg-transparent backdrop-blur-xs p-6 rounded-xl ring ring-slate-700">
-                {icons.map((i, index) => (
-                    <div
-                        key={index}
-                        className="flex flex-col items-center group"
-                    >
-                        <div className="w-16 h-16 flex items-center justify-center rounded-full cursor-pointer 
-                        border border-cyan-500/40 bg-black/30 hover:bg-cyan-500/20 transition duration-300 
-                        ease-in-out animate-[spin_3s_linear_infinite]
-                        hover:animate-none hover:scale-110">
-                            <i.img
-                                size={28}
-                                className="text-cyan-400"
-                                title={i.name}
-                                aria-label={i.name}
-                            />
+                {icons.map((i, index) => {
+                    const Icon = i.img;
+                    
+                    return (
+                        <div
+                            key={index}
+                            className="flex flex-col items-center group"
+                        >
+                            <div className="w-16 h-16 flex items-center justify-center rounded-full cursor-pointer 
+                            border border-cyan-500/40 bg-black/30 hover:bg-cyan-500/20 transition duration-300 
+                            ease-in-out animate-[spin_3s_linear_infinite]
+                             hover:[animation-play-state:paused] hover:scale-110">
+                                <Icon
+                                    size={28}
+                                    className="text-cyan-400"
+                                    title={i.name}
+                                    aria-label={i.name}
+                                />
+                            </div>
+                            <span className="text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition">
+                                {i.name}
+                            </span>
                         </div>
-                        <span className="text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            {i.name}
-                        </span>
-                    </div>
-                ))}
+                    )
+                })}
             </div>
             {/* <div className="bg-cover absolute inset-0 -z-1 bg-slate-950 ">
                 <BirdsLottie />
