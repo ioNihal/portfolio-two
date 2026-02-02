@@ -7,6 +7,7 @@ import { FooterLottie } from './FooterLottie';
 
 const linksArr = ["Home", "Skills", "Projects", "Experience", "About", "Contact"];
 const socials = [
+  { name: "Blog", url: "/blog" },
   { name: "Instagram", url: "https://instagram.com/io.nihal" },
   { name: "LinkedIn", url: "https://linkedin.com/in/n1hal" },
   { name: "Github", url: "https://github.com/ionihal" },

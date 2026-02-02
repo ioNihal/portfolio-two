@@ -13,11 +13,16 @@ export default function BlogIndexPage() {
         <main className="relative min-h-screen bg-black text-white">
 
             <div className="relative mx-auto max-w-5xl px-6 py-16">
-               
+
                 <header className="mb-12 border-b border-white/10 pb-6">
-                    <h1 className="font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
-                        Blog<span className="text-indigo-500">_</span>
-                    </h1>
+                    <div className="flex justify-between">
+                        <h1 className="font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
+                            Blog<span className="text-indigo-500">_</span>
+                        </h1>
+                        <Link href="/" className="text-sm font-mono text-white/60 hover:text-white">
+                            Back
+                        </Link>
+                    </div>
                     <p className="mt-3 max-w-xl text-sm text-white/60">
                         Notes on building interfaces, systems, and experiments along the way.
                     </p>

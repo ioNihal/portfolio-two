@@ -1,6 +1,7 @@
 import { Anton, Geist, Geist_Mono, Michroma, Space_Mono, Staatliches, Urbanist } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
+import FooterSection from "@/components/FooterSection/FooterSection";
 // import { WebVitals } from "./components/web-vitals";
 
 
@@ -100,6 +101,7 @@ export default function RootLayout({ children }) {
         <JsonLd />
         {/* <WebVitals /> */}
         {children}
+         <FooterSection />
       </body>
     </html>
   );

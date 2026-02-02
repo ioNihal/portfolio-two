@@ -25,10 +25,7 @@ export default async function BlogViewPage({ params }) {
 
             <div className="relative mx-auto max-w-4xl px-6 py-16">
                 <div className="mb-10 flex items-center justify-between border-b border-white/10 pb-4">
-                    <Link
-                        href="/blog"
-                        className="text-sm font-mono text-white/60 hover:text-white"
-                    >
+                    <Link href="/blog" className="text-sm font-mono text-white/60 hover:text-white">
                         Back
                     </Link>
 
