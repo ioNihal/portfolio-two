@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 const projectsMock = [
     {
@@ -46,12 +47,13 @@ const projectsMock = [
 export default function ProjectSection() {
     return (
         <section id="projects" aria-label="Projects Section" className="h-screen w-full flex flex-col items-center justify-center bg-slate-950 relative">
-            <h2 className="absolute top-20 landscape:top-0 left-1/2 -translate-x-1/2 rotate-0 text-violet-600 text-lg lg:text-3xl flex gap-7 sm:gap-10 lg:gap-20" style={{fontFamily: "var(--urbanist)"}}>PROJECTS</h2>
+            <h2 className="absolute top-20 landscape:top-0 left-1/2 -translate-x-1/2 rotate-0 text-violet-600 text-lg lg:text-3xl flex gap-7 sm:gap-10 lg:gap-20 font-digital">PROJECTS</h2>
             <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div role="list" aria-label="Project list" className="grid grid-cols-1 gap-5 landscape:md:gap-3 landscape:lg:gap-5">
                     {projectsMock.map((project) => (
                         <article key={project.id} className="project-item group" role="listitem">
-                            <h3 className="py-2 text-2xl sm:text-3xl md:text-5xl landscape:md:text-xl lg:text-6xl landscape:lg:text-6xl font-[family-name:--anton] text-center text-white/80 transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer" style={{ fontFamily: 'var(--font-anton)' }}>
+                            <h3 className="py-2 text-2xl sm:text-3xl md:text-5xl landscape:md:text-xl lg:text-6xl landscape:lg:text-6xl font-condensed text-center text-white/80
+                             transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer">
                                 {project?.title?.toUpperCase()}
                             </h3>
                             <div className="project-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-1/2 lg:w-1/3 h-auto 
@@ -71,9 +73,9 @@ export default function ProjectSection() {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="flex gap-2 *:cursor-pointer urbanist" style={{ fontFamily: 'var(--urbanist)' }}>
-                                    <a className="inline-block  bg-violet-600 hover:bg-violet-700 text-white  py-1 px-3 rounded-md transition-colors duration-300" href={project.repo}>Repository</a>
-                                    {project?.preview && (<a className="inline-block bg-white/10 hover:bg-white/20 text-white py-1 px-3 rounded-md transition-colors duration-300" href={project.preview}>Live Preview</a>)}
+                                <div className="flex gap-2 *:cursor-pointer urbanist">
+                                    <Link className="inline-block  bg-violet-600 hover:bg-violet-700 text-white  py-1 px-3 rounded-md transition-colors duration-300" href={project.repo}>Repository</Link>
+                                    {project?.preview && (<Link className="inline-block bg-white/10 hover:bg-white/20 text-white py-1 px-3 rounded-md transition-colors duration-300" href={project.preview}>Live Preview</Link>)}
                                 </div>
 
                             </div>

@@ -1,4 +1,4 @@
-import { Anton, Geist, Geist_Mono, Staatliches, Urbanist } from "next/font/google";
+import { Anton, Geist, Geist_Mono, Michroma, Space_Mono, Staatliches, Urbanist } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 // import { WebVitals } from "./components/web-vitals";
@@ -15,22 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 
-const urbanist = Urbanist({
-  variable: "--font-urbanist",
-  subsets: ["latin"],
-  weight: ["400", "500"]
-});
-
-const staatliches = Staatliches({
-  variable: "--font-staatliches",
-  subsets: ["latin"],
-  weight: ["400"]
-})
-
 const anton = Anton({
   variable: "--font-anton",
   subsets: ["latin"],
   weight: ["400"],
+})
+
+const microma = Michroma({
+  variable: "--font-michroma",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 })
 
 
@@ -95,7 +95,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${staatliches.variable} ${urbanist.variable} ${anton.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${microma.variable} ${spaceMono.variable} antialiased`}
       >
         <JsonLd />
         {/* <WebVitals /> */}

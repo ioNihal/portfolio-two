@@ -32,10 +32,10 @@ const icons = [
 export default function SkillSection() {
     return (
         <section className="h-auto lg:h-screen w-full flex flex-col items-center justify-center px-6 py-16 relative bg-slate-950" id="skills">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4 font-digital">
                 Tools and Tech's
             </h2>
-            <p className="text-gray-400 text-center max-w-xl mb-10">
+            <p className="text-gray-400 text-center max-w-xl mb-10 font-mono">
                 A showcase of the technologies and tools I'm proficient in. Hover over each skill to see its name.
             </p>
 
@@ -59,7 +59,7 @@ export default function SkillSection() {
                                     aria-label={i.name}
                                 />
                             </div>
-                            <span className="text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition">
+                            <span className="text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition font-digital">
                                 {i.name}
                             </span>
                         </div>

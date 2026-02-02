@@ -18,9 +18,7 @@ export default function FooterSection() {
   return (
     <section
       className="h-auto w-full bg-black border-t border-gray-600 relative px-4 sm:px-6 
-            text-white isolate flex flex-col items-center justify-center"
-      style={{ fontFamily: "var(--urbanist)" }}
-    >
+            text-white isolate flex flex-col items-center justify-center">
       <div className='w-full 2xl:w-7/10  px-6 lg:px-10 pt-10 lg:pt-8 pb-10 flex flex-col-reverse lg:flex-row gap-10 lg:gap-30'>
         <div className="flex flex-col gap-3">
           <h2 className="text-4xl lg:text-7xl font-semibold tracking-widest">ioNihal</h2>
@@ -36,7 +34,7 @@ export default function FooterSection() {
                 className="inline-block w-5 h-5 lg:w-7 lg:h-7"
               />
             </p>
-            <p className='text-xs'>ioNihal &copy; {currentYear}.</p>
+            <p className='text-xs font-mono'>ioNihal &copy; {currentYear}.</p>
           </div>
         </div>
 

@@ -10,7 +10,7 @@ export default function LinkList({ links, action = null }) {
 
   return (
     <ul>
-      {links.map((lin, index) => {
+      {links.map((lin) => {
         if (action === "navigation" && typeof lin === "string") {
           return (
             <li

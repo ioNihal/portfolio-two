@@ -15,14 +15,14 @@ const timelineData = [
     id: 2,
     year: "2022 - 2025",
     title: "BCA Software & Web Development",
-    place: " Srinivas University",
+    place: " Srinivas University Manglore",
     text: "Graduated in 2025 with a Bachelor of Computer Applications, focusing on software development, web technologies, and practical project experience."
   },
   {
     id: 3,
     year: "2020 - 2022",
     title: "HSE Computer Science",
-    place: "Chemnad Kasaragod",
+    place: "CJHSS Chemnad Kasaragod",
     text: "Completed Higher Secondary Education in Computer Science from Chemnad, Kasaragod in 2022, building a solid foundation in programming and digital literacy."
   },
 ]
@@ -32,15 +32,14 @@ export default function TimelineSection() {
 
   return (
     <section className="min-h-screen w-full bg-slate-950 relative px-4 py-16 sm:px-6 sm:py-20 overflow-hidden
-    text-white isolate grid place-items-center" id='experience'
-      style={{ fontFamily: "var(--staatliches)" }}>
+    text-white isolate grid place-items-center" id='experience'>
       <div className="flex flex-col items-center justify-center max-w-lg  m-auto">
         {timelineData.map((t) => {
           const direction = (t.id === 1 || t.id === 3) ? "first" : "second";
           return (
             <article
               key={t.id}
-              className="timeline-item py-5 border-emerald-400 border-b flex flex-col text-lg"
+              className="timeline-item py-3 border-emerald-400 border-b flex flex-col text-lg space-y-1"
               data-direction={direction}
             >
               <h4 className="text-sm text-gray-400 font-mono">{t.year}</h4>
