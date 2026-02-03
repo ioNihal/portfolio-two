@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getSlugs } from "@/lib/blog";
+import { formatDate, getAllPostsMeta, getSlugs } from "@/lib/blog";
 
 export const metadata = {
     title: "Nihal's Blog",
@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function BlogIndexPage() {
-    const slugs = getSlugs();
+    const posts = getAllPostsMeta();
 
     return (
         <main className="relative min-h-screen bg-black text-white">
@@ -30,23 +30,34 @@ export default function BlogIndexPage() {
 
                 {/* Posts */}
                 <ul className="grid gap-4 sm:grid-cols-2">
-                    {slugs.map((slug, index) => (
-                        <li key={slug}>
+                    {posts.map((post, index) => (
+                        <li key={post.slug}>
                             <Link
-                                href={`/blog/${slug}`}
+                                href={`/blog/${post.slug}`}
                                 className="group block h-full border border-white/10 bg-white/5 p-5 transition hover:border-indigo-500/40 hover:bg-white/10"
                             >
                                 <div className="mb-2 text-xs font-mono tracking-widest text-white/40">
                                     POST // {String(index + 1).padStart(2, "0")}
                                 </div>
 
-                                <h2 className="text-lg font-semibold leading-snug group-hover:text-indigo-400">
-                                    {slug.replace(/-/g, " ")}
+                                <h2 className="text-lg font-semibold group-hover:text-indigo-400">
+                                    {post.title}
                                 </h2>
 
-                                <div className="mt-4 text-xs text-white/40">
-                                    Read article
-                                </div>
+                                {post.date && (
+                                    <time
+                                        dateTime={post.date}
+                                        className="mt-1 block text-xs text-white/40"
+                                    >
+                                        {formatDate(post.date)}
+                                    </time>
+                                )}
+
+                                {post.description && (
+                                    <p className="mt-3 text-sm text-white/60">
+                                        {post.description}
+                                    </p>
+                                )}
                             </Link>
                         </li>
                     ))}
