@@ -125,7 +125,7 @@ export default async function BlogViewPage({ params }) {
                     prose-a:no-underline hover:prose-a:underline prose-code:font-mono  prose-code:text-indigo-300
                     prose-pre:bg-white/5  prose-pre:border prose-pre:border-white/10">
 
-                    <h1>{frontMatter.title}</h1>
+                    <h1 className="text-xl lg:text-2xl">{frontMatter.title}</h1>
 
                     {frontMatter.date && (
                         <time
