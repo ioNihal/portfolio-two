@@ -2,12 +2,13 @@ import { getSlugs } from "@/lib/blog";
 
 export default function sitemap() {
   const baseUrl = "https://ionihal.vercel.app";
-  const lastContentUpdate = "2025-10-06T00:00:00.000Z";
+  const lastContentUpdate = new Date().toISOString();
+
 
   const blogPages = getSlugs().map((slug) => ({
     url: `${baseUrl}/blog/${slug}`,
     lastModified: lastContentUpdate,
-    changeFrequency: "monthly",
+    changeFrequency: "yearly",
     priority: 0.7,
   }));
 

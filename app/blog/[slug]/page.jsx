@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPost, getSlugs } from "@/lib/blog";
+import { formatDate, getPost, getSlugs, truncateTitle } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import * as components from "@/components/MdxComponents";
 import { notFound } from "next/navigation";
@@ -11,12 +11,14 @@ export async function generateStaticParams() {
 export default async function BlogViewPage({ params }) {
     const { slug } = await params;
 
-    let source;
+    let post;
     try {
-        source = getPost(slug);
+        post = getPost(slug);
     } catch {
         notFound();
     }
+
+    const { content, frontMatter } = post;
 
     return (
         <main className="relative min-h-screen bg-black text-white">
@@ -30,7 +32,7 @@ export default async function BlogViewPage({ params }) {
                     </Link>
 
                     <span className="text-xs font-digital tracking-widest text-white/40">
-                        ARTICLE // {slug.toUpperCase().slice(0, 12)}
+                        ARTICLE // {truncateTitle(frontMatter.title.toUpperCase(), 18)}
                     </span>
                 </div>
 
@@ -40,7 +42,25 @@ export default async function BlogViewPage({ params }) {
                     prose-headings:text-white  prose-p:text-white/70  prose-a:text-indigo-400
                     prose-a:no-underline hover:prose-a:underline prose-code:font-mono  prose-code:text-indigo-300
                     prose-pre:bg-white/5  prose-pre:border prose-pre:border-white/10">
-                    <MDXRemote source={source} components={components} />
+
+                    <h1>{frontMatter.title}</h1>
+
+                    {frontMatter.date && (
+                        <time
+                            dateTime={frontMatter.date}
+                            className="block mt-2 text-xs font-mono tracking-wide text-white/40"
+                        >
+                            {formatDate(frontMatter.date)}
+                        </time>
+                    )}
+
+                    {frontMatter.description && (
+                        <p className="mt-2 mb-6 max-w-2xl text-sm text-white/50">
+                            {frontMatter.description}
+                        </p>
+                    )}
+
+                    <MDXRemote source={content} components={components} />
                 </article>
             </div>
         </main>

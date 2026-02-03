@@ -48,7 +48,7 @@ export default function SkillSection() {
                             key={index}
                             className="flex flex-col items-center group"
                         >
-                            <div className="w-16 h-16 flex items-center justify-center rounded-full cursor-pointer 
+                            <div aria-hidden className="w-16 h-16 flex items-center justify-center rounded-full cursor-pointer 
                             border border-cyan-500/40 bg-black/30 hover:bg-cyan-500/20 transition duration-300 
                             ease-in-out animate-[spin_3s_linear_infinite]
                              hover:[animation-play-state:paused] hover:scale-110">

@@ -1,13 +1,15 @@
-import Link from "next/link"
+import Link from "next/link";
+
+
 
 const projectsMock = [
     {
         id: 0,
-        title: "Toolight",
-        desc: "A light and color based fun & serious utility tools web app, helping designers and boring humans find something useless.",
-        tech: ["ReactJS", "CSS Modules", "React Router"],
-        repo: "https://github.com/ioNihal/light.io",
-        preview: "https://toolight.vercel.app",
+        title: "Inventory Management System",
+        desc: "Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.",
+        tech: ["ReactJS", "ExpressJS", "MongoDB"],
+        repo: "https://github.com/ioNihal/sims-dashboard-front",
+        preview: null,
     },
     {
         id: 1,
@@ -19,11 +21,11 @@ const projectsMock = [
     },
     {
         id: 2,
-        title: "Inventory Management System",
-        desc: "Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.",
-        tech: ["ReactJS", "ExpressJS", "MongoDB"],
-        repo: "https://github.com/ioNihal/sims-dashboard-front",
-        preview: null,
+        title: "Toolight",
+        desc: "A light and color based fun & serious utility tools web app, helping designers and boring humans find something useless.",
+        tech: ["ReactJS", "CSS Modules", "React Router"],
+        repo: "https://github.com/ioNihal/light.io",
+        preview: "https://toolight.vercel.app",
     },
     {
         id: 3,
@@ -43,46 +45,64 @@ const projectsMock = [
     },
 ]
 
-
 export default function ProjectSection() {
     return (
-        <section id="projects" aria-label="Projects Section" className="h-screen w-full flex flex-col items-center justify-center bg-slate-950 relative">
-            <h2 className="absolute top-20 landscape:top-0 left-1/2 -translate-x-1/2 rotate-0 text-violet-600 text-lg lg:text-3xl flex gap-7 sm:gap-10 lg:gap-20 font-digital">PROJECTS</h2>
-            <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div role="list" aria-label="Project list" className="grid grid-cols-1 gap-5 landscape:md:gap-3 landscape:lg:gap-5">
-                    {projectsMock.map((project) => (
-                        <article key={project.id} className="project-item group" role="listitem">
-                            <h3 className="py-2 text-2xl sm:text-3xl md:text-5xl landscape:md:text-xl lg:text-6xl landscape:lg:text-6xl font-condensed text-center text-white/80
-                             transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-600 cursor-pointer">
-                                {project?.title?.toUpperCase()}
-                            </h3>
-                            <div className="project-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-1/2 lg:w-1/3 h-auto 
-                            flex flex-col items-start gap-[0.5em] transition-all duration-300 ease-in-out cursor-pointer
-                            rounded-2xl p-3 shadow-2xl border-2 border-white/10" role="article" aria-label={`Project: ${project.title}`}>
-                                <h3 className="text-xl font-bold text-white">
-                                    {project.title}
-                                </h3>
-                                <p className="text-sm text-gray-300">
-                                    {project.desc}
-                                </p>
-                                <div className="flex items-center gap-[1em] w-full text-xs">
-                                    <span className="font-semibold text-white">Tech&nbsp;Stack:</span>
-                                    <div className="flex gap-[0.5em]">
-                                        {project?.tech.map((t, i) => (
-                                            <span key={i} className="bg-indigo-500/20 text-indigo-300 font-medium py-1 px-3 rounded-full">{t}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="flex gap-2 *:cursor-pointer urbanist">
-                                    <Link className="inline-block  bg-violet-600 hover:bg-violet-700 text-white  py-1 px-3 rounded-md transition-colors duration-300" href={project.repo}>Repository</Link>
-                                    {project?.preview && (<Link className="inline-block bg-white/10 hover:bg-white/20 text-white py-1 px-3 rounded-md transition-colors duration-300" href={project.preview}>Live Preview</Link>)}
-                                </div>
-
-                            </div>
-                        </article>
-                    ))}
-                </div>
+        <section id="projects" aria-labelledby="projects-heading" className="relative w-full bg-slate-950 py-24">
+            <div className="mx-auto mb-16 max-w-7xl px-6 text-center">
+                <h2 id="projects-heading"
+                    className="font-digital text-2xl tracking-widest text-violet-500 sm:text-3xl">
+                    PROJECTS
+                </h2>
+                <p className="mt-4 text-sm text-white/60">
+                    Selected work showcasing systems, interfaces, and experiments.
+                </p>
             </div>
+
+            <ul aria-label="Project list" className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3">
+                {projectsMock.map((project) => (
+                    <li key={project.id} className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-4 transition
+                       hover:border-indigo-500/40 hover:bg-white/10 focus-within:border-indigo-500/40">
+
+                        <h3 className="text-xl font-semibold text-white">
+                            {project.title}
+                        </h3>
+
+                        <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
+                            {project.desc}
+                        </p>
+
+                        <div className="mt-2">
+                            <span className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                                Tech Stack
+                            </span>
+                            <ul className="mt-2 flex flex-wrap gap-2">
+                                {project.tech.map((t) => (
+                                    <li key={t}
+                                        className="rounded-full bg-indigo-500/15 px-3 py-1 text-[10px] font-digital font-medium text-indigo-300">
+                                        {t}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="mt-3 flex gap-3">
+                            <Link href={project.repo} aria-label={`View ${project.title} repository on GitHub`}
+                                className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white
+                                transition hover:bg-indigo-700 focus-visible:outline focus-visible:outline-indigo-400">
+                                Repository
+                            </Link>
+
+                            {project.preview && (
+                                <Link href={project.preview} aria-label={`View live preview of ${project.title}`}
+                                    className="inline-flex items-center justify-center rounded-md bg-white/10 px-3 py-1.5 text-xs font-semibold text-white
+                                    transition hover:bg-white/20 focus-visible:outline focus-visible:outline-indigo-400">
+                                    Live Preview
+                                </Link>
+                            )}
+                        </div>
+                    </li>
+                ))}
+            </ul>
         </section>
-    )
+    );
 }
