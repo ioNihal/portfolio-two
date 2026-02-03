@@ -8,6 +8,86 @@ export async function generateStaticParams() {
     return getSlugs().map((slug) => ({ slug }));
 }
 
+export async function generateMetadata({ params }) {
+    const { slug } = params;
+
+    let post;
+    try {
+        post = getPost(slug);
+    } catch {
+        return {};
+    }
+
+    const { frontMatter } = post;
+
+    const title = frontMatter.title;
+    const description = frontMatter.description ?? "";
+    const publishedTime = frontMatter.date
+        ? new Date(frontMatter.date).toISOString()
+        : undefined;
+
+    const url = `https://ionihal.vercel.app/blog/${slug}`;
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: url,
+        },
+        openGraph: {
+            type: "article",
+            url,
+            title,
+            description,
+            publishedTime,
+            authors: ["Nihal K"],
+        },
+        twitter: {
+            card: "summary",
+            title,
+            description,
+        },
+    };
+}
+
+
+function BlogJsonLd({ slug, frontMatter }) {
+    const url = `https://ionihal.vercel.app/blog/${slug}`;
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": frontMatter.title,
+        "description": frontMatter.description,
+        "datePublished": frontMatter.date
+            ? new Date(frontMatter.date).toISOString()
+            : undefined,
+        "author": {
+            "@type": "Person",
+            "name": "Nihal K",
+            "url": "https://ionihal.vercel.app",
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Nihal K",
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": url,
+        },
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify(jsonLd),
+            }}
+        />
+    );
+}
+
+
 export default async function BlogViewPage({ params }) {
     const { slug } = await params;
 
@@ -22,6 +102,8 @@ export default async function BlogViewPage({ params }) {
 
     return (
         <main className="relative min-h-screen bg-black text-white">
+            <BlogJsonLd slug={slug} frontMatter={frontMatter} />
+
             {/* Background grid */}
             <div className="pointer-events-none absolute inset-0 bg-grid" />
 

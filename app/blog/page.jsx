@@ -2,9 +2,28 @@ import Link from "next/link";
 import { formatDate, getAllPostsMeta, getSlugs } from "@/lib/blog";
 
 export const metadata = {
-    title: "Nihal's Blog",
+    title: "Blog - Nihal K",
     description: "Thoughts, experiments, and notes on building for the web.",
+
+    alternates: {
+        canonical: "https://ionihal.vercel.app/blog",
+    },
+
+    openGraph: {
+        title: "Blog - Nihal K",
+        description: "Thoughts, experiments, and notes on building for the web.",
+        url: "https://ionihal.vercel.app/blog",
+        siteName: "Nihal K",
+        type: "website",
+    },
+
+    twitter: {
+        card: "summary",
+        title: "Blog - Nihal K",
+        description: "Thoughts, experiments, and notes on building for the web.",
+    },
 };
+
 
 export default function BlogIndexPage() {
     const posts = getAllPostsMeta();
