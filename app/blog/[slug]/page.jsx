@@ -39,10 +39,8 @@ export async function generateMetadata({ params }) {
             url,
             title,
             description,
-            siteName: "Nihal K Blog",
             publishedTime,
             authors: ["Nihal K"],
-            images: [],
         },
         twitter: {
             card: "summary",
