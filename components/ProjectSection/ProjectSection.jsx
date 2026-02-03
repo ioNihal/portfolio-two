@@ -55,6 +55,12 @@ export default function ProjectSection() {
                 </h2>
                 <p className="mt-4 text-sm text-white/60">
                     Selected work showcasing systems, interfaces, and experiments.
+                    More projects live on{" "}
+                    <Link href="https://tomatoweb.site" className="text-white underline-offset-2 hover:underline"
+                        target="_blank" rel="noopener noreferrer" >
+                        TomatoWeb
+                    </Link>
+                    .
                 </p>
             </div>
 
