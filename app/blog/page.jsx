@@ -1,26 +1,40 @@
 import Link from "next/link";
-import { formatDate, getAllPostsMeta, getSlugs } from "@/lib/blog";
+import { formatDate, getAllPostsMeta } from "@/lib/blog";
+
+const SITE_URL = "https://ionihal.vercel.app";
+const OG_HOST = "https://rendercard.vercel.app";
 
 export const metadata = {
-    title: "Blog - Nihal K",
+    title: "Blog · Nihal K",
     description: "Thoughts, experiments, and notes on building for the web.",
 
     alternates: {
-        canonical: "https://ionihal.vercel.app/blog",
+        canonical: `${SITE_URL}/blog`,
     },
 
     openGraph: {
-        title: "Blog - Nihal K",
+        title: "Blog · Nihal K",
         description: "Thoughts, experiments, and notes on building for the web.",
-        url: "https://ionihal.vercel.app/blog",
+        url: `${SITE_URL}/blog`,
         siteName: "Nihal K",
         type: "website",
+        images: [
+            {
+                url: `${OG_HOST}/api/rendercard?title=Blog&description=Thoughts%2C+experiments%2C+and+notes+on+building+for+the+web.&site=ionihal.vercel.app&theme=spotlight`,
+                width: 1200,
+                height: 630,
+                alt: "Blog · Nihal K",
+            },
+        ],
     },
 
     twitter: {
-        card: "summary",
-        title: "Blog - Nihal K",
+        card: "summary_large_image",
+        title: "Blog · Nihal K",
         description: "Thoughts, experiments, and notes on building for the web.",
+        images: [
+            `${OG_HOST}/api/rendercard?title=Blog&description=Thoughts%2C+experiments%2C+and+notes+on+building+for+the+web.&site=ionihal.vercel.app&theme=spotlight`,
+        ],
     },
 };
 

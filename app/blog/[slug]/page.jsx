@@ -22,11 +22,25 @@ export async function generateMetadata({ params }) {
 
     const title = frontMatter.title;
     const description = frontMatter.description ?? "";
+    const date = frontMatter.date ?? "";
+    const site = "ionihal.vercel.app";
+
+    const url = `https://ionihal.vercel.app/blog/${slug}`;
+
+    const ogParams = new URLSearchParams({
+        title,
+        description,
+        date,
+        site,
+        theme: "dark",
+    });
+
+    const ogImage = `https://rendercard.vercel.app/api/rendercard?${ogParams.toString()}`;
+
     const publishedTime = frontMatter.date
         ? new Date(frontMatter.date).toISOString()
         : undefined;
 
-    const url = `https://ionihal.vercel.app/blog/${slug}`;
 
     return {
         title,
@@ -40,12 +54,22 @@ export async function generateMetadata({ params }) {
             title,
             description,
             publishedTime,
+            siteName: "Nihal K",
             authors: ["Nihal K"],
+            images: [
+                {
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                },
+            ],
         },
         twitter: {
-            card: "summary",
+            card: "summary_large_image",
             title,
             description,
+            images: [ogImage],
         },
     };
 }
