@@ -11,12 +11,12 @@ export default function HeroContent() {
                         IDENTIFIER // 001
                     </span>
 
-                    <h1 className="mt-6 font-future text-5xl font-semibold sm:text-6xl lg:text-7xl">
+                    <h1 className="mt-6 font-future text-4xl sm:text-5xl font-semibold md:text-6xl lg:text-7xl">
                         NIHAL K
                         <span className="ml-1 text-indigo-500">_</span>
                     </h1>
 
-                    <h2 className="mt-4 text-lg font-digital font-semibold text-white/70 sm:text-2xl">
+                    <h2 className="mt-4 sm:text-lg font-digital font-semibold text-white/70 md:text-2xl">
                         I&apos;m a{" "}
                         <Title />
                     </h2>
