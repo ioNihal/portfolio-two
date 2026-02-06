@@ -37,7 +37,7 @@
     "app/not-found.jsx",
     "app/blog/page.jsx",
     ".next/dev/types/**/*.ts"
-  ],
+, "components/ContactSection/LazyContactSection.jsx"  ],
   "exclude": [
     "node_modules"
   ]
