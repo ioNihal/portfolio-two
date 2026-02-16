@@ -66,9 +66,6 @@ export default function SkillSection() {
                     )
                 })}
             </div>
-            {/* <div className="bg-cover absolute inset-0 -z-1 bg-slate-950 ">
-                <BirdsLottie />
-            </div> */}
         </section>
     );
 }

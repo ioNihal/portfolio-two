@@ -9,18 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lottiefiles/dotlottie-react": "^0.15.0",
-    "dotenv": "^17.2.2",
     "formcord": "^1.0.0",
     "gray-matter": "^4.0.3",
     "next": "^16.1.6",
-    "next-mdx-remote": "^5.0.0",
-    "node-fetch": "^3.3.2",
-    "nodemailer": "^7.0.6",
+    "next-mdx-remote": "^6.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-icons": "^5.5.0",
-    "tweetnacl": "^1.0.3"
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
