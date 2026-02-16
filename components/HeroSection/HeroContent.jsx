@@ -34,7 +34,7 @@ export default function HeroContent() {
                             href={'/blog'}
                             className="border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold transition hover:bg-white/10"
                         >
-                            Blogs
+                            Blog
                         </Link>
                         <Link
                             prefetch={false}
