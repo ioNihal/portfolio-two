@@ -1,41 +1,42 @@
 ---
-title: RenderCard - From My Blog Need to a Public OG API
+title: RenderCard - From my blog need to a public OG API
 description: How RenderCard started as a personal OG image solution and became a free URL-based API for social preview cards.
 date: 2026-02-15
 ---
 
-RenderCard started with a practical problem:
+RenderCard started with a simple problem.
 
-**I needed clean OG images for my own blog posts, fast.**
+I needed clean OG images for my blog posts, and I needed them fast.
 
-I didn't want to design every preview card manually, and I didn't want to depend on heavy tooling just to generate one image per post.
+I did not want to design a new preview card every time I wrote something. I also did not want to depend on heavy tools just to generate one image.
 
-So I built a small internal generator for myself.
+So I built a small internal tool for myself.
 
-Then I realized this wasn't just my problem.
+Then it hit me. This is not just my problem.
 
 ---
 
 ## The original need
 
-I wanted a simple way to generate:
+I just wanted an easy way to generate:
+
 - Open Graph images for blog links
 - Featured images for articles
-- Consistent visual style across posts
+- A consistent style across posts
 
-At first, this was just for my own writing workflow. I would pass title and metadata, generate a card, and move on.
+At first, it was only part of my writing flow. Pass a title, maybe some metadata, generate the image, done.
 
-That alone saved time.
+Even that saved a lot of time.
 
 ---
 
 ## From internal tool to public API
 
-Once the core worked, I asked:
+Once it was working well, I asked myself:
 
-**Why keep this locked inside one project?**
+Why keep this inside one project?
 
-So I turned it into a public, URL-based API where image generation happens through query parameters.
+So I turned it into a public API where you generate images using just a URL.
 
 Base endpoint:
 - `https://rendercard.vercel.app/api/rendercard`
@@ -43,21 +44,22 @@ Base endpoint:
 Minimal usage:
 - `https://rendercard.vercel.app/api/rendercard?title=Hello+World`
 
-No dashboard. No login wall. Just a URL that returns a card image.
+No dashboard. No login. Just hit a URL and get an image back.
 
 ---
 
 ## What RenderCard supports
 
-RenderCard keeps the API intentionally small:
+I kept things intentionally simple:
 
 - `title` (required)
 - `description` (optional)
 - `theme` (optional)
 - `accent` (optional hex color)
-- `date` (optional: ISO date or unix ms)
+- `date` (optional: ISO or unix ms)
 
-Available themes:
+Themes available:
+
 - `minimal`
 - `centered`
 - `split`
@@ -69,73 +71,80 @@ Available themes:
 - `mono`
 - `code`
 
-Unknown params are ignored safely, and unknown themes fall back to `minimal`.
+If you pass something unknown, it just ignores it. Unknown themes fall back to `minimal`.
 
 ---
 
 ## Why I built it this way
 
-I wanted RenderCard to be:
+I wanted it to be:
+
 - Fast to use
-- Easy to embed in any stack
-- Good enough by default
-- Flexible when needed
+- Easy to plug into any stack
+- Good enough out of the box
+- Flexible if you want to tweak things
 
-If you can construct a URL, you can generate a preview image.
+If you can build a URL, you can use it.
 
-That means it works well for:
+That makes it useful for:
+
 - OG tags in blog pages
-- Twitter/X cards
-- Documentation articles
-- Landing page announcements
-- Internal tools that need visual previews
+- Twitter or X cards
+- Docs and articles
+- Landing pages
+- Internal tools
 
 ---
 
 ## Tech direction
 
-RenderCard is built with:
+It is built with:
+
 - Next.js
 - Edge Runtime
 
-Edge execution made sense here because OG image generation is request-driven and benefits from low-latency responses globally.
+Edge made sense because this is request-based and needs to respond quickly from anywhere.
 
-The focus was reliability and speed, not complexity.
+The goal was speed and reliability, not adding complexity.
 
 ---
 
 ## What it is not
 
-- Not a design suite
-- Not a no-code editor
-- Not trying to replace full creative tooling
+This is not:
 
-It is a focused utility: turn text and metadata into clean social preview cards.
+- A design tool
+- A no-code builder
+- A replacement for full design software
+
+It is just a small utility that turns text into a clean preview card.
 
 ---
 
 ## What comes next
 
-Planned direction:
-- Better typography controls
-- More layout presets based on real usage
-- Safer validation and clearer parameter errors
-- Potential presets for blog engines
+Things I want to improve:
 
-I'll keep it simple and useful first.
+- Better typography control
+- More layout presets based on real usage
+- Clearer validation for parameters
+- Maybe presets for blog platforms
+
+I will keep it simple.
 
 ---
 
 ## Closing
 
-RenderCard began as a fix for my own content workflow.
+RenderCard started as something I needed for my own workflow.
 
-Now it's a free API others can use too.
+Now it is something others can use too.
 
-That is usually the best kind of side project: solve one real problem well, then open it up.
+That is usually how the best side projects happen. Solve your own problem first, then share it.
 
 ---
 
 **Links**
+
 - [Live API Endpoint](https://rendercard.vercel.app/api/rendercard)
-- [Support Page](https://rendercard.vercel.app/support) - If you have any suggestions please do submit here : /
+- [Support Page](https://rendercard.vercel.app/support)

@@ -1,46 +1,53 @@
 ﻿---
-title: Formcord - Why did i built this as a npm package
+title: Formcord - Why I built this as an npm package
 description: From a personal contact form to a reusable Discord notification package.
 date: 2026-02-06
 ---
 
-I started this as a tiny feature in my portfolio: a contact form that would notify me in Discord. I wanted something simple, reliable enough for a personal site, and portable across different runtimes without dragging in a heavy SDK.
+This started as a small thing in my portfolio. I had a contact form and wanted messages to show up in Discord so I would not miss them.
 
-That small idea kept nagging me. If I needed this, other developers probably did too. So instead of letting the code sit in one project, I decided to turn it into a standalone package anyone could reuse.
+At first, it was just a simple setup that worked for my site. Nothing special. But every time I needed the same thing in another project, I ended up copying the same code again and again. That got annoying pretty quickly.
+
+So I thought, why not just turn this into something reusable?
 
 ## The First Spark
 
-The original version was a straightforward Discord REST call. It worked, but it lived inside one app. I had to re-copy the logic and tweak it every time I wanted the same behavior somewhere else. That felt wasteful.
+The initial version was just a basic Discord API call. It did the job, but it was stuck inside one project.
 
-So I asked a simple question: what if this were a clean, universal helper that anyone could install with one command?
+Whenever I wanted the same feature somewhere else, I had to copy it, adjust it, and hope I did not break anything. It felt messy and repetitive.
+
+That is when I started thinking about making it a small package that I could just install and use anywhere.
 
 ## Turning It Into a Package
 
-I set three rules for myself:
+I kept a few simple rules while building it:
 
-- Use only Web APIs like fetch, URL, and JSON
-- Avoid Node-only dependencies so it works in Edge and serverless
-- Keep it small, honest, and predictable
+- Use standard Web APIs like fetch and JSON
+- Avoid anything Node-specific so it works in serverless and edge environments
+- Keep it small and easy to understand
 
-I built a core sender, then layered opinionated helpers on top: contact, error, deploy, feedback, and bug. Each helper creates a clean embed payload and sends it with minimal friction.
+I started with a core sender, then added helpers for common use cases like contact forms, errors, feedback, and bug reports.
+
+Each one just builds a clean message and sends it. No complicated setup.
 
 ## The Best Part
 
-The best part is how reusable it became. What started as a personal contact form is now a tiny tool that can plug into any app: a side project, a product launch, or even internal tooling.
+The best part is how easy it became to reuse. What started as a one-off feature is now something I can drop into any project.
 
-I also added optional embed theming so anyone can brand their notifications without touching the core code. That made it feel complete and customizable without bloating the API.
+I also added simple theming for embeds so it can look a bit nicer without extra effort.
 
 ## Shipping It
 
-Publishing the package felt like the moment it became real. I kept it minimal, documented it clearly, and made sure it works in the runtimes I care about.
+Publishing it to npm felt good. I kept everything simple, added basic docs, and made sure it works where I actually need it.
 
-This is the kind of tool I wish I had when I started building. Now it exists, and anyone can use it.
+It is the kind of tool I wish I had earlier, so I made it.
 
 ## What's Next
 
-- More helpers based on real use cases
-- Optional adapters for other platforms
-- Keep the core tiny and stable
+- Add more helpers based on real use cases
+- Maybe support other platforms later
+- Keep the core simple and stable
 
-If you want to check it out, search for `formcord` on npm.
-or you can check the github repository : [Link Here](https://github.com/ioNihal/formcord)
+If you want to try it, search for `formcord` on npm.
+
+GitHub: [Link Here](https://github.com/ioNihal/formcord)

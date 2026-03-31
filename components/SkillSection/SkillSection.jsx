@@ -11,6 +11,12 @@ import {
     SiGit,
     SiFigma,
     SiBlender,
+    SiReact,
+    SiNextdotjs,
+    SiPrisma,
+    SiPostgresql,
+    SiGraphql,
+    SiWordpress,
 } from "react-icons/si";
 
 
@@ -20,6 +26,12 @@ const icons = [
     { name: "CSS", img: SiCss3 },
     { name: "Node.js", img: SiNodedotjs },
     { name: "TypeScript", img: SiTypescript },
+    { name: "ReactJS", img: SiReact },
+    { name: "Next.js", img: SiNextdotjs },
+    { name: "Prisma", img: SiPrisma },
+    { name: "PostgresSQL", img: SiPostgresql },
+    { name: "GraphQL", img: SiGraphql },
+    { name: "Wordpress", img: SiWordpress },
     { name: "Tailwind CSS", img: SiTailwindcss },
     { name: "Express.js", img: SiExpress },
     { name: "MongoDB", img: SiMongodb },
