@@ -129,7 +129,7 @@ export default async function BlogViewPage({ params }) {
             <BlogJsonLd slug={slug} frontMatter={frontMatter} />
 
             {/* Background grid */}
-            <div className="pointer-events-none absolute inset-0 bg-grid" />
+            {/* <div className="pointer-events-none absolute inset-0 bg-grid" /> */}
 
             <div className="relative mx-auto max-w-4xl px-6 py-16">
                 <div className="mb-10 flex items-center justify-between border-b border-white/10 pb-4">
