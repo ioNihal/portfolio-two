@@ -1,284 +1,94 @@
 ---
-title: Fixing a Multi-Level Incentive System (L1–L4) Without Breaking the Workflow
+title: Fixing a Multi-Level Incentive System (L1-L4) Without Breaking the Workflow
 description: How I debugged and stabilized a hierarchical incentive system with approval, hold, and reporting logic across multiple roles.
 date: 2026-03-18
 ---
 
-This started with a system that looked correct on paper:
+This started as one of those systems that looked perfect on paper.
 
-**A multi-level incentive flow with 4 roles (L1 → L4), approvals, and reporting.**
+A 4-level incentive flow. L1 to L4. Each level approves, moves forward, everything clean.
 
-But once I started testing real scenarios, everything began to break in subtle ways.
+Then I tested it with real scenarios.
+
+Things didn't break completely. They just behaved… wrong in small ways.
+
+That was worse.
 
 ---
 
 ## The original goal
 
-I wanted a system where:
+The idea was simple:
 
-- Sales (L1) creates incentives  
-- Team Lead (L2) reviews  
-- Manager (L3) reviews  
-- Owner (L4) finalizes  
+- L1 (Sales) creates incentives
+- L2 (Team Lead) reviews
+- L3 (Manager) reviews
+- L4 (Owner) finalizes
 
-And each level should:
+Each level should:
 
-- Only see incentives when the previous level is approved  
-- Be blocked if a lower level puts it on hold  
-- Resume correctly when reopened  
+- Only see items after the previous level approves
+- Be blocked if something below is on hold
+- Continue properly once things are reopened
 
-This sounds straightforward.
+Sounds straightforward.
 
-It wasn’t.
+It wasn't.
 
 ---
 
 ## Where things went wrong
 
-The main issue was this:
+The biggest issue was this:
 
-**Database state ≠ UI state**
+**Database state and UI behavior were not aligned**
 
-Examples:
+Some examples:
 
-- L2 could see incentives even if L1 hadn’t approved  
-- Held incentives didn’t propagate correctly upward  
-- Higher levels still saw items they shouldn’t act on  
-- Reports showed everything, including irrelevant states  
+- L2 could see items that L1 had not approved
+- Holds were not properly blocking higher levels
+- L3 and L4 were seeing items they should not touch
+- Reports showed everything, even irrelevant states
 
-Everything worked individually, but not together.
+Nothing was fully broken. But nothing was fully correct either.
 
 ---
 
 ## The core realization
 
-I stopped relying on raw database fields like:
+I was trusting raw database fields too much:
 
 - `status`
 - `holdReason`
 - `heldBy`
 
-And introduced a derived concept:
+Those values were technically correct, but not enough to represent the actual workflow.
 
-> **Effective State**
+So I introduced a derived layer:
+
+**Effective State**
 
 ---
 
 ## Effective State
 
-Instead of trusting the current incentive row, I computed:
+Instead of using the row as-is, I compute what the state should be based on lower levels in the same sale.
 
-- effective status  
-- effective hold reason  
-- effective blocker  
-
-Based on **lower-level incentives in the same sale**
-
-Example idea:
+Basic idea:
 
 ```ts
 function computeEffectiveState(inc) {
-  const lowerHeld = checkLowerLevelHold(inc)
+const lowerHeld = checkLowerLevelHold(inc)
 
-  if (lowerHeld) {
-    return {
-      effectiveStatus: "ON_HOLD",
-      effectiveHeldBy: lowerHeld.heldBy
-    }
-  }
-
+if (lowerHeld) {
   return {
+    effectiveStatus: "ON_HOLD",
+    effectiveHeldBy: lowerHeld.heldBy
+  }
+}
+
+return {
     effectiveStatus: inc.status
   }
 }
 ```
-
-This changed everything.
-
-Now the UI reflects workflow reality, not just DB values.
-
-
----
-
-Visibility logic (the real rules)
-
-Each level follows an upward dependency:
-
-L1 → always visible
-
-L2 → only if L1 is CLAIMABLE or ON_HOLD
-
-L3 → only if L2 is ready
-
-L4 → only if L3 is ready
-
-
-Additionally:
-
-If any lower level is ON_HOLD, all upper levels:
-
-cannot act
-
-see it as blocked
-
-
-
-This creates a controlled flow instead of chaos.
-
-
----
-
-Reports needed different rules
-
-Reports are not workflow.
-
-They are financial output.
-
-So I restricted reports to:
-
-CLAIMABLE
-
-CLAIM_REQUESTED
-
-PAID
-
-
-And always scoped them to:
-
-beneficiaryUserId = currentUser
-
-That removed a lot of noise instantly.
-
-
----
-
-Frontend bugs that surfaced
-
-Filters didn’t update the table
-
-The API was returning correct data.
-
-But the UI didn’t change.
-
-Cause:
-
-React Query key didn’t include filters
-
-
-Fix:
-
-queryKey: ["reports", queryParams]
-
-
----
-
-Select input didn’t update
-
-Using:
-
-defaultValue
-
-Instead of:
-
-value
-
-So UI didn’t reflect URL changes.
-
-
----
-
-CSV export broke numbers
-
-₹5,000 became 5
-
-Cause:
-
-CSV comma parsing
-
-
-Fix:
-
-"₹5,000"
-
-Escaping values solved it.
-
-
----
-
-UI improvements
-
-I also fixed a structural issue:
-
-I was reusing one filter component everywhere.
-
-But:
-
-Incentives page → full lifecycle
-
-Review page → pending + hold
-
-Reports → only financial states
-
-
-So I made filters configurable instead of duplicating them.
-
-
----
-
-Small but useful addition
-
-Added per-row export in reports:
-
-Export one incentive as CSV
-
-Keep bulk export for full dataset
-
-
-This made reports more practical.
-
-
----
-
-Tech stack
-
-Next.js (App Router)
-
-React Query
-
-Nodejs (Express.js)
-
-Prisma
-
-PostgreSQL
-
-
-The challenge was not tooling.
-
-It was correctly modeling workflow behavior.
-
-
----
-
-What this taught me
-
-Database status is not enough
-
-Always derive UI state when hierarchy exists
-
-Query keys must include filters
-
-CSV is fragile unless escaped
-
-Reusable components should be configurable, not rigid
-
-
-
----
-
-Closing
-
-This wasn’t about adding more code.
-
-It was about making the system behave like the real process it represents.
-
-Once the logic matched reality, everything else became simpler.
