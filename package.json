@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.2",
     "formcord": "^1.0.0",
     "gray-matter": "^4.0.3",
     "next": "^16.1.6",

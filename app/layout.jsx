@@ -2,6 +2,7 @@ import { Anton, Geist, Geist_Mono, Michroma, Space_Mono, Staatliches, Urbanist }
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import FooterSection from "@/components/FooterSection/FooterSection";
+import { GoogleAnalytics } from "@next/third-parties/google";
 // import { WebVitals } from "./components/web-vitals";
 
 
@@ -103,6 +104,7 @@ export default function RootLayout({ children }) {
         {children}
          <FooterSection />
       </body>
+      <GoogleAnalytics gaId="G-44W01T0085" />
     </html>
   );
 }
