@@ -21,28 +21,28 @@ const projectsMock = [
     },
     {
         id: 2,
-        title: "Toolight",
-        desc: "A light and color based fun & serious utility tools web app, helping designers and boring humans find something useless.",
-        tech: ["ReactJS", "CSS Modules", "React Router"],
-        repo: "https://github.com/ioNihal/light.io",
-        preview: "https://toolight.vercel.app",
+        title: "RenderCard",
+        desc: "Built a dynamic Open Graph image generator API that creates customizable social preview cards using URL parameters, powered by Next.js Edge Runtime for fast, on-demand image rendering.",
+        tech: ["Next.js", "Edge Runtime", "API Routes", "Image Generation"],
+        repo: null,
+        preview: "https://rendercard.vercel.app",
     },
     {
         id: 3,
-        title: "Project Lyrics",
-        desc: "Project Lyrics has 3 preloaded song which users can play and control.",
-        tech: ["HTML5", "JavaScript", "CSS3"],
-        repo: "https://github.com/ioNihal/project-lyric",
-        preview: "https://ionihal.github.io/project-lyric",
+        title: "React WIP UI System",
+        desc: "Built a composable React UI library for marking work-in-progress features using badges, banners, overlays, and status indicators, with scalable component architecture and seamless Next.js integration.",
+        tech: ["Next.js", "React", "Component Architecture"],
+        repo: "https://github.com/ioNihal/react-wip-ui",
+        preview: "https://react-wip-ui.vercel.app",
     },
     {
-        id: 4,
-        title: "Splitter",
-        desc: "Splitter is a Website built on ReactJS for calculating and splitting group expenses.",
-        tech: ["ReactJS", "CSS", "LocalStorage"],
-        repo: "https://github.com/ioNihal/budget-splitter",
-        preview: "https://budget-splitter.vercel.app",
-    },
+        id: 5,
+        title: "Formcord",
+        desc: "Built a zero-dependency notification layer that sends form submissions and system events to Discord, designed to run seamlessly across Edge, serverless, and Node runtimes using Web APIs.",
+        tech: ["Next.js", "Edge Runtime", "Node.js", "Web APIs", "Discord API"],
+        repo: "https://github.com/ioNihal/formcord",
+        preview: "https://formcord.vercel.app",
+    }
 ]
 
 export default function ProjectSection() {
@@ -92,11 +92,13 @@ export default function ProjectSection() {
                         </div>
 
                         <div className="mt-3 flex gap-3">
-                            <Link href={project.repo} aria-label={`View ${project.title} repository on GitHub`}
-                                className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white
+                            {project.repo && (
+                                <Link href={project.repo} aria-label={`View ${project.title} repository on GitHub`}
+                                    className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white
                                 transition hover:bg-indigo-700 focus-visible:outline focus-visible:outline-indigo-400">
-                                Repository
-                            </Link>
+                                    Repository
+                                </Link>
+                            )}
 
                             {project.preview && (
                                 <Link href={project.preview} aria-label={`View live preview of ${project.title}`}

@@ -44,6 +44,10 @@ export const metadata = {
   // Keywords
   keywords: [
     'Full Stack Developer',
+    'Frontend Developer',
+    'Backend Developer',
+    'Software Developer',
+    'Software Engineer',
     'React Developer',
     'Next.js Portfolio',
     'MERN Stack',
