@@ -8,7 +8,7 @@ export default function HeroSection() {
       flex lg:items-center justify-center"
     >
       {/* Background grid */}
-      <div className="absolute -z-1 inset-0 bg-grid bg-indigo-950/35 " />
+      <div className="absolute -z-1 inset-0 bg-radial bg-indigo-950/35 " />
 
     
       <div className="px-4 py-12 lg:py-16 lg:px-10 max-w-6xl">

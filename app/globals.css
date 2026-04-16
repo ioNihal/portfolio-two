@@ -52,8 +52,12 @@
 }
 
 
-
-
+@utility bg-radial {
+  background-image:
+    radial-gradient(circle at center,
+      rgba(99, 102, 241, 0.1),
+      rgba(0, 0, 0, 0.95) 70%);
+}
 
 @keyframes wiggle {
 
