@@ -51,7 +51,7 @@ export default function HeroContent() {
 
             <div className="col-span-1 grid grid-cols-1 lg:col-span-5">
                 {[
-                    ["DESIGNATION // 002", "Frontend Developer Intern"],
+                    ["DESIGNATION // 002", "Frontend Developer"],
                     ["CORE // 003", "React / Next.js, TypeScript"],
                     ["STYLE // 004", "CSS3, Tailwind CSS"],
                     ["STATUS // 007", "Available for next-gen projects"],

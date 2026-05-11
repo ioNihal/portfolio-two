@@ -29,7 +29,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 ## 💼 Experience
 
 - Frontend Developer Intern — Warewe Consultancy Pvt Ltd. (Remote)  
-  August 2025 - Present  
+  August 2025 - 2026  
   - Built headless CMS integrations using WordPress + WPGraphQL and consumed the GraphQL data in a Next.js frontend.  
   - Developed blog and landing pages, reusable UI components with React + Tailwind.  
   - Worked on React dashboards, API integrations, and responsive UI; improved page performance via code-splitting and asset optimization.

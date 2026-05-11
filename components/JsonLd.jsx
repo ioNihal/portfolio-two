@@ -26,14 +26,16 @@ const projectsData = [
 const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': 'https://ionihal.vercel.app/#person',
+
     name: 'Nihal K',
     givenName: 'Nihal',
     familyName: 'K',
     url: 'https://ionihal.vercel.app',
     image: 'https://ionihal.vercel.app/profile-photo.webp',
 
-    jobTitle: 'Frontend Developer Intern',
-    description: 'Frontend Developer Intern and Full Stack Enthusiast from Kasaragod, Kerala, specializing in React, Next.js, and MongoDB.',
+    jobTitle: 'Frontend Developer',
+    description: 'Frontend developer specializing in React, Next.js, and modern web applications.',
 
     // Social and Professional Profiles
     sameAs: [
@@ -42,6 +44,8 @@ const personSchema = {
         'https://instagram.com/io.nihal',
         'https://x.com/n1haaaal',
     ],
+
+    email: 'mailto:nihal04x@gmail.com',
 
     // Geographical Location
     address: {
@@ -61,13 +65,6 @@ const personSchema = {
             addressLocality: 'Mangalore',
             addressRegion: 'Karnataka',
             addressCountry: 'India'
-        },
-
-        hasCredential: {
-            '@type': 'EducationalOccupationalCredential',
-            credentialCategory: 'Bachelor degree',
-            name: 'Bachelor of Computer Applications (BCA)',
-            educationalLevel: 'Undergraduate degree',
         }
     },
 
@@ -81,23 +78,15 @@ const personSchema = {
     hasOccupation: {
         '@type': 'Occupation',
         name: 'Frontend Developer Intern',
-        estimatedSalary: {
-            '@type': 'MonetaryAmount',
-            currency: 'INR',
-            unitText: 'MONTH',
-            // OPTIONAL: Add a range or single value if comfortable
-            // value: { '@type': 'QuantitativeValue', minValue: 20000, maxValue: 40000 }
-        }
     },
 
     // Project Portfolio (Work Examples)
     subjectOf: projectsData.map(project => ({
-        '@type': 'CreativeWork',
+        '@type': 'SoftwareSourceCode',
         name: project.name,
         description: project.description,
-        url: project.url,
-        genre: 'Web Application Development',
-        keywords: project.techs.join(', '),
+        codeRepository: project.url,
+        programmingLanguage: project.techs,
         author: {
             '@type': 'Person',
             name: 'Nihal K',
@@ -110,9 +99,11 @@ const personSchema = {
 const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://ionihal.vercel.app/#website',
     name: 'Nihal K - Portfolio',
     url: 'https://ionihal.vercel.app',
     description: 'Personal portfolio website of Nihal K, a Frontend Developer from Kasaragod, Kerala',
+    inLanguage: 'en',
 };
 
 

@@ -6,10 +6,10 @@ import Image from 'next/image';
 const timelineData = [
   {
     id: 1,
-    year: "2025 - PRESENT",
+    year: "2025 - 2026",
     title: "Frontend Developer Intern",
-    place: "Warewee Consultancy Ltd",
-    text: "Currently working as a frontend developer intern, creating user-friendly interfaces and delivering polished, accessible web experiences."
+    place: "Warewe Consultancy Pvt Ltd",
+    text: "Built responsive web interfaces using React, Next.js, Tailwind CSS, and integrated APIs for modern frontend applications. Also worked on Fullstack project."
   },
   {
     id: 2,
@@ -51,11 +51,11 @@ export default function TimelineSection() {
         })}
       </div>
       <div className="bg-cover absolute inset-0 -z-1">
-        <Image 
-          src={"/assets/exp.svg"} 
-          alt="Experience timeline background pattern" 
-          width={1000} 
-          height={1000} 
+        <Image
+          src={"/assets/exp.svg"}
+          alt="Experience timeline background pattern"
+          width={1000}
+          height={1000}
           loading="lazy"
           className='h-full w-full object-cover animate-wiggle opacity-[0.04]'
           priority={false}

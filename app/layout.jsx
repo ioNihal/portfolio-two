@@ -106,9 +106,9 @@ export default function RootLayout({ children }) {
         <JsonLd />
         {/* <WebVitals /> */}
         {children}
-         <FooterSection />
+        <FooterSection />
+        <GoogleAnalytics gaId="G-44W01T0085" />
       </body>
-      <GoogleAnalytics gaId="G-44W01T0085" />
     </html>
   );
 }
