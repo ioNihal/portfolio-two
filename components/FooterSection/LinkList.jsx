@@ -3,22 +3,23 @@
 import Link from "next/link";
 
 export default function LinkList({ links, action = null }) {
-  const handleNavigation = (loc) => {
-    const target = document.getElementById(loc);
-    target?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const handleNavigation = (loc) => {
+  //   const target = document.getElementById(loc);
+  //   target?.scrollIntoView({ behavior: "smooth" });
+  // };
 
   return (
+
     <ul>
       {links.map((lin) => {
         if (action === "navigation" && typeof lin === "string") {
           return (
             <li
               key={lin}
-              onClick={() => handleNavigation(lin.toLowerCase())}
+              // onClick={() => handleNavigation(lin.toLowerCase())}
               className="cursor-pointer hover:underline"
             >
-              {lin}
+              <a href={`/#${lin.toLocaleLowerCase()}`}>{lin}</a>
             </li>
           );
         }
