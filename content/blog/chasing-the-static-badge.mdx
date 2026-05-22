@@ -1,0 +1,112 @@
+---
+title: Chasing the Static Badge - A Next.js 16 Rendering Dilemma
+description: My journey trying to get a perfectly static Next.js app with a dynamic header, and why I eventually just went back to SSR.
+date: 2026-05-22
+---
+
+This started with something really small.
+
+I was building a community directory for my locale, and like always, I had a Header component.
+It needed to show a simple "Sign In" button, or the user's avatar if they were logged in.
+
+But it was in my Root Layout.
+
+And that's where the problem started.
+
+---
+
+## The Next.js SSR trap
+
+If you put `await auth()` inside your Root Layout, Next.js does something annoying but logical.
+
+It says: *"Oh, the Header needs to read cookies. I guess I have to Server-Side Render (SSR) every single page on every request."*
+
+Suddenly, my blazing-fast static pages (`/about-us`, `/`) were marked as `ƒ (Dynamic)`.
+
+Every visit meant a server hit. Every crawl meant a database check.
+
+I wanted my `○ (Static)` badge back.
+
+<img src="/blog/media/chasing-the-static-badge/build-output.webp" alt="Next.js SSR vs SSG build output" width="600" />
+
+---
+
+## The strictness of PPR
+
+My first thought was Partial Prerendering (PPR).
+
+Next.js 16 has this new `cacheComponents: true` config. It promises the Holy Grail: a static shell with dynamic holes that stream in instantly.
+
+So I wrapped my `HeaderAuth` in a `<Suspense>` boundary and turned it on.
+
+And the compiler absolutely lost its mind.
+
+<img src="/blog/media/chasing-the-static-badge/ppr-error.webp" alt="Next.js 16 PPR strict compiler errors" width="600" />
+
+Because PPR is a global engine in Next 16, it forces *every single page* to have a static shell. If my `/profile` or `/contribute` pages read the database at the top level without Suspense, the build failed with `Uncached data outside of <Suspense>`.
+
+I found myself playing whack-a-mole, rewriting perfectly fine private dashboard pages just to satisfy a compiler.
+
+It was too much friction for a simple Header. So I turned it off.
+
+---
+
+## The Client-Side Hack (and the Flicker)
+
+If the server checking cookies breaks SSG, the obvious fix is to fetch it on the client, right?
+
+I made the Header a `"use client"` component. I used a `useEffect` to call a Server Action on mount and fetch the user session.
+
+And it worked!
+
+The build ran. Next.js ignored the client component. My Home page and About page were beautifully, perfectly `○ (Static)`.
+
+But then I actually loaded the website.
+
+<img src="/blog/media/chasing-the-static-badge/csr-flicker.webp" alt="CSR layout shift and skeleton flickering" width="600" />
+
+Because the client has to fetch the data *after* the HTML loads, the Header flashed a loading skeleton for half a second on every hard refresh.
+
+I traded away my layout consistency for server performance. My app felt jittery.
+
+And worse, looking at the React docs (`react-escape-hatches`), using `useEffect` with a Server Action is literally an anti-pattern. I was hacking the framework just to save a few milliseconds of server compute.
+
+---
+
+## The Senior Dev Reality Check
+
+I sat back and looked at the three options I had:
+
+1. **PPR:** Perfect UX, but massive technical debt and a ruthless compiler.
+2. **CSR:** Fast static pages, but jittery layout shifts and `useEffect` hacks.
+3. **SSR:** Clean code, perfect layout consistency, but the server renders every page.
+
+I realized I was prematurely optimizing.
+
+For a small-to-medium directory app, Next.js SSR is incredibly fast. Vercel's edge network and Turbopack handle it without breaking a sweat.
+
+Was it really worth ruining my codebase and user experience just to see a `○ (Static)` badge in my terminal?
+
+---
+
+## Going back to basics
+
+I deleted the `useEffect` hack.
+I deleted the client-side wrappers.
+I put `await auth()` right back into my Server Component Header.
+
+Yes, my terminal now shows `ƒ (Dynamic)` for most pages.
+
+But the code is clean. The Header is instant. There are no skeletons, no flickering, and no build errors.
+
+Sometimes the best architectural decision is accepting that servers are meant to render things.
+
+I'll find a fix for the static landing page someday. But for now, SSR is exactly what I need.
+
+---
+
+## What do you think?
+
+Have you struggled with this Next.js rendering dilemma? Do you fight the PPR compiler, accept the CSR flicker, or just stick to SSR like I did? 
+
+Let me know your thoughts or suggestions down below!
