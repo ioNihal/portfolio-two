@@ -31,18 +31,20 @@ export async function POST(req) {
     await formcord.contact({
       token: process.env.DISCORD_BOT_TOKEN,
       channelId: process.env.DISCORD_CHANNEL_ID,
-      subject: String(subject),
-      email: String(email),
-      message: String(message),
-      content: "You received a new contact form submission.",
-      theme: {
+      throwOnError: true,
+      text: "You received a new contact form submission.",
+      embed: {
         title: "📩 New Portfolio Message",
         author: { name: `Anonymous User · ${id}` },
         color: 0x5865f2,
         footer: { text: `Email: ${email}` },
         timestamp: new Date().toISOString(),
       },
-      throwOnError: true,
+      data: {
+        subject: String(subject),
+        email: String(email),
+        message: String(message),
+      }
     });
 
     return NextResponse.json({ ok: true, id });
