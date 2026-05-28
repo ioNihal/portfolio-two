@@ -42,6 +42,14 @@ const projectsMock = [
         tech: ["Next.js", "Edge Runtime", "Node.js", "Web APIs", "Discord API"],
         repo: "https://github.com/ioNihal/formcord",
         preview: "https://formcord.vercel.app",
+    },
+    {
+        id: 6,
+        title: "Explore Kasaragod",
+        desc: "Built a fast, ad-free digital directory and platform showcasing Kasaragod's finest local eateries, travel destinations, and essential services, built with a community-first approach.",
+        tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+        repo: null,
+        preview: "https://explorekasaragod.org",
     }
 ]
 
