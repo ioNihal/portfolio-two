@@ -17,7 +17,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - Frontend: React.js, Next.js, TypeScript, HTML5, CSS3, JavaScript, Tailwind CSS
 - Backend: Node.js, Express.js, MongoDB, MySQL, REST APIs, GraphQL
@@ -26,7 +26,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 💼 Experience
+## Experience
 
 - Frontend Developer Intern — Warewe Consultancy Pvt Ltd. (Remote)  
   August 2025 - 2026  
