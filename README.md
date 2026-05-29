@@ -11,7 +11,7 @@ This repository contains the source for my personal portfolio and the assets use
 
 ---
 
-## 👨‍💻 About / Summary
+## About / Summary
 
 Frontend Developer skilled in React, Next.js and modern CSS. I build fast, responsive user interfaces and reusable component systems, and have hands-on experience integrating APIs and optimizing UI performance. Comfortable across the MERN stack and with practical experience delivering production-facing features and dashboards.
 
