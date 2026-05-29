@@ -74,7 +74,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🏅 Certifications
+## Certifications
 
 - freeCodeCamp — JS Algorithms & Data Structures  
 - freeCodeCamp — Front-End Development Libraries  
@@ -85,7 +85,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🔗 Connect
+## Connect
 
 - LinkedIn: https://www.linkedin.com/in/n1hal  
 - GitHub: https://github.com/ioNihal
