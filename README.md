@@ -5,7 +5,7 @@ This repository contains the source for my personal portfolio and the assets use
 
 ---
 
-## 🔗 Portfolio Website
+## Portfolio Website
 
 - Live portfolio: https://ionihal.vercel.app
 
