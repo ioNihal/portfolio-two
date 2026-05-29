@@ -1,5 +1,5 @@
 
-# 🚀 Nihal K | Full Stack & Frontend Developer
+# Nihal K | Full Stack & Frontend Developer
 
 This repository contains the source for my personal portfolio and the assets used to showcase my work. I am Nihal K — a frontend-focused Full Stack Developer building fast, accessible, and maintainable web experiences using modern web technologies.
 
