@@ -36,7 +36,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🎓 Education
+## Education
 
 - Srinivas University, Mangalore, India — B.C.A. (Software Development & Web Design)  
   Graduated May 2025 — CGPA: 8.89
@@ -46,7 +46,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## ⭐ Selected Projects
+## Selected Projects
 
 - Inventory Management System for FMCG Distributors (Frontend Developer — 2 member team)  
   Tech: React.js, Recharts, CSS Modules  
@@ -66,7 +66,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🧠 Skills & Strengths
+## Skills & Strengths
 
 - Frontend: Component-driven development, responsive design, performance optimization
 - Backend: Building REST APIs, authentication (JWT), basic GraphQL usage
