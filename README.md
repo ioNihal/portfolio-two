@@ -1,23 +1,23 @@
 
-# 🚀 Nihal K | Full Stack & Frontend Developer
+# Nihal K | Full Stack & Frontend Developer
 
 This repository contains the source for my personal portfolio and the assets used to showcase my work. I am Nihal K — a frontend-focused Full Stack Developer building fast, accessible, and maintainable web experiences using modern web technologies.
 
 ---
 
-## 🔗 Portfolio Website
+## Portfolio Website
 
 - Live portfolio: https://ionihal.vercel.app
 
 ---
 
-## 👨‍💻 About / Summary
+## About / Summary
 
 Frontend Developer skilled in React, Next.js and modern CSS. I build fast, responsive user interfaces and reusable component systems, and have hands-on experience integrating APIs and optimizing UI performance. Comfortable across the MERN stack and with practical experience delivering production-facing features and dashboards.
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - Frontend: React.js, Next.js, TypeScript, HTML5, CSS3, JavaScript, Tailwind CSS
 - Backend: Node.js, Express.js, MongoDB, MySQL, REST APIs, GraphQL
@@ -26,7 +26,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 💼 Experience
+## Experience
 
 - Frontend Developer Intern — Warewe Consultancy Pvt Ltd. (Remote)  
   August 2025 - 2026  
@@ -36,7 +36,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🎓 Education
+## Education
 
 - Srinivas University, Mangalore, India — B.C.A. (Software Development & Web Design)  
   Graduated May 2025 — CGPA: 8.89
@@ -46,7 +46,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## ⭐ Selected Projects
+## Selected Projects
 
 - Inventory Management System for FMCG Distributors (Frontend Developer — 2 member team)  
   Tech: React.js, Recharts, CSS Modules  
@@ -66,7 +66,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🧠 Skills & Strengths
+## Skills & Strengths
 
 - Frontend: Component-driven development, responsive design, performance optimization
 - Backend: Building REST APIs, authentication (JWT), basic GraphQL usage
@@ -74,7 +74,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🏅 Certifications
+## Certifications
 
 - freeCodeCamp — JS Algorithms & Data Structures  
 - freeCodeCamp — Front-End Development Libraries  
@@ -85,7 +85,7 @@ Frontend Developer skilled in React, Next.js and modern CSS. I build fast, respo
 
 ---
 
-## 🔗 Connect
+## Connect
 
 - LinkedIn: https://www.linkedin.com/in/n1hal  
 - GitHub: https://github.com/ioNihal
