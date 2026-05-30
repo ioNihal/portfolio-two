@@ -3,14 +3,14 @@ import Image from 'next/image';
 export default function AboutSection() {
     return (
         <section className="min-h-screen w-full bg-slate-950 relative px-4 sm:px-6 
-    text-white isolate grid place-items-center" id='about' aria-label="About Me">
+         text-white isolate grid place-items-center" id='about' aria-label="About Me">
             <article className='flex justify-between flex-col-reverse lg:flex-row
             gap-10 lg:gap-0 items-center'>
                 <h2 className="sr-only">About Me</h2>
                 <div className='lg:text-2xl 2xl:text-4xl 
                 flex-1 p-4 lg:pl-10 xl:p-20 2xl:p-30 text-justify'>
-                    I'm Nihal from Kasaragod, Kerala. 
-                    I build modern web applications with React and Next.js, focusing on clean design and intuitive user experiences.
+                    I'm Nihal from Kasaragod, Kerala.
+                    I build modern, full-stack web applications with React, Next.js, and Node.js, focusing on performance, clean design, and database integrity.
                     I enjoy crafting polished interactions, experimenting with visuals, and transforming complex ideas into user-friendly solutions.
                     When I'm not coding, you'll find me exploring Kasaragod's beautiful coastline, sketching UI ideas, or enjoying a cup of filter coffee while learning new technologies.
                 </div>

@@ -3,22 +3,22 @@
 // Data used in the schemas
 const projectsData = [
     {
-        name: 'Toolight',
-        description: 'A light and color based fun & serious utility tools web app, helping designers and boring humans find something useless.',
-        url: 'https://toolight.vercel.app',
-        techs: ['React', 'JavaScript', 'CSS Modules']
+        name: 'Explore Kasaragod',
+        description: 'A fast, ad-free digital directory and platform showcasing Kasaragod\'s finest local eateries, travel destinations, and essential services, built with a community-first approach.',
+        url: 'https://explorekasaragod.org',
+        techs: ['Next.js', 'TypeScript', 'Tailwind', 'Prisma', 'PostgreSQL']
     },
     {
-        name: '2D Stickman Game',
-        description: 'Developed a challenging and fun stickman style 1v1 fighting game using HTML Canvas, CSS, Vanilla JS.',
-        url: 'https://ionihal.github.io/game2dsite',
-        techs: ['HTML5 Canvas', 'JavaScript', 'CSS']
+        name: 'RenderCard',
+        description: 'A high-performance Open Graph (OG) image generation API allowing developers to render highly customizable social preview cards in real-time.',
+        url: 'https://rendercard.vercel.app',
+        techs: ['Next.js', 'Edge Runtime', 'SVG']
     },
     {
-        name: 'Inventory Management System',
-        description: 'Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.',
-        url: 'https://github.com/ioNihal/sims-dashboard-front',
-        techs: ['React', 'Express.js', 'MongoDB']
+        name: 'Formcord',
+        description: 'A lightweight, zero-dependency NPM package that channels website form submissions and system events straight to Discord channels.',
+        url: 'https://formcord.vercel.app',
+        techs: ['Node.js', 'Edge Runtime', 'Web APIs']
     }
 ];
 
@@ -34,8 +34,8 @@ const personSchema = {
     url: 'https://ionihal.vercel.app',
     image: 'https://ionihal.vercel.app/profile-photo.webp',
 
-    jobTitle: 'Frontend Developer',
-    description: 'Frontend developer specializing in React, Next.js, and modern web applications.',
+    jobTitle: 'Full-Stack Developer',
+    description: 'Full-Stack Developer specializing in React, Next.js, Node.js, and database engineering.',
 
     // Social and Professional Profiles
     sameAs: [
@@ -102,7 +102,7 @@ const websiteSchema = {
     '@id': 'https://ionihal.vercel.app/#website',
     name: 'Nihal K - Portfolio',
     url: 'https://ionihal.vercel.app',
-    description: 'Personal portfolio website of Nihal K, a Frontend Developer from Kasaragod, Kerala',
+    description: 'Personal portfolio website of Nihal K, a Full-Stack Developer from Kasaragod, Kerala',
     inLanguage: 'en',
 };
 

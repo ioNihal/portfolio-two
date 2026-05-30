@@ -51,8 +51,8 @@ export default function HeroContent() {
 
             <div className="col-span-1 grid grid-cols-1 lg:col-span-5">
                 {[
-                    ["DESIGNATION // 002", "Frontend Developer"],
-                    ["CORE // 003", "React / Next.js, TypeScript"],
+                    ["DESIGNATION // 002", "Full-Stack Developer"],
+                    ["CORE // 003", "React / Next.js, TypeScript, Node.js"],
                     ["STYLE // 004", "CSS3, Tailwind CSS"],
                     ["STATUS // 007", "Available for next-gen projects"],
                 ].map(([label, value], i) => (

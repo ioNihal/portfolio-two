@@ -38,20 +38,22 @@ const spaceMono = Space_Mono({
 
 export const metadata = {
   title: "Nihal K - Full Stack Developer | React & Next.js Portfolio",
-  description: "Frontend / Full-Stack Developer specializing in modern web technologies, including React, Next.js, and the MERN stack. Explore my projects, skills, and professional journey.",
+  description: "Full-Stack Developer specializing in modern web technologies, including React, Next.js, Node.js, and database engineering. Explore my projects, skills, and professional journey.",
   metadataBase: new URL('https://ionihal.vercel.app'),
 
   // Keywords
   keywords: [
     'Full Stack Developer',
-    'Frontend Developer',
-    'Backend Developer',
+    'Full-Stack Developer',
     'Software Developer',
     'Software Engineer',
+    'Backend Developer',
     'React Developer',
     'Next.js Portfolio',
+    'Node.js Developer',
+    'Web Developer India',
     'MERN Stack',
-    'Web Developer India'
+    'Frontend Developer'
   ],
 
   authors: [{ name: 'Nihal K' }],
@@ -61,7 +63,7 @@ export const metadata = {
   // Open Graph
   openGraph: {
     title: 'Nihal K - Full Stack Developer Portfolio',
-    description: 'Frontend / Full-Stack Developer showcasing projects built with React, Next.js, and modern web technologies.',
+    description: 'Full-Stack Developer showcasing projects built with React, Next.js, Node.js, and modern web technologies.',
     url: 'https://ionihal.vercel.app',
     siteName: 'Nihal K Portfolio',
     locale: 'en_US',
@@ -80,7 +82,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Nihal K - Full Stack Developer Portfolio',
-    description: 'Frontend / Full-Stack Developer showcasing projects built with React, Next.js, and modern web technologies.',
+    description: 'Full-Stack Developer showcasing projects built with React, Next.js, Node.js, and modern web technologies.',
     creator: '@n1haaaal',
     images: ['https://ionihal.vercel.app/social-share-image.jpg'],
   },

@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const titles = [
+    "Full-Stack Developer",
+    "Software Engineer",
     "Frontend Developer",
     "Backend Developer",
-    "Humble Hoooooooman",
-    "Freshhhh Graduate",
 ];
 
 export default function Title() {
