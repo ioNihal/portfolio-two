@@ -1,93 +1,96 @@
+# Nihal K | Full-Stack Developer & Software Engineer
 
-# Nihal K | Full Stack & Frontend Developer
-
-This repository contains the source for my personal portfolio and the assets used to showcase my work. I am Nihal K — a frontend-focused Full Stack Developer building fast, accessible, and maintainable web experiences using modern web technologies.
+This repository contains the source code for my personal portfolio website. I am Nihal K — a Full-Stack Developer and Software Engineer building fast, accessible, and database-optimized web systems, developer APIs, and open-source packages.
 
 ---
 
 ## Portfolio Website
 
-- Live portfolio: https://ionihal.vercel.app
+- **Live URL:** [https://ionihal.vercel.app](https://ionihal.vercel.app)
 
 ---
 
-## About / Summary
+## Professional Summary
 
-Frontend Developer skilled in React, Next.js and modern CSS. I build fast, responsive user interfaces and reusable component systems, and have hands-on experience integrating APIs and optimizing UI performance. Comfortable across the MERN stack and with practical experience delivering production-facing features and dashboards.
-
----
-
-## Technology Stack
-
-- Frontend: React.js, Next.js, TypeScript, HTML5, CSS3, JavaScript, Tailwind CSS
-- Backend: Node.js, Express.js, MongoDB, MySQL, REST APIs, GraphQL
-- Tooling: Git, Figma, Postman / REST client extensions, Vercel
-- Other: Web Audio API, Canvas (for 2D games), JWT-based authentication
+Full-Stack Developer with hands-on experience designing and building high-performance web applications, custom developer APIs, and database-driven internal tools. Proficient in React, Next.js, Node.js, and TypeScript, with a strong focus on clean architecture, database schema design (Prisma, PostgreSQL, MongoDB), and modern performance optimization.
 
 ---
 
-## Experience
+## Technical Stack
 
-- Frontend Developer Intern — Warewe Consultancy Pvt Ltd. (Remote)  
-  August 2025 - 2026  
-  - Built headless CMS integrations using WordPress + WPGraphQL and consumed the GraphQL data in a Next.js frontend.  
-  - Developed blog and landing pages, reusable UI components with React + Tailwind.  
-  - Worked on React dashboards, API integrations, and responsive UI; improved page performance via code-splitting and asset optimization.
+- **Languages:** TypeScript, JavaScript (ES6+), Java, C++, PHP, Python, Go
+- **Frontend:** React.js, Next.js, HTML5, CSS3, Tailwind CSS, Component-Driven UI
+- **Backend & DBs:** Node.js, Express.js, Prisma ORM, PostgreSQL, MongoDB, MySQL, REST APIs, GraphQL
+- **Tooling & Workflows:** Git, VS Code, Figma, Vercel, NPM Publishing, Web APIs, Edge Runtimes
 
 ---
 
-## Education
+## Professional Experience
 
-- Srinivas University, Mangalore, India — B.C.A. (Software Development & Web Design)  
-  Graduated May 2025 — CGPA: 8.89
-
-- Chemnad Jama'ath HSS, Chemnad, Kasaragod — HSE / +2 (Computer Science)  
-  Completed May 2022 — 86%
+### Frontend Developer Intern — Warewe Consultancy Pvt Ltd. (Remote)  
+*August 2025 – March 2026*  
+- **Internal Tooling:** Designed and developed an internal management tool using Express.js and Prisma ORM with a PostgreSQL backend, automating operational workflows and integrating full-stack capability.  
+- **Product Autonomy:** Independently owned and shipped critical frontend features, building modular, reusable component libraries using React, Next.js, and TypeScript.  
+- **Headless CMS Integration:** Engineered a headless CMS solution using WordPress and WPGraphQL, consuming complex API endpoints via Next.js to decouple content from presentation.  
+- **Performance Engineering:** Optimized Core Web Vitals and initial load times, achieving a 30% reduction in page speeds through strategic code-splitting and asset optimization.  
 
 ---
 
 ## Selected Projects
 
-- Inventory Management System for FMCG Distributors (Frontend Developer — 2 member team)  
-  Tech: React.js, Recharts, CSS Modules  
-  - Responsive dashboard for stock, orders, customers, invoices.  
-  - JWT-based authentication and a customer portal for order tracking.  
-  Repo: https://github.com/ioNihal/sims-dashboard-front
+### 📍 Explore Kasaragod
+*Tech: Next.js, TypeScript, Tailwind, Prisma, PostgreSQL*  
+- Engineered a community-driven, ad-free digital directory mapping Kasaragod's local food, travel spots, and essential services.  
+- Designed and optimized database schemas using Prisma and PostgreSQL, reducing location lookup query latencies to sub-100ms.  
+- **Live Project:** [https://explorekasaragod.org](https://explorekasaragod.org)
 
-- 2D Stickman Fighter Game  
-  Tech: HTML5 Canvas, Vanilla JavaScript  
-  - Smooth 60 FPS game-loop, sprite rendering, hit-box collision, mobile controls and adjustable AI.  
-  Live / Repo: https://github.com/ioNihal/game2dsite
+### 🖼️ RenderCard
+*Tech: Next.js, Vercel Edge Runtime, SVG Rendering*  
+- Built a high-performance Open Graph (OG) image generation API allowing developers to render highly customizable social preview cards dynamically in real-time.  
+- Leveraged Vercel Edge Runtime and dynamic edge caching to achieve sub-millisecond API cold starts.  
+- **Live Demo:** [https://rendercard.vercel.app](https://rendercard.vercel.app)
 
-- Kiosk Survey Application  
-  Tech: React.js, Bootstrap  
-  - Minimal UI survey app for touch kiosks with large-button layouts and offline-friendly UX.  
-  Repo: https://github.com/ioNihal/survey-app
+### 📣 Formcord
+*Tech: Node.js, Edge Runtime, Web APIs, Discord Webhooks*  
+- Developed a lightweight, zero-dependency NPM package that channels website form submissions and system events straight to Discord channels.  
+- Engineered using native Web APIs to ensure complete compatibility across all JS runtimes (Node.js, Serverless, and Edge Workers).  
+- **Repository:** [https://github.com/ioNihal/formcord](https://github.com/ioNihal/formcord)  
+- **Live Demo:** [https://formcord.vercel.app](https://formcord.vercel.app)
 
 ---
 
 ## Skills & Strengths
 
-- Frontend: Component-driven development, responsive design, performance optimization
-- Backend: Building REST APIs, authentication (JWT), basic GraphQL usage
-- Soft skills: Problem-solving, adaptability, collaboration and communication
+- **System Architecture:** REST & GraphQL API design, database normalization, relational schemas (Prisma & PostgreSQL).
+- **Frontend Optimization:** Server components (Next.js), Core Web Vitals, responsive animation flows, clean layout design.
+- **Developer Tooling:** Creating and publishing open-source utilities (NPM), edge runtime configurations.
+- **Workflow Autonomy:** Self-directed execution, clean technical documentation, and professional communication.
+
+---
+
+## Education
+
+- **Srinivas University, Mangalore**  
+  *Bachelor of Computer Applications (Software Development & Web Design)*  
+  Graduated May 2025 — **CGPA: 8.89**  
+
+- **Chemnad Jama'ath HSS, Kasaragod**  
+  *HSE / +2 (Computer Science)*  
+  Completed May 2022 — **86%**  
 
 ---
 
 ## Certifications
 
-- freeCodeCamp — JS Algorithms & Data Structures  
-- freeCodeCamp — Front-End Development Libraries  
-- freeCodeCamp — Back End Development and APIs  
-- NSDC Skill India — Web Design & Development
-
-(Links to certificates are available in the resume and on my portfolio site.)
+- **freeCodeCamp** — JavaScript Algorithms & Data Structures  
+- **freeCodeCamp** — Front-End Development Libraries  
+- **freeCodeCamp** — Back End Development and APIs  
+- **NSDC Skill India** — Web Design & Development  
 
 ---
 
 ## Connect
 
-- LinkedIn: https://www.linkedin.com/in/n1hal  
-- GitHub: https://github.com/ioNihal
-
----
+- **LinkedIn:** [https://www.linkedin.com/in/n1hal](https://www.linkedin.com/in/n1hal)  
+- **GitHub:** [https://github.com/ioNihal](https://github.com/ioNihal)  
+- **Email:** [nihal04x@gmail.com](mailto:nihal04x@gmail.com)  
