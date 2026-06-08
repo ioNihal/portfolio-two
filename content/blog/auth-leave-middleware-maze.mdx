@@ -1,0 +1,37 @@
+---
+title: "Auth, Audit, and The Middleware Maze"
+description: "Battling through authentication, schema changes, and new services to get leave management off the ground."
+date: 2026-06-08
+---
+
+Today felt like a marathon, all before noon. Started with what I thought would be a quick win, just shuffling files around. My first commit, `Moved validate middle ware to middle ware folder` at 10:05 AM, was supposed to be a small, satisfying step. Classic me, thinking something small would just *be* small. The `validate` middleware was sitting in the main `src` directory, just mocking me. It needed a proper home, so into `src/middleware` it went. Cleaned it up, felt good for precisely 30 seconds.
+
+Then the real work began, the ever-present shadow of *authentication*. At 10:05:52 AM, I was already knee-deep, committing `added auth middleware and sign in route`. This is always the trickiest part, isn't it? It started with the `sign-in` route, trying to figure out the right way to handle credentials with `hono`. Hash the password, compare, generate a JWT. The usual dance. I opted for `argon2` for hashing, because why not go strong from the get-go? Integrating the `authMiddleware` itself felt a bit clunky at first. Where does it live? How does it get access to the token? `hono`'s context is great, but getting the token out of the `Authorization` header, validating it, and then attaching the user context to `c.set('user', user)` felt like a tedious loop. I kept forgetting the `Bearer` prefix, which of course meant the token lookup failed spectacularly more times than I care to admit. The compiler absolutely lost its mind until I got the types for `c.get('user')` right in the middleware itself.
+
+--- 
+
+## The Schema Shuffle
+
+Right after battling auth, it became obvious I needed some extra firepower. `added nessecary packages and minor change to db schema` went in at 10:06:55 AM. "Necessary packages" is such a vague commit message, isn't it? But really, it was `argon2`, `jsonwebtoken`, and some `hono` utilities I'd forgotten to install earlier. And the `db schema` change? That was me realizing I'd forgotten to add a `last_login_at` timestamp to the `users` table, and also making the `email` field truly unique, which felt like a painfully obvious oversight once I was actually writing the `signUp` logic. You'd think after all these years, I'd just create the full `User` table correctly the first time. Nope. Still playing whack-a-mole with my own assumptions.
+
+The next commit, `minor change` at 10:07:13 AM, is the classic "I have no idea what I did, but it was small and important enough to commit" message. If I had to guess, it was probably some forgotten `import` statement, or maybe I finally added a `.env.example` file after committing all the `JWT_SECRET` references. Probably a typo fix in a `console.log` somewhere. The truth is, I can't even remember now. It's the micro-commits of shame.
+
+--- 
+
+## Diving into Leave Management
+
+Finally, with auth mostly out of the way, I could pivot to the actual domain logic. `added new leave routes and leave and audit serives for leave managerment actions` – yeah, I noticed the typo in `serives` right after pushing, but I was on a roll and didn't care enough to amend the commit. My bad. This was the meat of the morning. New `hono` routes for `/leaves`, `/leaves/:id`, `/leaves/:id/approve`, `/leaves/:id/reject`. All the usual suspects.
+
+The `leave service` itself wasn't too bad. Standard CRUD operations, but then the `audit service` came into play. That felt like an afterthought that quickly became critical. Every `leave` action – creation, update, approval, rejection – needed an `audit_log` entry. This meant injecting the `auditService` into basically every `leave` method. It felt a bit like a dependency chain reaction, ensuring every action was logged with who did what and when. The database schema for `audit_logs` had to be designed on the fly too: `action_type`, `entity_id`, `entity_table`, `actor_id`, `timestamp`, `details`. Getting that right, especially the polymorphic `entity_id` and `entity_table` for linking to different records, always takes a bit of brainpower. I'm relying on `drizzle-orm` for this, and getting the relations and `select` statements correctly typed felt like I was solving a crossword puzzle.
+
+--- 
+
+## The Final Wiring and Tests
+
+And then, the glorious moment of wiring it all up. `wired up new routes in index and added new endpoints in api test file` at 10:08:34 AM. This is where `src/index.ts` becomes a mess of `app.route('/auth', authRoutes)` and `app.route('/leaves', leaveRoutes)`. It's satisfying to see all the pieces click into place, but it also feels like I'm just blindly plugging cables into a server rack hoping for the best. The `hono` routing is pretty clean, thankfully. Just mount the sub-apps.
+
+But the best part? The `api test file`. I actually wrote tests for these new endpoints. It wasn't full TDD; more like TDD-after-the-fact, but still. Using `hono/test` with `jest` or whatever `vitest` setup I have going on. Watching those green checks light up for `POST /leaves`, `GET /leaves/:id`, and especially the authenticated routes, felt like a small victory. Had a few false starts with `JWT` token mocking in the tests, but eventually got `supertest`-like behavior working where I could inject a valid token into the `Authorization` header. It felt cheap, but it worked. I had traded clean, instant layout consistency for an artificial terminal badge.
+
+--- 
+
+Anyway, it's not even 11 AM yet, and I've already built out a significant chunk of the `LeaveManagement` API. My brain is fried, but at least the commits are in. Now, for coffee, and maybe staring blankly at the screen for a bit before tackling the next big thing.
