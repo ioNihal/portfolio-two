@@ -1,0 +1,15 @@
+---
+title: "Leave Management and Service Refinements"
+description: "Focused on expanding leave management features, improving audit service robustness, and making minor infrastructure adjustments."
+date: 2026-06-10
+---
+
+Today was largely focused on refining existing services and expanding the leave management module. A significant part of the day involved building out the "get all leaves" endpoint. This included setting up the necessary routes, implementing the service logic, and adding a corresponding test in the VS Code rest client.
+
+During the implementation of the "get all leaves" functionality, I also refactored the leave service. This involved enhancing the data returned by including employee details and improving null handling to ensure more robust data retrieval. Additionally, I updated the overall leave request structure to better align with the new requirements.
+
+The audit service received attention as well, specifically around its transaction handling. I modified it to accept a transaction as a parameter, with a fallback to the direct database connection if no transaction is provided. This change was also accompanied by strong typing using a union of the database type and `PgTransaction` to improve type safety.
+
+On the infrastructure side, I adjusted the JWT token expiration from two minutes to fifteen minutes, providing a more practical user experience. I also added a logger for SQL queries and exported the `Database` type, which will aid in debugging and maintaining consistency across the application.
+
+Overall, the session was productive, solidifying key aspects of the leave management system, enhancing service robustness, and making practical improvements to the authentication and logging infrastructure.
