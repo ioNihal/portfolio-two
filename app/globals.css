@@ -5,12 +5,54 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
+  --card: #f9fafb;
+  --card-hover: #f3f4f6;
+  --text-muted: #4b5563;
+  --text-subtle: #9ca3af;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --grid-line: rgba(0, 0, 0, 0.05);
+  --grid-glow: rgba(112, 114, 233, 0.082);
+  --bg-radial-fade: #ffffff;
+  --input-bg: #ffffff;
+  --btn-sec: rgba(0, 0, 0, 0.05);
+  --btn-sec-hover: rgba(0, 0, 0, 0.08);
+  --btn-border: rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #050505;
+    --foreground: #ededed;
+    --card: rgba(255, 255, 255, 0.03);
+    --card-hover: rgba(255, 255, 255, 0.08);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --text-subtle: rgba(255, 255, 255, 0.4);
+    --border: rgba(255, 255, 255, 0.1);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --grid-line: rgba(255, 255, 255, 0.04);
+    --grid-glow: rgba(99, 102, 241, 0.15);
+    --bg-radial-fade: #000000;
+    --input-bg: rgba(255, 255, 255, 0.02);
+    --btn-sec: rgba(255, 255, 255, 0.05);
+    --btn-sec-hover: rgba(255, 255, 255, 0.1);
+    --btn-border: rgba(255, 255, 255, 0.2);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-border-main: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-btn-sec: var(--btn-sec);
+  --color-btn-sec-hover: var(--btn-sec-hover);
+  --color-btn-border: var(--btn-border);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -21,27 +63,20 @@
   --animate-wiggle: wiggle 3s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 @utility bg-grid {
   background-image:
     /* Vertical grid lines */
     linear-gradient(to right,
-      rgba(255, 255, 255, 0.04) 1px,
+      var(--grid-line) 1px,
       transparent 1px),
     /* Horizontal grid lines */
     linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.04) 1px,
+      var(--grid-line) 1px,
       transparent 1px),
     /* Radial glow gradient */
     radial-gradient(circle at center,
-      rgba(99, 102, 241, 0.1),
-      rgba(0, 0, 0, 0.95) 70%);
+      var(--grid-glow),
+      var(--bg-radial-fade) 70%);
 
   background-size:
     40px 40px,
@@ -51,12 +86,11 @@
   background-repeat: repeat, repeat, no-repeat;
 }
 
-
 @utility bg-radial {
   background-image:
     radial-gradient(circle at center,
-      rgba(99, 102, 241, 0.1),
-      rgba(0, 0, 0, 0.95) 70%);
+      var(--grid-glow),
+      var(--bg-radial-fade) 70%);
 }
 
 @keyframes wiggle {
