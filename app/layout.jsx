@@ -1,7 +1,9 @@
-import { Anton, Geist, Geist_Mono, Michroma, Space_Mono, Staatliches, Urbanist } from "next/font/google";
+import { Anton, Geist, Geist_Mono, Michroma, Space_Mono } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import FooterSection from "@/components/FooterSection/FooterSection";
+import { ThemeProvider } from "@/components/theme-provider";
+import ThemeToggle from "@/components/ThemeToggle";
 import { GoogleAnalytics } from "@next/third-parties/google";
 // import { WebVitals } from "./components/web-vitals";
 
@@ -101,15 +103,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${microma.variable} ${spaceMono.variable} antialiased`}
       >
-        <JsonLd />
-        {/* <WebVitals /> */}
-        {children}
-        <FooterSection />
-        <GoogleAnalytics gaId="G-44W01T0085" />
+        <ThemeProvider>
+          <ThemeToggle />
+          <JsonLd />
+          {/* <WebVitals /> */}
+          {children}
+          <FooterSection />
+          <GoogleAnalytics gaId="G-44W01T0085" />
+        </ThemeProvider>
       </body>
     </html>
   );
