@@ -2,13 +2,13 @@ import Image from 'next/image';
 
 export default function AboutSection() {
     return (
-        <section className="min-h-screen w-full bg-slate-950 relative px-4 sm:px-6 
-         text-white isolate grid place-items-center" id='about' aria-label="About Me">
+        <section className="min-h-screen w-full bg-background relative px-4 sm:px-6 
+         text-foreground isolate grid place-items-center" id='about' aria-label="About Me">
             <article className='flex justify-between flex-col-reverse lg:flex-row
             gap-10 lg:gap-0 items-center'>
                 <h2 className="sr-only">About Me</h2>
                 <div className='lg:text-2xl 2xl:text-4xl 
-                flex-1 p-4 lg:pl-10 xl:p-20 2xl:p-30 text-justify'>
+                flex-1 p-4 lg:pl-10 xl:p-20 2xl:p-30 text-justify text-muted'>
                     I'm Nihal from Kasaragod, Kerala.
                     I build modern, full-stack web applications with React, Next.js, and Node.js, focusing on performance, clean design, and database integrity.
                     I enjoy crafting polished interactions, experimenting with visuals, and transforming complex ideas into user-friendly solutions.
@@ -17,7 +17,7 @@ export default function AboutSection() {
                 <div className='flex-1'>
                     <Image width={500} height={600} src={"/assets/halftone.svg"} alt='Nihal K profile illustration' loading='lazy'
                         className='w-[200px] lg:w-xs 2xl:w-md h-auto aspect-3/4 object-cover
-                         border-8 border-indigo-900/40 rounded-full
+                         border-8 border-indigo-900/20 dark:border-indigo-900/40 rounded-full
                         m-auto float select-none' />
                 </div>
             </article>

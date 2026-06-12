@@ -17,13 +17,13 @@ export default function FooterSection() {
   const currentYear = new Date().getFullYear();
   return (
     <section
-      className="h-auto w-full bg-black border-t border-gray-600 relative px-4 sm:px-6 
-            text-white isolate flex flex-col items-center justify-center">
+      className="h-auto w-full bg-background border-t border-border-main relative px-4 sm:px-6 
+            text-foreground isolate flex flex-col items-center justify-center">
       <div className='w-full 2xl:w-7/10  px-6 lg:px-10 pt-10 lg:pt-8 pb-10 flex flex-col-reverse lg:flex-row gap-10 lg:gap-30'>
         <div className="flex flex-col gap-3">
           <h2 className="text-4xl lg:text-7xl font-semibold tracking-widest">ioNihal</h2>
 
-          <div className=" text-slate-400 flex flex-col gap-1">
+          <div className=" text-muted flex flex-col gap-1">
             <p className="flex items-center gap-2 text-md lg:text-lg">
               Designed and Developed with
               <Image

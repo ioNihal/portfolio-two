@@ -38,8 +38,8 @@ export default function ContactSection() {
 
   function inputClass(hasError) {
     const base =
-      "w-full border focus:outline-none transition-colors duration-300 p-3";
-    const normal = "border-gray-500 focus:border-indigo-500";
+      "w-full border bg-card text-foreground focus:outline-none transition-colors duration-300 p-3";
+    const normal = "border-border-main focus:border-indigo-500";
     const er = "border-red-500 focus:border-indigo-500";
     return `${base} ${hasError ? er : normal}`;
   }
@@ -100,7 +100,7 @@ export default function ContactSection() {
 
   return (
     <section
-      className="min-h-screen w-full bg-gray-950 border-t border-gray-600 relative py-5 px-4 sm:px-6 text-white isolate flex flex-col items-center justify-center"
+      className="min-h-screen w-full bg-background border-t border-border-main relative py-5 px-4 sm:px-6 text-foreground isolate flex flex-col items-center justify-center"
       id="contact"
     >
       <div className="w-full 2xl:w-7/10 m-auto font-bold px-6 lg:px-10">
@@ -176,7 +176,7 @@ export default function ContactSection() {
           type="submit"
           disabled={sending}
           aria-label="Send message to Nihal"
-          className="order-4 lg:order-none lg:col-start-4 lg:col-end-6 lg:row-start-2 bg-white text-black rounded-full text-3xl cursor-pointer hover:opacity-90 transition-opacity duration-300 w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="order-4 lg:order-none lg:col-start-4 lg:col-end-6 lg:row-start-2 bg-foreground text-background rounded-full text-3xl cursor-pointer hover:opacity-90 transition-opacity duration-300 w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {sending ? "Sending..." : "Message Nihal"}
         </button>

@@ -31,21 +31,21 @@ export default function TimelineSection() {
 
 
   return (
-    <section className="min-h-screen w-full bg-slate-950 relative px-4 py-16 sm:px-6 sm:py-20 overflow-hidden
-    text-white isolate grid place-items-center" id='experience'>
+    <section className="min-h-screen w-full bg-background relative px-4 py-16 sm:px-6 sm:py-20 overflow-hidden
+    text-foreground isolate grid place-items-center" id='experience'>
       <div className="flex flex-col items-center justify-center max-w-lg  m-auto">
         {timelineData.map((t) => {
           const direction = (t.id === 1 || t.id === 3) ? "first" : "second";
           return (
             <article
               key={t.id}
-              className="timeline-item py-3 border-emerald-400 border-b flex flex-col text-lg space-y-1"
+              className="timeline-item py-3 border-emerald-500/30 dark:border-emerald-400/50 border-b flex flex-col text-lg space-y-1"
               data-direction={direction}
             >
-              <h4 className="text-sm text-gray-400 font-mono">{t.year}</h4>
-              <h5 className="text-4xl text-emerald-400">{t.title}</h5>
-              <h6 className="text-xs text-gray-400 font-sans">{t.place}</h6>
-              <p className="font-serif italic text-justify text-indigo-100">{t.text}</p>
+              <h4 className="text-sm text-subtle font-mono">{t.year}</h4>
+              <h5 className="text-4xl text-emerald-600 dark:text-emerald-400">{t.title}</h5>
+              <h6 className="text-xs text-subtle font-sans">{t.place}</h6>
+              <p className="font-serif italic text-justify text-muted">{t.text}</p>
             </article>
           );
         })}

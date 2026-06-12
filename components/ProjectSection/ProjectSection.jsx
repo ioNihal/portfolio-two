@@ -55,16 +55,16 @@ const projectsMock = [
 
 export default function ProjectSection() {
     return (
-        <section id="projects" aria-labelledby="projects-heading" className="relative w-full bg-slate-950 py-24">
+        <section id="projects" aria-labelledby="projects-heading" className="relative w-full bg-background py-24">
             <div className="mx-auto mb-16 max-w-7xl px-6 text-center">
                 <h2 id="projects-heading"
-                    className="font-digital text-2xl tracking-widest text-violet-500 sm:text-3xl">
+                    className="font-digital text-2xl tracking-widest text-indigo-600 dark:text-indigo-400 sm:text-3xl">
                     PROJECTS
                 </h2>
-                <p className="mt-4 text-sm text-white/60">
+                <p className="mt-4 text-sm text-muted">
                     Selected work showcasing systems, interfaces, and experiments.
                     More projects live on{" "}
-                    <Link href="https://tomatoweb.site" className="text-white underline-offset-2 hover:underline"
+                    <Link href="https://tomatoweb.site" className="text-foreground underline-offset-2 hover:underline"
                         target="_blank" rel="noopener noreferrer" >
                         TomatoWeb
                     </Link>
@@ -74,25 +74,25 @@ export default function ProjectSection() {
 
             <ul aria-label="Project list" className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3">
                 {projectsMock.map((project) => (
-                    <li key={project.id} className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-4 transition
-                       hover:border-indigo-500/40 hover:bg-white/10 focus-within:border-indigo-500/40">
+                    <li key={project.id} className="group flex h-full flex-col rounded-xl border border-border-main bg-card p-4 transition
+                       hover:border-indigo-500/40 hover:bg-card-hover focus-within:border-indigo-500/40">
 
-                        <h3 className="text-xl font-semibold text-white">
+                        <h3 className="text-xl font-semibold text-foreground">
                             {project.title}
                         </h3>
 
-                        <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
+                        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                             {project.desc}
                         </p>
 
                         <div className="mt-2">
-                            <span className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                            <span className="text-xs font-semibold uppercase tracking-wide text-subtle">
                                 Tech Stack
                             </span>
                             <ul className="mt-2 flex flex-wrap gap-2">
                                 {project.tech.map((t) => (
                                     <li key={t}
-                                        className="rounded-full bg-indigo-500/15 px-3 py-1 text-[10px] font-digital font-medium text-indigo-300">
+                                        className="rounded-full bg-indigo-500/10 px-3 py-1 text-[10px] font-digital font-medium text-indigo-600 dark:text-indigo-300 dark:bg-indigo-500/15">
                                         {t}
                                     </li>
                                 ))}
@@ -110,8 +110,8 @@ export default function ProjectSection() {
 
                             {project.preview && (
                                 <Link href={project.preview} aria-label={`View live preview of ${project.title}`}
-                                    className="inline-flex items-center justify-center rounded-md bg-white/10 px-3 py-1.5 text-xs font-semibold text-white
-                                    transition hover:bg-white/20 focus-visible:outline focus-visible:outline-indigo-400">
+                                    className="inline-flex items-center justify-center rounded-md border border-btn-border bg-btn-sec px-3 py-1.5 text-xs font-semibold text-foreground
+                                    transition hover:bg-btn-sec-hover focus-visible:outline focus-visible:outline-indigo-400">
                                     Live Preview
                                 </Link>
                             )}
