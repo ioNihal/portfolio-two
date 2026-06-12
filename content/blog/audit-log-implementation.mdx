@@ -1,0 +1,11 @@
+---
+title: "Audit Log System Development"
+description: "Focused on implementing and testing the audit logging system for the leave management application."
+date: 2026-06-12
+---
+
+Today's efforts were primarily focused on the LeaveManagement-hono project, specifically enhancing its audit logging capabilities. I began by developing a new service layer responsible for retrieving all audit logs directly from the database, establishing the core backend logic for this important feature. This service is crucial for maintaining a detailed history of significant actions within the application.
+
+Following the service implementation, I created the necessary GET route endpoint to expose this functionality through the API. This allows for easy retrieval of the logs. Once the endpoint was ready, I integrated these new audit routes into the application's main routing system, ensuring they were properly wired up and accessible.
+
+To ensure the newly added functionality was robust and working as expected, I developed and integrated test code for the REST client, specifically targeting these new audit log endpoints. This step was important for validating the data retrieval and endpoint behavior. Overall, it was a productive session, laying a solid foundation for the application's auditing infrastructure.
