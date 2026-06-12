@@ -45,17 +45,15 @@ export default function BlogIndexPage() {
     return (
         <main className="relative min-h-screen bg-background text-foreground">
 
-            <div className="relative mx-auto max-w-5xl px-6 py-16">
+            <div className="relative mx-auto max-w-5xl px-6 py-14">
 
                 <header className="mb-12 border-b border-border-main pb-6">
-                    <div className="flex justify-between">
-                        <h1 className="font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
-                            Blog<span className="text-indigo-500">_</span>
-                        </h1>
-                        <Link href="/" className="text-sm font-mono text-muted hover:text-foreground">
-                            Back
-                        </Link>
-                    </div>
+                    <Link href="/" className="text-sm font-mono text-muted hover:text-foreground">
+                        Back
+                    </Link>
+                    <h1 className="mt-6 font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
+                        Blog<span className="text-indigo-500">_</span>
+                    </h1>
                     <p className="mt-3 max-w-xl text-sm text-muted">
                         Notes on building interfaces, systems, and experiments along the way.
                     </p>
