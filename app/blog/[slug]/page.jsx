@@ -125,43 +125,43 @@ export default async function BlogViewPage({ params }) {
     const { content, frontMatter } = post;
 
     return (
-        <main className="relative min-h-screen bg-black text-white">
+        <main className="relative min-h-screen bg-background text-foreground">
             <BlogJsonLd slug={slug} frontMatter={frontMatter} />
 
             {/* Background grid */}
             {/* <div className="pointer-events-none absolute inset-0 bg-grid" /> */}
 
             <div className="relative mx-auto max-w-4xl px-6 py-16">
-                <div className="mb-10 flex items-center justify-between border-b border-white/10 pb-4">
-                    <Link href="/blog" className="text-sm font-mono text-white/60 hover:text-white">
+                <div className="mb-10 flex items-center justify-between border-b border-border-main pb-4">
+                    <Link href="/blog" className="text-sm font-mono text-muted hover:text-foreground">
                         Back
                     </Link>
 
-                    <span className="text-xs font-digital tracking-widest text-white/40">
+                    <span className="text-xs font-digital tracking-widest text-subtle">
                         ARTICLE // {truncateTitle(frontMatter.title.toUpperCase(), 18)}
                     </span>
                 </div>
 
                 {/* Article container */}
                 <article
-                    className="prose prose-invert prose-neutral max-w-none prose-headings:font-mono
-                    prose-headings:text-white  prose-p:text-white/70  prose-a:text-indigo-400
-                    prose-a:no-underline hover:prose-a:underline prose-code:font-mono  prose-code:text-indigo-300
-                    prose-pre:bg-white/5  prose-pre:border prose-pre:border-white/10">
+                    className="prose prose-neutral dark:prose-invert max-w-none text-foreground prose-headings:font-mono
+                    prose-headings:text-foreground prose-p:text-muted prose-a:text-indigo-600 dark:prose-a:text-indigo-400
+                    prose-a:no-underline hover:prose-a:underline prose-code:font-mono prose-code:text-indigo-600 dark:prose-code:text-indigo-300
+                    prose-pre:bg-card prose-pre:border prose-pre:border-border-main">
 
-                    <h1 className="text-xl lg:text-2xl">{frontMatter.title}</h1>
+                    <h1 className="text-xl lg:text-2xl text-foreground">{frontMatter.title}</h1>
 
                     {frontMatter.date && (
                         <time
                             dateTime={frontMatter.date}
-                            className="block mt-2 text-xs font-mono tracking-wide text-white/40"
+                            className="block mt-2 text-xs font-mono tracking-wide text-subtle"
                         >
                             {formatDate(frontMatter.date)}
                         </time>
                     )}
 
                     {frontMatter.description && (
-                        <p className="mt-2 mb-6 max-w-2xl text-sm text-white/50">
+                        <p className="mt-2 mb-6 max-w-2xl text-sm text-muted">
                             {frontMatter.description}
                         </p>
                     )}
