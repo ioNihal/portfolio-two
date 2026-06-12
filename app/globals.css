@@ -41,6 +41,42 @@
   }
 }
 
+.dark {
+  --background: #050505;
+  --foreground: #ededed;
+  --card: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.08);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-subtle: rgba(255, 255, 255, 0.4);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --grid-glow: rgba(99, 102, 241, 0.15);
+  --bg-radial-fade: #000000;
+  --input-bg: rgba(255, 255, 255, 0.02);
+  --btn-sec: rgba(255, 255, 255, 0.05);
+  --btn-sec-hover: rgba(255, 255, 255, 0.1);
+  --btn-border: rgba(255, 255, 255, 0.2);
+}
+
+.light {
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #f9fafb;
+  --card-hover: #f3f4f6;
+  --text-muted: #4b5563;
+  --text-subtle: #9ca3af;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --grid-line: rgba(0, 0, 0, 0.05);
+  --grid-glow: rgba(112, 114, 233, 0.082);
+  --bg-radial-fade: #ffffff;
+  --input-bg: #ffffff;
+  --btn-sec: rgba(0, 0, 0, 0.05);
+  --btn-sec-hover: rgba(0, 0, 0, 0.08);
+  --btn-border: rgba(0, 0, 0, 0.15);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -62,6 +98,8 @@
 
   --animate-wiggle: wiggle 3s ease-in-out infinite;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @utility bg-grid {
   background-image:
