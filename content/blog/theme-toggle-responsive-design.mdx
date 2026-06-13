@@ -1,0 +1,19 @@
+---
+title: "Implementing Theme Switching and Responsive Design"
+description: "Focused on adding dark mode and refining responsive styling for the portfolio."
+date: 2026-06-12
+---
+
+Today was mainly focused on improving the portfolio's theming system and overall responsiveness.
+
+I started by setting up a theme system that could automatically follow the user's operating system preference using CSS variables and the `prefers-color-scheme` media query. This gave me a solid base where the site could switch between light and dark themes without requiring any user interaction.
+
+After that, I spent some time researching how theme switching is commonly handled in Next.js applications. During that process, I came across hydration mismatch issues that can occur when the server and client render different themes. I looked into solutions such as `suppressHydrationWarning` and eventually decided to use the `next-themes` package to handle theme state more reliably.
+
+Once the research phase was done, I integrated `next-themes` into the application by creating a `ThemeProvider` wrapper and updating the layout configuration. I then expanded the initial automatic theme system to support manual theme selection, allowing users to switch between light mode, dark mode, and system preference through a dedicated toggle component.
+
+Alongside the theme work, I updated the global CSS structure and refined several components across both the portfolio and blog sections to use the new theme variables consistently. This helped ensure colors, backgrounds, and text styles remain coherent regardless of the selected theme.
+
+I also made a few smaller responsive design improvements and adjusted the blog index page layout to improve spacing and presentation.
+
+By the end of the session, the site had a complete theme management system with automatic system detection, manual theme controls, and a cleaner responsive styling foundation for future UI work.
