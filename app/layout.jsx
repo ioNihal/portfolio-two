@@ -96,7 +96,7 @@ export const metadata = {
 
   // Canonical
   alternates: {
-    canonical: 'https://ionihal.vercel.app/',
+    canonical: 'https://ionihal.vercel.app',
   },
 };
 
