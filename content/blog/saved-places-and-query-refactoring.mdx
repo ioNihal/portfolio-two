@@ -1,0 +1,13 @@
+---
+title: "Implementing Saved Places and Query Refactoring"
+description: "Built a comprehensive bookmarking system for places and refactored database queries into domain-specific modules."
+date: 2026-06-15
+---
+
+Today's session was focused on building a robust bookmarking feature and refactoring the database layer for better scalability.
+
+I started by designing the database updates, adding a new Bookmark model along with the necessary relationships to connect users and places. Once the schema was ready, I implemented the query functions and server actions to handle bookmark creation and removal. To manage these bookmark states efficiently on the client side, I built a BookmarkProvider context and wrapped it around the root layout of the application.
+
+With the state management and backend in place, I focused on the user interface. I created a reusable BookmarkButton component and integrated it into the place details side panel and explore cards, allowing users to save places with a single click. I then created a dedicated Saved Places page, complete with category-based filtering and empty state handling, and exposed links to this page in the main navigation header, footer, account dropdown, and mobile navigation bar.
+
+Finally, I spent time cleaning up the codebase. I split the large database queries file into smaller, domain-specific modules for places and moderators to make the code easier to maintain, and updated imports across the app. To finish the session, I refactored some types by introducing shared ActionResult and ProposedChanges interfaces, which helped resolve several ESLint warnings and improved type safety across the server actions and edit components.
