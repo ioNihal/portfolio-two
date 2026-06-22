@@ -6,20 +6,27 @@ import Image from 'next/image';
 const timelineData = [
   {
     id: 1,
+    year: "2026 - PRESENT",
+    title: "Full-Stack Developer",
+    place: "Dgymbook",
+    text: "Yeah I work on a monorepo, so my job is to adapt and move along"
+  },
+  {
+    id: 2,
     year: "2025 - 2026",
     title: "Frontend Developer Intern",
     place: "Warewe Consultancy Pvt Ltd",
     text: "Built responsive web interfaces using React, Next.js, Tailwind CSS, and integrated APIs for modern frontend applications. Also worked on Fullstack project."
   },
   {
-    id: 2,
+    id: 3,
     year: "2022 - 2025",
     title: "BCA Software & Web Development",
     place: " Srinivas University Manglore",
     text: "Graduated in 2025 with a Bachelor of Computer Applications, focusing on software development, web technologies, and practical project experience."
   },
   {
-    id: 3,
+    id: 4,
     year: "2020 - 2022",
     title: "HSE Computer Science",
     place: "CJHSS Chemnad Kasaragod",
