@@ -1,0 +1,11 @@
+---
+title: "Initial Release of sprig-video2ascii"
+description: "Finalized and released the sprig-video2ascii project, focusing on core functionality and user experience."
+date: 2026-07-04
+---
+
+Today was focused on bringing the sprig-video2ascii project to its initial release stage. A core part of the work involved ensuring the conversion and streaming of MP4s to the Sprig console was robust and efficient. This included refining the underlying logic that translates video frames into ASCII representation.
+
+I spent time on the user-facing components, particularly the responsive web dashboard accessible over Wi-Fi. This dashboard now offers a synchronized playback preview, which was crucial for real-time verification of the ASCII video output. Controls for brightness adjustment and hardware button mappings were also integrated, including a specific refinement for the GP15 button to trigger a graceful system deinitialization and shutdown.
+
+The final push involved setting up templates and comprehensive documentation to prepare the project for open-source publication. A minor correction was also addressed to ensure overall stability leading up to the release. It feels good to have this initial version out, providing a solid foundation for future iterations.
