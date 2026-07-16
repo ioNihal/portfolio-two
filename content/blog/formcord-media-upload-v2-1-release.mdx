@@ -1,0 +1,13 @@
+---
+title: "Implementing Media Uploads and Finalizing V2.1.0 Release"
+description: "Integrated native media attachment support and updated documentation across Formcord and its website for the v2.1.0 release."
+date: 2026-07-14
+---
+
+Today's session was primarily dedicated to rolling out native media attachment capabilities for Formcord V2 and preparing the accompanying website updates for the v2.1.0 release.
+
+I focused on the core Formcord library first, implementing the functionality to support file uploads and attachments using standard Web APIs. This involved enforcing Discord's default constraints of 25MB per file and a maximum of 10 files per message. A significant part of this effort was developing the standalone validateFiles utility, which allows for custom size and file count constraints, including support for human-readable string formats like '25mb'. I also made sure to refine deprecation warnings and address any-casts to maintain strict type safety across the relevant modules.
+
+Following the core library work, I shifted to updating the Formcord website. This included adding a new feature card on the landing page highlighting media attachments and creating a detailed documentation section explaining how to use the new files parameter and the validateFiles helper. Finally, I updated the changelog with the new v2.1.0 release details and incremented the version tag on the hero section.
+
+Overall, it was a productive day bringing a significant new feature to Formcord. The development, documentation, and release preparations are now complete, setting up the project for its latest iteration.
