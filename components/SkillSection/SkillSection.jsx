@@ -7,7 +7,6 @@ import {
     SiNodedotjs,
     SiTypescript,
     SiTailwindcss,
-    SiCss3,
     SiGit,
     SiFigma,
     SiBlender,
@@ -18,12 +17,13 @@ import {
     SiGraphql,
     SiWordpress,
 } from "react-icons/si";
+import { FaCss3Alt } from "react-icons/fa"
 
 
 const icons = [
     { name: "HTML", img: SiHtml5 },
     { name: "JavaScript", img: SiJavascript },
-    { name: "CSS", img: SiCss3 },
+    { name: "CSS", img: FaCss3Alt },
     { name: "Node.js", img: SiNodedotjs },
     { name: "TypeScript", img: SiTypescript },
     { name: "ReactJS", img: SiReact },

@@ -114,7 +114,7 @@ export default function ContactSection() {
         className="mt-1 w-full 2xl:w-7/10 m-auto px-6 lg:px-10 grid grid-cols-1 gap-5 lg:grid-cols-5 lg:grid-rows-2"
         noValidate
       >
-        <div className="flex flex-col gap-3 order-1 lg:order-none lg:col-start-4 lg:row-start-1">
+        <div className="flex flex-col gap-3 order-1 lg:order-0 lg:col-start-4 lg:row-start-1">
           <label htmlFor="subject">Subject</label>
           <input
             type="text"
@@ -134,7 +134,7 @@ export default function ContactSection() {
           )}
         </div>
 
-        <div className="flex flex-col gap-3 order-2 lg:order-none lg:col-start-5 lg:row-start-1">
+        <div className="flex flex-col gap-3 order-2 lg:order-0 lg:col-start-5 lg:row-start-1">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -153,7 +153,7 @@ export default function ContactSection() {
           )}
         </div>
 
-        <div className="flex flex-col gap-3 order-3 lg:order-none lg:col-start-1 lg:row-start-1 lg:col-span-3 lg:row-span-2">
+        <div className="flex flex-col gap-3 order-3 lg:order-0 lg:col-start-1 lg:row-start-1 lg:col-span-3 lg:row-span-2">
           <label htmlFor="body">Message</label>
           <textarea
             id="body"
@@ -176,7 +176,7 @@ export default function ContactSection() {
           type="submit"
           disabled={sending}
           aria-label="Send message to Nihal"
-          className="order-4 lg:order-none lg:col-start-4 lg:col-end-6 lg:row-start-2 bg-foreground text-background rounded-full text-3xl cursor-pointer hover:opacity-90 transition-opacity duration-300 w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="order-4 lg:order-0 lg:col-start-4 lg:col-end-6 lg:row-start-2 bg-foreground text-background rounded-full text-3xl cursor-pointer hover:opacity-90 transition-opacity duration-300 w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {sending ? "Sending..." : "Message Nihal"}
         </button>
