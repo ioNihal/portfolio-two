@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import LinkList from './LinkList';
+import BuyMeACoffee from '../BuyMeACoffee';
 
 
 const linksArr = ["Home", "Skills", "Projects", "Experience", "About", "Contact"];
@@ -37,11 +38,12 @@ export default function FooterSection() {
             <p className='text-xs font-mono'>ioNihal &copy; {currentYear}.</p>
           </div>
         </div>
-
-
         <div className="relative z-10 flex-1 flex gap-20 *:flex *:flex-col *:gap-1 backdrop-blur-[2px]">
           <LinkList links={linksArr} action={"navigation"} />
           <LinkList links={socials} action={"social"} />
+        </div>
+        <div>
+          <BuyMeACoffee />
         </div>
       </div>
     </section>
