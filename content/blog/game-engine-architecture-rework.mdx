@@ -1,0 +1,17 @@
+---
+title: "Extensive Game Engine Architecture Rework"
+description: "Refactored game engine architecture, implemented config-driven content, and improved tooling through several development phases."
+date: 2026-08-19
+---
+
+Today involved a significant architectural rework on the Game2D project, spanning several phases of refactoring and feature implementation. The core focus was on modularizing various systems, improving game loop stability, and moving towards a highly configurable content system.
+
+I started by addressing the game's core loop, replacing the old `setTimeout`/`setInterval` cascade with a fixed 60Hz timestep in `gameLoop.js`. This resolved a long-standing issue where the game would speed up on high refresh rate monitors, ensuring deterministic behavior across different setups. Alongside this, the `MatchSystem` was introduced to manage round states, intros, and KO delays frame-by-frame.
+
+A large portion of the work went into refactoring the rendering and combat systems. I extracted all rendering logic into dedicated `render/` modules, separating canvas management, HUD elements, overlays, and floating text from the core game logic. Similarly, the `Fighter` entity was split into a pure FSM (`fighterStates.js`) and a `CombatSystem` responsible for resolving hitboxes, with all related events now flowing through a central `EventBus`. This greatly improved separation of concerns.
+
+Further modularization continued by reworking the AI to use an action buffer via `VirtualInput`, making it more robust and configurable per difficulty. All UI communication was also standardized through `EventBus` events, and audio was unified under a single `AudioManager`. Developer tooling was enhanced with a debug mode, accessible via a URL parameter, allowing for quick toggles of features like hitbox overlays. I also implemented asset gating, disabling the start button until all game assets are loaded.
+
+Finally, a major push was made towards a fully config-driven content system. Character definitions, sprite animations, and audio elements are now loaded from external configuration files, including character-specific audio overrides and dynamic BGM based on round progression. This extends to arena visuals and even AI behavior, which can now be finely tuned through configuration properties, allowing new fight styles and difficulty scaling to be defined declaratively. The "About" screen was also redesigned to be more informative.
+
+It was a very productive day, fundamentally changing how various parts of the game are structured and managed. The project now has a much more robust and maintainable foundation, ready for future content additions and easier iteration.
