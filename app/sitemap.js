@@ -1,7 +1,7 @@
 import { getSlugs } from "@/lib/blog";
 
 export default function sitemap() {
-  const baseUrl = "https://ionihal.vercel.app";
+  const baseUrl = "https://www.nihalu.com";
   const lastContentUpdate = new Date().toISOString();
 
 

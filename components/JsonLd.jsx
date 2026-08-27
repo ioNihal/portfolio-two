@@ -26,13 +26,13 @@ const projectsData = [
 const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': 'https://ionihal.vercel.app/#person',
+    '@id': 'https://www.nihalu.com/#person',
 
     name: 'Nihal K',
     givenName: 'Nihal',
     familyName: 'K',
-    url: 'https://ionihal.vercel.app',
-    image: 'https://ionihal.vercel.app/profile-photo.webp',
+    url: 'https://www.nihalu.com',
+    image: 'https://www.nihalu.com/profile-photo.webp',
 
     jobTitle: 'Full-Stack Developer',
     description: 'Full-Stack Developer specializing in React, Next.js, Node.js, and database engineering.',
@@ -99,9 +99,9 @@ const personSchema = {
 const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://ionihal.vercel.app/#website',
+    '@id': 'https://www.nihalu.com/#website',
     name: 'Nihal K - Portfolio',
-    url: 'https://ionihal.vercel.app',
+    url: 'https://www.nihalu.com',
     description: 'Personal portfolio website of Nihal K, a Full-Stack Developer from Kasaragod, Kerala',
     inLanguage: 'en',
 };

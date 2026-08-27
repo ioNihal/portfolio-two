@@ -41,7 +41,7 @@ const spaceMono = Space_Mono({
 export const metadata = {
   title: "Nihal K - Full Stack Developer | React & Next.js Portfolio",
   description: "Full-Stack Developer specializing in modern web technologies, including React, Next.js, Node.js, and database engineering. Explore my projects, skills, and professional journey.",
-  metadataBase: new URL('https://ionihal.vercel.app'),
+  metadataBase: new URL('https://www.nihalu.com'),
 
   // Keywords
   keywords: [
@@ -66,13 +66,13 @@ export const metadata = {
   openGraph: {
     title: 'Nihal K - Full Stack Developer Portfolio',
     description: 'Full-Stack Developer showcasing projects built with React, Next.js, Node.js, and modern web technologies.',
-    url: 'https://ionihal.vercel.app',
+    url: 'https://www.nihalu.com',
     siteName: 'Nihal K Portfolio',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://ionihal.vercel.app/social-share-image.jpg',
+        url: 'https://www.nihalu.com/social-share-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Nihal K Portfolio Banner'
@@ -86,7 +86,7 @@ export const metadata = {
     title: 'Nihal K - Full Stack Developer Portfolio',
     description: 'Full-Stack Developer showcasing projects built with React, Next.js, Node.js, and modern web technologies.',
     creator: '@n1haaaal',
-    images: ['https://ionihal.vercel.app/social-share-image.jpg'],
+    images: ['https://www.nihalu.com/social-share-image.jpg'],
   },
 
   // Verification
@@ -96,7 +96,7 @@ export const metadata = {
 
   // Canonical
   alternates: {
-    canonical: 'https://ionihal.vercel.app',
+    canonical: 'https://www.nihalu.com',
   },
 };
 

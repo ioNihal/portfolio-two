@@ -6,7 +6,7 @@ This repository contains the source code for my personal portfolio website. I am
 
 ## Portfolio Website
 
-- **Live URL:** [https://ionihal.vercel.app](https://ionihal.vercel.app)
+- **Live URL:** [https://www.nihalu.com](https://www.nihalu.com)
 
 ---
 

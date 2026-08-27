@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { formatDate, getAllPostsMeta } from "@/lib/blog";
 
-const SITE_URL = "https://ionihal.vercel.app";
+const SITE_URL = "https://www.nihalu.com";
 const OG_HOST = "https://rendercard.vercel.app";
 
 export const metadata = {
@@ -20,7 +20,7 @@ export const metadata = {
         type: "website",
         images: [
             {
-                url: `${OG_HOST}/api/rendercard?title=Blog&description=Thoughts%2C+experiments%2C+and+notes+on+building+for+the+web.&site=ionihal.vercel.app&theme=spotlight`,
+                url: `${OG_HOST}/api/rendercard?title=Blog&description=Thoughts%2C+experiments%2C+and+notes+on+building+for+the+web.&site=www.nihalu.com&theme=spotlight`,
                 width: 1200,
                 height: 630,
                 alt: "Blog · Nihal K",
@@ -33,7 +33,7 @@ export const metadata = {
         title: "Blog · Nihal K",
         description: "Thoughts, experiments, and notes on building for the web.",
         images: [
-            `${OG_HOST}/api/rendercard?title=Blog&description=Thoughts%2C+experiments%2C+and+notes+on+building+for+the+web.&site=ionihal.vercel.app&theme=spotlight`,
+            `${OG_HOST}/api/rendercard?title=Blog&description=Thoughts%2C+experiments%2C+and+notes+on+building+for+the+web.&site=www.nihalu.com&theme=spotlight`,
         ],
     },
 };

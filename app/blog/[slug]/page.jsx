@@ -23,9 +23,9 @@ export async function generateMetadata({ params }) {
     const title = frontMatter.title;
     const description = frontMatter.description ?? "";
     const date = frontMatter.date ?? "";
-    const site = "ionihal.vercel.app";
+    const site = "www.nihalu.com";
 
-    const url = `https://ionihal.vercel.app/blog/${slug}`;
+    const url = `https://www.nihalu.com/blog/${slug}`;
 
     const ogParams = new URLSearchParams({
         title,
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }) {
 
 
 function BlogJsonLd({ slug, frontMatter }) {
-    const url = `https://ionihal.vercel.app/blog/${slug}`;
+    const url = `https://www.nihalu.com/blog/${slug}`;
 
     const jsonLd = {
         "@context": "https://schema.org",
@@ -89,7 +89,7 @@ function BlogJsonLd({ slug, frontMatter }) {
         "author": {
             "@type": "Person",
             "name": "Nihal K",
-            "url": "https://ionihal.vercel.app",
+            "url": "https://www.nihalu.com",
         },
         "publisher": {
             "@type": "Person",

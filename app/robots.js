@@ -9,6 +9,6 @@ export default function robots() {
         '/docs/'
       ],
     },
-    sitemap: 'https://ionihal.vercel.app/sitemap.xml',
+    sitemap: 'https://www.nihalu.com/sitemap.xml',
   }
 }
