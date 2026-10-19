@@ -38,7 +38,7 @@ export default function HeroContent() {
                         </Link>
                         <Link
                             prefetch={false}
-                            href={'/docs/resume.pdf'}
+                            href={'/docs/Nihal_K_Resume.pdf'}
                             target="_blank"
                             className="border border-indigo-500/40 bg-indigo-500/10 px-4 py-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition hover:bg-indigo-500/20"
                         >
