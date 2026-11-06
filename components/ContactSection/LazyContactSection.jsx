@@ -5,7 +5,7 @@ const ContactSection = dynamic(
     {
         ssr: false,
         loading: () => (
-            <div className="min-h-screen flex items-center justify-center text-white">
+            <div className="min-h-screen flex items-center justify-center text-muted">
                 Loading contact form…
             </div>
         ),

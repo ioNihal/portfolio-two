@@ -25,7 +25,7 @@ export default function FooterSection() {
           <h2 className="text-4xl lg:text-7xl font-semibold tracking-widest">ioNihal</h2>
 
           <div className=" text-muted flex flex-col gap-1">
-            <p className="flex items-center gap-2 text-md lg:text-lg">
+            <p className="flex items-center gap-2 text-base lg:text-lg">
               Designed and Developed with
               <Image
                 src="/appleEmoticon.webp"
