@@ -260,6 +260,7 @@
   }
 }
 
+
 .float {
   animation: float 6s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
   transition: transform 0.28s ease;
