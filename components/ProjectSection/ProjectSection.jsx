@@ -1,124 +1,76 @@
 import Link from "next/link";
 
-
-
-const projectsMock = [
+const projects = [
     {
-        id: 0,
-        title: "Inventory Management System",
-        desc: "Built a MERN stack web app featuring real time inventory tracking, offline order & payment processing, and an admin mediated order workflow.",
-        tech: ["ReactJS", "ExpressJS", "MongoDB"],
-        repo: "https://github.com/ioNihal/sims-dashboard-front",
-        preview: null,
-    },
-    {
-        id: 1,
-        title: "2D Stickman Game",
-        desc: "Developed a challenging and fun stickman style 1v1 fighting game using HTML Canvas, CSS, Vanilla JS.",
-        tech: ["HTML5 Canvas", "Javascript", "CSS"],
-        repo: "https://github.com/ioNihal/Game2D",
-        preview: "https://ionihal.github.io/game2dsite",
-    },
-    {
-        id: 2,
-        title: "RenderCard",
-        desc: "Built a dynamic Open Graph image generator API that creates customizable social preview cards using URL parameters, powered by Next.js Edge Runtime for fast, on-demand image rendering.",
-        tech: ["Next.js", "Edge Runtime", "API Routes", "Image Generation"],
-        repo: null,
-        preview: "https://rendercard.vercel.app",
-    },
-    {
-        id: 3,
-        title: "React WIP UI System",
-        desc: "Built a composable React UI library for marking work-in-progress features using badges, banners, overlays, and status indicators, with scalable component architecture and seamless Next.js integration.",
-        tech: ["Next.js", "React", "Component Architecture"],
-        repo: "https://github.com/ioNihal/react-wip-ui",
-        preview: "https://react-wip-ui.vercel.app",
-    },
-    {
-        id: 5,
-        title: "Formcord",
-        desc: "Built a zero-dependency notification layer that sends form submissions and system events to Discord, designed to run seamlessly across Edge, serverless, and Node runtimes using Web APIs.",
-        tech: ["Next.js", "Edge Runtime", "Node.js", "Web APIs", "Discord API"],
-        repo: "https://github.com/ioNihal/formcord",
-        preview: "https://formcord.vercel.app",
-    },
-    {
-        id: 6,
         title: "Explore Kasaragod",
-        desc: "Built a fast, ad-free digital directory and platform showcasing Kasaragod's finest local eateries, travel destinations, and essential services, built with a community-first approach.",
-        tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-        repo: null,
-        preview: "https://explorekasaragod.org",
-    }
-]
+        desc: "an ad-free local directory of eateries, places and services",
+        href: "https://explorekasaragod.org",
+    },
+    {
+        title: "2D Stickman Game",
+        desc: "a 1v1 stickman fighter in plain canvas and vanilla JS",
+        href: "https://ionihal.github.io/game2dsite",
+    },
+    {
+        title: "RenderCard",
+        desc: "an edge-rendered API that turns URL params into social preview cards",
+        href: "https://rendercard.vercel.app",
+    },
+    {
+        title: "Formcord",
+        desc: "a zero-dependency bridge from form submissions to Discord",
+        href: "https://formcord.vercel.app",
+    },
+    {
+        title: "React WIP UI System",
+        desc: "a React kit of badges, banners and overlays for unfinished features",
+        href: "https://react-wip-ui.vercel.app",
+    },
+    {
+        title: "Inventory Management System",
+        desc: "a MERN app for real-time stock, offline orders and admin-approved payments",
+        href: "https://github.com/ioNihal/sims-dashboard-front",
+    },
+];
+
+function AccentLink({ href, children }) {
+    return (
+        <Link
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-serif text-[1.5em] text-violet-700 underline-offset-4 transition-colors hover:text-violet-900 hover:underline focus-visible:underline dark:text-violet-400 dark:hover:text-violet-300"
+        >
+            {children}
+        </Link>
+    );
+}
 
 export default function ProjectSection() {
     return (
-        <section id="projects" aria-labelledby="projects-heading" className="relative w-full bg-background py-24">
-            <div className="mx-auto mb-16 max-w-7xl px-6 text-center">
-                <h2 id="projects-heading"
-                    className="font-digital text-2xl tracking-widest text-indigo-600 dark:text-indigo-400 sm:text-3xl">
-                    PROJECTS
+        <section
+            id="projects"
+            aria-labelledby="projects-heading"
+            className="w-full bg-background px-6 py-24"
+        >
+            <div className="mx-auto max-w-4xl">
+                <h2
+                    id="projects-heading"
+                    className="mb-12 text-center font-mono text-[13px] font-normal text-muted"
+                >
+                    Projects
                 </h2>
-                <p className="mt-4 text-sm text-muted">
-                    Selected work showcasing systems, interfaces, and experiments.
-                    More projects live on{" "}
-                    <Link href="https://tomatoweb.site" className="text-foreground underline-offset-2 hover:underline"
-                        target="_blank" rel="noopener noreferrer" >
-                        TomatoWeb
-                    </Link>
-                    .
+
+                <p className="text-balance text-center text-lg leading-[1.9] tracking-[0.02em] text-foreground/80 [word-spacing:0.12em] sm:text-xl sm:tracking-[0.03em] md:text-2xl lg:tracking-[0.04em] lg:[word-spacing:0.18em]">
+                    {projects.map(({ title, desc, href }) => (
+                        <span key={title}>
+                            <AccentLink href={href}>{title}</AccentLink>, {desc}.{" "}
+                        </span>
+                    ))}
+                    More lives on{" "}
+                    <AccentLink href="https://tomatoweb.site">TomatoWeb</AccentLink>.
                 </p>
             </div>
-
-            <ul aria-label="Project list" className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3">
-                {projectsMock.map((project) => (
-                    <li key={project.id} className="group flex h-full flex-col rounded-xl border border-border-main bg-card p-4 transition
-                       hover:border-indigo-500/40 hover:bg-card-hover focus-within:border-indigo-500/40">
-
-                        <h3 className="text-xl font-semibold text-foreground">
-                            {project.title}
-                        </h3>
-
-                        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-                            {project.desc}
-                        </p>
-
-                        <div className="mt-2">
-                            <span className="text-xs font-semibold uppercase tracking-wide text-subtle">
-                                Tech Stack
-                            </span>
-                            <ul className="mt-2 flex flex-wrap gap-2">
-                                {project.tech.map((t) => (
-                                    <li key={t}
-                                        className="rounded-full bg-indigo-500/10 px-3 py-1 text-[10px] font-digital font-medium text-indigo-600 dark:text-indigo-300 dark:bg-indigo-500/15">
-                                        {t}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="mt-3 flex gap-3">
-                            {project.repo && (
-                                <Link href={project.repo} aria-label={`View ${project.title} repository on GitHub`}
-                                    className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white
-                                transition hover:bg-indigo-700 focus-visible:outline focus-visible:outline-indigo-400">
-                                    Repository
-                                </Link>
-                            )}
-
-                            {project.preview && (
-                                <Link href={project.preview} aria-label={`View live preview of ${project.title}`}
-                                    className="inline-flex items-center justify-center rounded-md border border-btn-border bg-btn-sec px-3 py-1.5 text-xs font-semibold text-foreground
-                                    transition hover:bg-btn-sec-hover focus-visible:outline focus-visible:outline-indigo-400">
-                                    Live Preview
-                                </Link>
-                            )}
-                        </div>
-                    </li>
-                ))}
-            </ul>
         </section>
     );
 }

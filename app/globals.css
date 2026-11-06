@@ -95,6 +95,7 @@
   --font-condensed: var(--font-anton);
   --font-future: var(--font-michroma);
   --font-digital: var(--font-space-mono);
+  --font-serif: var(--font-instrument-serif);
 
   --animate-wiggle: wiggle 3s ease-in-out infinite;
 }

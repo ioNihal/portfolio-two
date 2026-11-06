@@ -1,4 +1,4 @@
-import { Anton, Geist, Geist_Mono, Michroma, Space_Mono } from "next/font/google";
+import { Anton, Geist, Geist_Mono, Instrument_Serif, Michroma, Space_Mono } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import FooterSection from "@/components/FooterSection/FooterSection";
@@ -36,6 +36,12 @@ const spaceMono = Space_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
 })
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 
 export const metadata = {
@@ -105,7 +111,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${microma.variable} ${spaceMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${anton.variable} ${microma.variable} ${spaceMono.variable} antialiased`}
       >
         <ThemeProvider>
           <ThemeToggle />
