@@ -1,51 +1,57 @@
+import Link from "next/link";
+
+const pages = ["home", "skills", "projects", "experience", "about", "contact"];
+
+const elsewhere = [
+  { name: "instagram", url: "https://instagram.com/io.nihal" },
+  { name: "linkedin", url: "https://linkedin.com/in/n1hal" },
+  { name: "github", url: "https://github.com/ionihal" },
+  { name: "x", url: "https://x.com/n1haaaal" },
+  { name: "buy me a coffee", url: "https://www.buymeacoffee.com/n1hal", highlight: true },
+];
 
 
-import Image from 'next/image';
-import LinkList from './LinkList';
-import BuyMeACoffee from '../BuyMeACoffee';
+const link =
+  "text-muted underline-offset-4 transition-colors hover:text-accent hover:underline focus-visible:underline";
 
-
-const linksArr = ["Home", "Skills", "Projects", "Experience", "About", "Contact"];
-const socials = [
-  { name: "Blog", url: "/blog" },
-  { name: "Instagram", url: "https://instagram.com/io.nihal" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/n1hal" },
-  { name: "Github", url: "https://github.com/ionihal" },
-  { name: "TwitterX", url: "https://x.com/n1haaaal" },
-]
+const coffee =
+  "uppercase text-yellow-600 dark:text-yellow-400 underline-offset-4 transition-colors hover:underline focus-visible:underline";
 
 export default function FooterSection() {
-  const currentYear = new Date().getFullYear();
-  return (
-    <section
-      className="h-auto w-full bg-background border-t border-border-main relative px-4 sm:px-6 
-            text-foreground isolate flex flex-col items-center justify-center">
-      <div className='w-full 2xl:w-7/10  px-6 lg:px-10 pt-10 lg:pt-8 pb-10 flex flex-col-reverse lg:flex-row gap-10 lg:gap-30'>
-        <div className="flex flex-col gap-3">
-          <h2 className="text-4xl lg:text-7xl font-semibold tracking-widest">ioNihal</h2>
+  const year = new Date().getFullYear();
 
-          <div className=" text-muted flex flex-col gap-1">
-            <p className="flex items-center gap-2 text-base lg:text-lg">
-              Designed and Developed with
-              <Image
-                src="/appleEmoticon.webp"
-                alt="emoticon"
-                height={48}
-                width={48}
-                className="inline-block w-5 h-5 lg:w-7 lg:h-7"
-              />
-            </p>
-            <p className='text-xs font-mono'>ioNihal &copy; {currentYear}.</p>
-          </div>
+  return (
+    <footer className="w-full border-t border-border-main bg-background px-6 py-16">
+      <div className="mx-auto max-w-4xl space-y-8 font-mono text-sm">
+        <div className="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
+          <p className="mb-2 text-xs text-subtle sm:mb-0">pages</p>
+          <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
+            {pages.map((p) => (
+              <Link key={p} href={`/#${p}`} className={link}>
+                {p}
+              </Link>
+            ))}
+            <Link href="/blog" className={link}>
+              blog
+            </Link>
+          </nav>
         </div>
-        <div className="relative z-10 flex-1 flex gap-20 *:flex *:flex-col *:gap-1 backdrop-blur-[2px]">
-          <LinkList links={linksArr} action={"navigation"} />
-          <LinkList links={socials} action={"social"} />
+
+        <div className="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
+          <p className="mb-2 text-xs text-subtle sm:mb-0">elsewhere</p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {elsewhere.map(({ name, highlight, url }) => (
+              <li key={name}>
+                <a href={url} target="_blank" rel="noopener noreferrer" className={highlight ? coffee : link}>
+                  {name} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div>
-          <BuyMeACoffee />
-        </div>
+
+        <p className="pt-8 text-xs text-subtle">ioNihal © {year}</p>
       </div>
-    </section>
-  )
+    </footer >
+  );
 }

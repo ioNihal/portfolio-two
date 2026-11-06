@@ -2,65 +2,63 @@
 
 import { useState } from "react";
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const noErrors = { subject: "", email: "", message: "" };
+
+const fieldBase =
+  "w-full border-b bg-transparent py-2 font-serif text-xl text-foreground transition-colors placeholder:text-subtle focus:outline-none";
+
+function validate({ subject, email, message }) {
+  const errors = { ...noErrors };
+  if (subject.trim().length < 2) errors.subject = "Enter a subject (min 2 characters).";
+  if (!emailRegex.test(email.trim())) errors.email = "Enter a valid email address.";
+  if (message.trim().length < 10) errors.message = "Message must be at least 10 characters.";
+  return errors;
+}
+
+function Field({ id, label, error, children }) {
+  return (
+    <div>
+      <label htmlFor={id} className="mb-1 block font-mono text-xs text-subtle">
+        {label}
+      </label>
+      {children}
+      {error && (
+        <p id={`${id}-error`} className="mt-2 text-sm text-red-600 dark:text-red-400">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function ContactSection() {
-  const [sending, setSending] = useState(false);
-  const [errors, setErrors] = useState({
-    subject: "",
-    email: "",
-    body: ""
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [errors, setErrors] = useState(noErrors);
+
+  const inputProps = (id) => ({
+    id,
+    name: id,
+    "aria-invalid": !!errors[id],
+    "aria-describedby": errors[id] ? `${id}-error` : undefined,
+    className: `${fieldBase} ${errors[id] ? "border-red-500" : "border-subtle focus:border-accent"}`,
   });
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  function validate(values) {
-    const err = { subject: "", email: "", body: "" };
-    let ok = true;
-
-    if (!values.subject || String(values.subject).trim().length < 2) {
-      err.subject = "Please enter a subject (min 2 characters).";
-      ok = false;
-    }
-
-    if (!values.email || !emailRegex.test(String(values.email).trim())) {
-      err.email = "Please enter a valid email address.";
-      ok = false;
-    }
-
-    if (!values.message || String(values.message).trim().length < 10) {
-      err.body = "Message must be at least 10 characters.";
-      ok = false;
-    }
-
-    setErrors(err);
-    return ok;
-  }
-
-
-  function inputClass(hasError) {
-    const base =
-      "w-full border bg-card text-foreground focus:outline-none transition-colors duration-300 p-3";
-    const normal = "border-border-main focus:border-accent";
-    const er = "border-red-500 focus:border-accent";
-    return `${base} ${hasError ? er : normal}`;
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    const fd = new FormData(e.target);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const payload = {
-      subject: fd.get("subject")?.toString() ?? "",
-      email: fd.get("email")?.toString() ?? "",
-      message: fd.get("body")?.toString() ?? ""
+      subject: String(fd.get("subject") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      message: String(fd.get("message") ?? ""),
     };
 
-    if (!validate(payload)) {
-      return;
-    }
+    const found = validate(payload);
+    setErrors(found);
+    if (Object.values(found).some(Boolean)) return;
 
-    setSending(true);
-
-    // Abort controller with timeout
+    setStatus("sending");
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 10000);
 
@@ -69,118 +67,72 @@ export default function ContactSection() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-        signal: controller.signal
+        signal: controller.signal,
       });
-
-      let data = null;
-      try {
-        data = await res.json();
-      } catch (err) {
-        // ignore JSON parse errors
-      }
-
-      if (!res.ok) {
-        const msg = data?.error || data?.message || res.statusText || "Failed to send message";
-        console.error(msg);
-      } else {
-        e.target.reset();
-        setErrors({ subject: "", email: "", body: "" });
-      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      form.reset();
+      setStatus("sent");
     } catch (err) {
-      if (err.name === "AbortError") {
-        console.error("Request timed out. Please try again.");
-      } else {
-        console.error("Contact form error:", err);
-      }
+      console.error("Contact form error:", err);
+      setStatus("error");
     } finally {
       clearTimeout(timeout);
-      setSending(false);
     }
   }
 
   return (
     <section
-      className="min-h-screen w-full bg-background border-t border-border-main relative py-5 px-4 sm:px-6 text-foreground isolate flex flex-col items-center justify-center"
       id="contact"
+      aria-labelledby="contact-heading"
+      className="w-full bg-background px-6 py-24"
     >
-      <div className="w-full 2xl:w-7/10 m-auto font-bold px-6 lg:px-10">
-        <h2 className="text-4xl md:text-6xl lg:text-8xl leading-snug">
-          Got a project in mind?<br />Let's talk.
-        </h2>
-      </div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="mt-1 w-full 2xl:w-7/10 m-auto px-6 lg:px-10 grid grid-cols-1 gap-5 lg:grid-cols-5 lg:grid-rows-2"
-        noValidate
-      >
-        <div className="flex flex-col gap-3 order-1 lg:order-0 lg:col-start-4 lg:row-start-1">
-          <label htmlFor="subject">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            placeholder="Subject"
-            required
-            className={inputClass(!!errors.subject)}
-            aria-invalid={!!errors.subject}
-            aria-describedby={errors.subject ? "subject-error-sr" : undefined}
-          />
-
-          {errors.subject && (
-            <span id="subject-error-sr" className="sr-only">
-              {errors.subject}
-            </span>
-          )}
-        </div>
-
-        <div className="flex flex-col gap-3 order-2 lg:order-0 lg:col-start-5 lg:row-start-1">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className={inputClass(!!errors.email)}
-            aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? "email-error-sr" : undefined}
-          />
-          {errors.email && (
-            <span id="email-error-sr" className="sr-only">
-              {errors.email}
-            </span>
-          )}
-        </div>
-
-        <div className="flex flex-col gap-3 order-3 lg:order-0 lg:col-start-1 lg:row-start-1 lg:col-span-3 lg:row-span-2">
-          <label htmlFor="body">Message</label>
-          <textarea
-            id="body"
-            name="body"
-            rows="5"
-            placeholder="Your Message (Min 10 characters)"
-            required
-            className={inputClass(!!errors.body) + " h-[200px] resize-none"}
-            aria-invalid={!!errors.body}
-            aria-describedby={errors.body ? "body-error-sr" : undefined}
-          />
-          {errors.body && (
-            <span id="body-error-sr" className="sr-only">
-              {errors.body}
-            </span>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          disabled={sending}
-          aria-label="Send message to Nihal"
-          className="order-4 lg:order-0 lg:col-start-4 lg:col-end-6 lg:row-start-2 bg-foreground text-background rounded-full text-3xl cursor-pointer hover:opacity-90 transition-opacity duration-300 w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+      <div className="mx-auto max-w-2xl">
+        <h2
+          id="contact-heading"
+          className="mb-6 font-mono text-[13px] font-normal text-muted"
         >
-          {sending ? "Sending..." : "Message Nihal"}
-        </button>
-      </form>
+          Contact
+        </h2>
+
+        <p className="mb-14 font-serif text-4xl leading-tight text-foreground text-balance sm:text-5xl">
+          Got a project in mind? Let&apos;s talk.
+        </p>
+
+        <form onSubmit={handleSubmit} noValidate className="space-y-8">
+          <div className="grid gap-8 sm:grid-cols-2">
+            <Field id="subject" label="subject" error={errors.subject}>
+              <input type="text" placeholder="What is it about?" {...inputProps("subject")} />
+            </Field>
+            <Field id="email" label="email" error={errors.email}>
+              <input type="email" placeholder="you@example.com" {...inputProps("email")} />
+            </Field>
+          </div>
+
+          <Field id="message" label="message" error={errors.message}>
+            <textarea
+              rows={4}
+              placeholder="Min 10 characters"
+              {...inputProps("message")}
+              className={`${inputProps("message").className} resize-none`}
+            />
+          </Field>
+
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-sm">
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="cursor-pointer text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline focus-visible:underline disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {status === "sending" ? "sending…" : "send message ↗"}
+            </button>
+
+            <p role="status" className="text-muted">
+              {status === "sent" && "Message sent. I'll get back to you soon."}
+              {status === "error" && "Couldn't send your message. Please try again."}
+            </p>
+          </div>
+        </form>
+      </div>
     </section>
   );
 }

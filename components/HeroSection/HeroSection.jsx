@@ -1,18 +1,46 @@
-import HeroContent from "./HeroContent";
+import Link from "next/link";
+
+const link =
+  "text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline focus-visible:underline";
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] w-full bg-background text-foreground isolate
-      flex lg:items-center justify-center"
+      aria-labelledby="hero-heading"
+      className="relative isolate flex min-h-svh w-full items-center bg-background px-6 py-24 text-foreground"
     >
-      {/* Background grid */}
-      <div className="absolute -z-1 inset-0 bg-radial" />
+      <div className="absolute inset-0 -z-10 bg-radial" />
 
-    
-      <div className="px-4 py-12 lg:py-16 lg:px-10 max-w-6xl">
-        <HeroContent />
+      <div className="mx-auto w-full max-w-4xl">
+        <h1
+          id="hero-heading"
+          className="font-serif text-6xl leading-[1.05] tracking-tight text-balance sm:text-7xl md:text-8xl"
+        >
+          Nihal K
+        </h1>
+
+        <p className="mt-6 max-w-xl font-serif text-2xl leading-snug text-foreground/80 text-pretty sm:text-3xl">
+          <span className="text-accent">Full-stack developer</span> building
+          interfaces with intent, engineered for modern systems.
+        </p>
+
+        <nav
+          aria-label="Primary"
+          className="mt-12 flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm"
+        >
+          <a href="#projects" className={link}>projects</a>
+          <Link href="/blog" className={link}>blog</Link>
+          <Link
+            href="/docs/Nihal_K_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            prefetch={false}
+            className={link}
+          >
+            resume ↗
+          </Link>
+        </nav>
       </div>
     </section>
   );
