@@ -46,9 +46,9 @@ export default function ThemeToggle() {
                  text-foreground shadow-lg hover:scale-105 hover:bg-card-hover 
                  active:scale-95 transition-all duration-200 cursor-pointer focus:outline-none"
     >
-      {theme === "system" && <FiMonitor size={18} className="text-indigo-600 dark:text-indigo-400" />}
-      {theme === "dark" && <FiMoon size={18} className="text-indigo-400" />}
-      {theme === "light" && <FiSun size={18} className="text-indigo-600" />}
+      {theme === "system" && <FiMonitor size={18} className="text-accent" />}
+      {theme === "dark" && <FiMoon size={18} className="text-accent" />}
+      {theme === "light" && <FiSun size={18} className="text-accent" />}
     </button>
   );
 }

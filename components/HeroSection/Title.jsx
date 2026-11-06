@@ -32,7 +32,7 @@ export default function Title() {
 
     return (
         <span ref={titleRef}
-            className="inline-block font-mono text-indigo-400 transition-all duration-300">
+            className="inline-block font-mono text-accent transition-all duration-300">
             {title}
         </span>
     )

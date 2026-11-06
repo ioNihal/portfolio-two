@@ -13,6 +13,8 @@
   --grid-line: rgba(0, 0, 0, 0.05);
   --grid-glow: rgba(112, 114, 233, 0.082);
   --bg-radial-fade: #ffffff;
+  --accent: #4f46e5;
+  --accent-hover: #3730a3;
   --btn-sec: rgba(0, 0, 0, 0.05);
   --btn-sec-hover: rgba(0, 0, 0, 0.08);
   --btn-border: rgba(0, 0, 0, 0.15);
@@ -29,6 +31,8 @@
   --grid-line: rgba(255, 255, 255, 0.04);
   --grid-glow: rgba(99, 102, 241, 0.15);
   --bg-radial-fade: #000000;
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
   --btn-sec: rgba(255, 255, 255, 0.05);
   --btn-sec-hover: rgba(255, 255, 255, 0.1);
   --btn-border: rgba(255, 255, 255, 0.2);
@@ -42,6 +46,8 @@
   --color-muted: var(--text-muted);
   --color-subtle: var(--text-subtle);
   --color-border-main: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-btn-sec: var(--btn-sec);
   --color-btn-sec-hover: var(--btn-sec-hover);
   --color-btn-border: var(--btn-border);

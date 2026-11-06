@@ -13,7 +13,7 @@ export default function HeroContent() {
 
                     <h1 className="mt-6 font-future text-4xl sm:text-5xl font-semibold md:text-6xl lg:text-7xl">
                         NIHAL K
-                        <span className="ml-1 text-indigo-500">_</span>
+                        <span className="ml-1 text-accent">_</span>
                     </h1>
 
                     <h2 className="mt-4 sm:text-lg font-digital font-semibold text-muted md:text-2xl">
@@ -40,7 +40,7 @@ export default function HeroContent() {
                             prefetch={false}
                             href={'/docs/Nihal_K_Resume.pdf'}
                             target="_blank"
-                            className="border border-indigo-500/40 bg-indigo-500/10 px-4 py-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition hover:bg-indigo-500/20"
+                            className="border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/20"
                         >
                             Resume
                         </Link>
@@ -65,7 +65,7 @@ export default function HeroContent() {
                         </div>
                         <div
                             className={`mt-2 ${label.startsWith("STATUS") ? "text-emerald-600 dark:text-emerald-400 text-sm font-digital font-semibold" :
-                                label.startsWith("DESIGNATION") ? "text-indigo-600 dark:text-indigo-400 text-2xl font-condensed tracking-wider" :
+                                label.startsWith("DESIGNATION") ? "text-accent text-2xl font-condensed tracking-wider" :
                                     "text-foreground text-sm font-digital font-semibold"}`}>
                             {value}
                         </div>

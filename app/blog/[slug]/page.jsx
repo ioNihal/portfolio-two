@@ -145,8 +145,8 @@ export default async function BlogViewPage({ params }) {
                 {/* Article container */}
                 <article
                     className="prose prose-neutral dark:prose-invert max-w-none text-foreground prose-headings:font-mono
-                    prose-headings:text-foreground prose-p:text-muted prose-a:text-indigo-600 dark:prose-a:text-indigo-400
-                    prose-a:no-underline hover:prose-a:underline prose-code:font-mono prose-code:text-indigo-600 dark:prose-code:text-indigo-300
+                    prose-headings:text-foreground prose-p:text-muted prose-a:text-accent
+                    prose-a:no-underline hover:prose-a:underline prose-code:font-mono prose-code:text-accent
                     prose-pre:bg-card prose-pre:border prose-pre:border-border-main">
 
                     <h1 className="text-xl lg:text-2xl text-foreground">{frontMatter.title}</h1>

@@ -17,7 +17,7 @@ export default function AboutSection() {
                 <div className='flex-1'>
                     <Image width={500} height={600} src={"/assets/halftone.svg"} alt='Nihal K profile illustration' loading='lazy'
                         className='w-[200px] lg:w-xs 2xl:w-md h-auto aspect-3/4 object-cover
-                         border-8 border-indigo-900/20 dark:border-indigo-900/40 rounded-full
+                         border-8 border-accent/20 dark:border-accent/40 rounded-full
                         m-auto float select-none' />
                 </div>
             </article>

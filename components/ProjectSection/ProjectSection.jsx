@@ -39,7 +39,7 @@ function AccentLink({ href, children }) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-serif text-[1.5em] text-violet-700 underline-offset-4 transition-colors hover:text-violet-900 hover:underline focus-visible:underline dark:text-violet-400 dark:hover:text-violet-300"
+            className="font-serif text-[1.5em] text-accent underline-offset-4 transition-colors hover:text-accent-hover hover:underline focus-visible:underline"
         >
             {children}
         </Link>
@@ -67,8 +67,6 @@ export default function ProjectSection() {
                             <AccentLink href={href}>{title}</AccentLink>, {desc}.{" "}
                         </span>
                     ))}
-                    More lives on{" "}
-                    <AccentLink href="https://tomatoweb.site">TomatoWeb</AccentLink>.
                 </p>
             </div>
         </section>

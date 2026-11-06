@@ -9,7 +9,7 @@ export default function NotFound() {
                 </span>
 
                 <h1 className="text-6xl font-future font-semibold tracking-tight sm:text-7xl">
-                    404<span className="text-indigo-500">_</span>
+                    404<span className="text-accent">_</span>
                 </h1>
 
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
@@ -26,7 +26,7 @@ export default function NotFound() {
 
                     <Link
                         href="/blog"
-                        className="border border-indigo-500/40 bg-indigo-500/10 px-4 py-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition hover:bg-indigo-500/20"
+                        className="border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/20"
                     >
                         View Blog
                     </Link>

@@ -52,7 +52,7 @@ export default function BlogIndexPage() {
                         Back
                     </Link>
                     <h1 className="mt-6 font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
-                        Blog<span className="text-indigo-500">_</span>
+                        Blog<span className="text-accent">_</span>
                     </h1>
                     <p className="mt-3 max-w-xl text-sm text-muted">
                         Notes on building interfaces, systems, and experiments along the way.
@@ -65,13 +65,13 @@ export default function BlogIndexPage() {
                         <li key={post.slug}>
                             <Link
                                 href={`/blog/${post.slug}`}
-                                className="group block h-full border border-border-main bg-card p-5 transition hover:border-indigo-500/40 hover:bg-card-hover"
+                                className="group block h-full border border-border-main bg-card p-5 transition hover:border-accent/40 hover:bg-card-hover"
                             >
                                 <div className="mb-2 text-xs font-mono tracking-widest text-subtle">
                                     POST // {String(index + 1).padStart(2, "0")}
                                 </div>
 
-                                <h2 className="text-lg font-semibold text-foreground group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                                <h2 className="text-lg font-semibold text-foreground group-hover:text-accent">
                                     {post.title}
                                 </h2>
 

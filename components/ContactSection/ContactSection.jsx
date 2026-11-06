@@ -39,8 +39,8 @@ export default function ContactSection() {
   function inputClass(hasError) {
     const base =
       "w-full border bg-card text-foreground focus:outline-none transition-colors duration-300 p-3";
-    const normal = "border-border-main focus:border-indigo-500";
-    const er = "border-red-500 focus:border-indigo-500";
+    const normal = "border-border-main focus:border-accent";
+    const er = "border-red-500 focus:border-accent";
     return `${base} ${hasError ? er : normal}`;
   }
 
