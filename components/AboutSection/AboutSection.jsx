@@ -1,26 +1,45 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function AboutSection() {
     return (
-        <section className="min-h-screen w-full bg-background relative px-4 sm:px-6 
-         text-foreground isolate grid place-items-center" id='about' aria-label="About Me">
-            <article className='flex justify-between flex-col-reverse lg:flex-row
-            gap-10 lg:gap-0 items-center'>
-                <h2 className="sr-only">About Me</h2>
-                <div className='lg:text-2xl 2xl:text-4xl 
-                flex-1 p-4 lg:pl-10 xl:p-20 2xl:p-30 text-justify text-muted'>
-                    I'm Nihal from Kasaragod, Kerala.
-                    I build modern, full-stack web applications with React, Next.js, and Node.js, focusing on performance, clean design, and database integrity.
-                    I enjoy crafting polished interactions, experimenting with visuals, and transforming complex ideas into user-friendly solutions.
-                    When I'm not coding, you'll find me exploring Kasaragod's beautiful coastline, sketching UI ideas, or enjoying a cup of filter coffee while learning new technologies.
+        <section
+            id="about"
+            aria-labelledby="about-heading"
+            className="w-full bg-background px-6 py-24"
+        >
+            <div className="mx-auto max-w-4xl">
+                <h2
+                    id="about-heading"
+                    className="mb-12 font-mono text-[13px] font-normal text-muted"
+                >
+                    About
+                </h2>
+
+                <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-14">
+                    <div className="space-y-6 font-serif text-xl leading-relaxed text-foreground/80 text-pretty sm:text-2xl md:flex-1">
+                        <p>
+                            I&apos;m Nihal from Kasaragod, Kerala. I build modern full-stack
+                            web applications with React, Next.js and Node.js, focusing on
+                            performance, clean design and database integrity.
+                        </p>
+                        <p>
+                            I enjoy polished interactions, experimenting with visuals and
+                            turning complex ideas into simple tools. Away from the keyboard,
+                            you&apos;ll find me by Kasaragod&apos;s coastline, sketching UI
+                            ideas, or with a cup of filter coffee while learning something
+                            new.
+                        </p>
+                    </div>
+
+                    <Image
+                        src="/assets/halftone.svg"
+                        alt="Nihal K profile illustration"
+                        width={500}
+                        height={600}
+                        className="h-auto w-40 shrink-0 select-none sm:w-48 md:w-56 [clip-path:polygon(0_0,100%_0,100%_88%,88%_100%,0_100%)]"
+                    />
                 </div>
-                <div className='flex-1'>
-                    <Image width={500} height={600} src={"/assets/halftone.svg"} alt='Nihal K profile illustration' loading='lazy'
-                        className='w-[200px] lg:w-xs 2xl:w-md h-auto aspect-3/4 object-cover
-                         border-8 border-accent/20 dark:border-accent/40 rounded-full
-                        m-auto float select-none' />
-                </div>
-            </article>
+            </div>
         </section>
-    )
+    );
 }
