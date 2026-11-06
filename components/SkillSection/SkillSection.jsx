@@ -29,7 +29,7 @@ const icons = [
     { name: "ReactJS", img: SiReact },
     { name: "Next.js", img: SiNextdotjs },
     { name: "Prisma", img: SiPrisma },
-    { name: "PostgresSQL", img: SiPostgresql },
+    { name: "PostgreSQL", img: SiPostgresql },
     { name: "GraphQL", img: SiGraphql },
     { name: "Wordpress", img: SiWordpress },
     { name: "Tailwind CSS", img: SiTailwindcss },
@@ -46,7 +46,7 @@ function SkillCard({ name, Icon }) {
         <li>
             <article className="group flex h-full items-center gap-3 rounded-2xl border border-border-main bg-card px-4 py-4 transition-colors duration-300 hover:border-cyan-500/40 hover:bg-card-hover sm:gap-4 sm:px-5">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-cyan-500/20 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 transition-colors duration-300 group-hover:border-cyan-400/40 group-hover:bg-cyan-500/15 group-hover:text-cyan-500 dark:group-hover:text-cyan-300 sm:h-14 sm:w-14 sm:rounded-2xl">
-                    <Icon size={28} title={name} aria-label={name} />
+                    <Icon size={28} aria-hidden />
                 </div>
 
                 <div className="min-w-0">
