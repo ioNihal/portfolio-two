@@ -1,61 +1,69 @@
+const SITE = 'https://www.nihalu.com';
+const PERSON_ID = `${SITE}/#person`;
 
-
-// Data used in the schemas
-const projectsData = [
+const projects = [
     {
         name: 'Explore Kasaragod',
-        description: 'A fast, ad-free digital directory and platform showcasing Kasaragod\'s finest local eateries, travel destinations, and essential services, built with a community-first approach.',
+        description: "A fast, ad-free directory of Kasaragod's eateries, destinations and essential services, built community-first.",
         url: 'https://explorekasaragod.org',
-        techs: ['Next.js', 'TypeScript', 'Tailwind', 'Prisma', 'PostgreSQL']
+        keywords: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
+    },
+    {
+        name: '2D Stickman Game',
+        description: 'A 1v1 stickman fighting game built with HTML Canvas and vanilla JavaScript.',
+        url: 'https://ionihal.github.io/game2dsite',
+        keywords: ['HTML5 Canvas', 'JavaScript', 'CSS'],
     },
     {
         name: 'RenderCard',
-        description: 'A high-performance Open Graph (OG) image generation API allowing developers to render highly customizable social preview cards in real-time.',
+        description: 'An Open Graph image API that renders customizable social preview cards from URL parameters.',
         url: 'https://rendercard.vercel.app',
-        techs: ['Next.js', 'Edge Runtime', 'SVG']
+        keywords: ['Next.js', 'Edge Runtime', 'Image Generation'],
     },
     {
         name: 'Formcord',
-        description: 'A lightweight, zero-dependency NPM package that channels website form submissions and system events straight to Discord channels.',
+        description: 'A zero-dependency package that sends form submissions and system events to Discord.',
         url: 'https://formcord.vercel.app',
-        techs: ['Node.js', 'Edge Runtime', 'Web APIs']
-    }
+        keywords: ['Node.js', 'Edge Runtime', 'Web APIs', 'Discord API'],
+    },
+    {
+        name: 'React WIP UI System',
+        description: 'A composable React kit of badges, banners and overlays for marking work-in-progress features.',
+        url: 'https://react-wip-ui.vercel.app',
+        keywords: ['React', 'Next.js'],
+    },
+    {
+        name: 'Inventory Management System',
+        description: 'A MERN app with real-time inventory tracking, offline orders and admin-approved payments.',
+        url: 'https://github.com/ioNihal/sims-dashboard-front',
+        keywords: ['React', 'Express.js', 'MongoDB'],
+    },
 ];
 
-// Main Person Schema
-const personSchema = {
-    '@context': 'https://schema.org',
+const person = {
     '@type': 'Person',
-    '@id': 'https://www.nihalu.com/#person',
-
+    '@id': PERSON_ID,
     name: 'Nihal K',
     givenName: 'Nihal',
     familyName: 'K',
-    url: 'https://www.nihalu.com',
-    image: 'https://www.nihalu.com/profile-photo.webp',
-
+    url: SITE,
+    image: `${SITE}/profile-photo.webp`,
     jobTitle: 'Full-Stack Developer',
+    worksFor: { '@type': 'Organization', name: 'DGymBook' },
     description: 'Full-Stack Developer specializing in React, Next.js, Node.js, and database engineering.',
-
-    // Social and Professional Profiles
     sameAs: [
         'https://github.com/ioNihal',
         'https://linkedin.com/in/n1hal',
         'https://instagram.com/io.nihal',
         'https://x.com/n1haaaal',
     ],
-
-    email: 'mailto:nihal04x@gmail.com',
-
-    // Geographical Location
+    email: 'nihal04x@gmail.com',
     address: {
         '@type': 'PostalAddress',
         addressLocality: 'Kasaragod',
         addressRegion: 'Kerala',
-        addressCountry: 'India'
+        addressCountry: 'India',
     },
-
-    // Education 
     alumniOf: {
         '@type': 'CollegeOrUniversity',
         name: 'Srinivas University',
@@ -64,62 +72,46 @@ const personSchema = {
             '@type': 'PostalAddress',
             addressLocality: 'Mangalore',
             addressRegion: 'Karnataka',
-            addressCountry: 'India'
-        }
+            addressCountry: 'India',
+        },
     },
-
-    // Technical Skills
     knowsAbout: [
         'Web Development', 'JavaScript', 'TypeScript', 'React', 'Next.js',
-        'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'Full Stack Development'
+        'Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Prisma', 'Tailwind CSS',
     ],
-
-    // Professional Experience
-    hasOccupation: {
-        '@type': 'Occupation',
-        name: 'Frontend Developer Intern',
-    },
-
-    // Project Portfolio (Work Examples)
-    subjectOf: projectsData.map(project => ({
-        '@type': 'SoftwareSourceCode',
-        name: project.name,
-        description: project.description,
-        codeRepository: project.url,
-        programmingLanguage: project.techs,
-        author: {
-            '@type': 'Person',
-            name: 'Nihal K',
-        }
-    })),
 };
 
-
-// --- WebSite Schema (Foundational) ---
-const websiteSchema = {
-    '@context': 'https://schema.org',
+const website = {
     '@type': 'WebSite',
-    '@id': 'https://www.nihalu.com/#website',
+    '@id': `${SITE}/#website`,
     name: 'Nihal K - Portfolio',
-    url: 'https://www.nihalu.com',
-    description: 'Personal portfolio website of Nihal K, a Full-Stack Developer from Kasaragod, Kerala',
+    url: SITE,
+    description: 'Personal portfolio of Nihal K, a Full-Stack Developer from Kasaragod, Kerala',
     inLanguage: 'en',
+    author: { '@id': PERSON_ID },
 };
 
+const works = projects.map((p) => ({
+    '@type': 'CreativeWork',
+    name: p.name,
+    description: p.description,
+    url: p.url,
+    keywords: p.keywords.join(', '),
+    author: { '@id': PERSON_ID },
+}));
+
+const graph = {
+    '@context': 'https://schema.org',
+    '@graph': [person, website, ...works],
+};
 
 export default function JsonLd() {
     return (
-        <>
-            {/* Person Schema (The main profile information) */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-            />
-            {/* WebSite Schema (For sitelink search box eligibility) */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-            />
-        </>
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify(graph).replace(/</g, '\\u003c'),
+            }}
+        />
     );
 }
