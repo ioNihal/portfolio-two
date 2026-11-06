@@ -43,53 +43,48 @@ export default function BlogIndexPage() {
     const posts = getAllPostsMeta();
 
     return (
-        <main className="relative min-h-screen bg-background text-foreground">
+        <main className="min-h-svh bg-background px-6 py-24 text-foreground">
+            <div className="mx-auto max-w-4xl">
+                <Link
+                    href="/"
+                    className="font-mono text-[13px] text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
+                >
+                    ← home
+                </Link>
 
-            <div className="relative mx-auto max-w-5xl px-6 py-14">
+                <h1 className="mt-10 font-serif text-6xl leading-[1.05] sm:text-7xl">
+                    Blog
+                </h1>
+                <p className="mt-4 max-w-xl font-serif text-xl leading-snug text-foreground/80 text-pretty sm:text-2xl">
+                    Notes on building interfaces, systems, and experiments along the way.
+                </p>
 
-                <header className="mb-12 border-b border-border-main pb-6">
-                    <Link href="/" className="text-sm font-mono text-muted hover:text-foreground">
-                        Back
-                    </Link>
-                    <h1 className="mt-6 font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
-                        Blog<span className="text-accent">_</span>
-                    </h1>
-                    <p className="mt-3 max-w-xl text-sm text-muted">
-                        Notes on building interfaces, systems, and experiments along the way.
-                    </p>
-                </header>
-
-                {/* Posts */}
-                <ul className="grid gap-4 sm:grid-cols-2">
-                    {posts.map((post, index) => (
-                        <li key={post.slug}>
-                            <Link
-                                href={`/blog/${post.slug}`}
-                                className="group block h-full border border-border-main bg-card p-5 transition hover:border-accent/40 hover:bg-card-hover"
-                            >
-                                <div className="mb-2 text-xs font-mono tracking-widest text-subtle">
-                                    POST // {String(index + 1).padStart(2, "0")}
-                                </div>
-
-                                <h2 className="text-lg font-semibold text-foreground group-hover:text-accent">
-                                    {post.title}
-                                </h2>
-
-                                {post.date && (
-                                    <time
-                                        dateTime={post.date}
-                                        className="mt-1 block text-xs text-subtle"
+                <ul className="mt-20 space-y-12">
+                    {posts.map((post) => (
+                        <li key={post.slug} className="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
+                            {post.date && (
+                                <time
+                                    dateTime={post.date}
+                                    className="mb-1 block font-mono text-xs text-subtle sm:mb-0 sm:pt-2"
+                                >
+                                    {formatDate(post.date)}
+                                </time>
+                            )}
+                            <div className="sm:col-start-2">
+                                <h2 className="font-serif text-3xl leading-tight text-balance">
+                                    <Link
+                                        href={`/blog/${post.slug}`}
+                                        className="text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline focus-visible:underline"
                                     >
-                                        {formatDate(post.date)}
-                                    </time>
-                                )}
-
+                                        {post.title}
+                                    </Link>
+                                </h2>
                                 {post.description && (
-                                    <p className="mt-3 text-sm text-muted">
+                                    <p className="mt-2 max-w-prose text-base leading-relaxed text-muted text-pretty">
                                         {post.description}
                                     </p>
                                 )}
-                            </Link>
+                            </div>
                         </li>
                     ))}
                 </ul>

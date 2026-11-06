@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate, getPost, getSlugs, truncateTitle } from "@/lib/blog";
+import { formatDate, getPost, getSlugs } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import * as components from "@/components/MdxComponents";
 import { notFound } from "next/navigation";
@@ -125,48 +125,49 @@ export default async function BlogViewPage({ params }) {
     const { content, frontMatter } = post;
 
     return (
-        <main className="relative min-h-screen bg-background text-foreground">
+        <main className="min-h-svh bg-background px-6 py-24 text-foreground">
             <BlogJsonLd slug={slug} frontMatter={frontMatter} />
 
-            {/* Background grid */}
-            {/* <div className="pointer-events-none absolute inset-0 bg-grid" /> */}
+            <div className="mx-auto max-w-4xl">
+                <Link
+                    href="/blog"
+                    className="font-mono text-[13px] text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
+                >
+                    ← blog
+                </Link>
 
-            <div className="relative mx-auto max-w-4xl px-6 py-16">
-                <div className="mb-10 flex items-center justify-between border-b border-border-main pb-4">
-                    <Link href="/blog" className="text-sm font-mono text-muted hover:text-foreground">
-                        Back
-                    </Link>
+                <article className="mt-10">
+                    <header className="max-w-2xl">
+                        <h1 className="font-serif text-5xl leading-[1.05] text-balance sm:text-6xl">
+                            {frontMatter.title}
+                        </h1>
 
-                    <span className="text-xs font-digital tracking-widest text-subtle">
-                        ARTICLE // {truncateTitle(frontMatter.title.toUpperCase(), 18)}
-                    </span>
-                </div>
+                        {frontMatter.date && (
+                            <time
+                                dateTime={frontMatter.date}
+                                className="mt-4 block font-mono text-xs text-subtle"
+                            >
+                                {formatDate(frontMatter.date)}
+                            </time>
+                        )}
 
-                {/* Article container */}
-                <article
-                    className="prose prose-neutral dark:prose-invert max-w-none text-foreground prose-headings:font-mono
-                    prose-headings:text-foreground prose-p:text-muted prose-a:text-accent
-                    prose-a:no-underline hover:prose-a:underline prose-code:font-mono prose-code:text-accent
-                    prose-pre:bg-card prose-pre:border prose-pre:border-border-main">
+                        {frontMatter.description && (
+                            <p className="mt-6 font-serif text-xl leading-snug text-foreground/80 text-pretty sm:text-2xl">
+                                {frontMatter.description}
+                            </p>
+                        )}
+                    </header>
 
-                    <h1 className="text-xl lg:text-2xl text-foreground">{frontMatter.title}</h1>
-
-                    {frontMatter.date && (
-                        <time
-                            dateTime={frontMatter.date}
-                            className="block mt-2 text-xs font-mono tracking-wide text-subtle"
-                        >
-                            {formatDate(frontMatter.date)}
-                        </time>
-                    )}
-
-                    {frontMatter.description && (
-                        <p className="mt-2 mb-6 max-w-2xl text-sm text-muted">
-                            {frontMatter.description}
-                        </p>
-                    )}
-
-                    <MDXRemote source={content} components={components} />
+                    <div
+                        className="prose prose-neutral dark:prose-invert mt-14 max-w-2xl
+                        prose-headings:font-serif prose-headings:font-normal prose-headings:text-foreground
+                        prose-p:text-foreground/80 prose-li:text-foreground/80
+                        prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+                        prose-code:font-mono prose-code:text-accent
+                        prose-pre:border prose-pre:border-border-main prose-pre:bg-card"
+                    >
+                        <MDXRemote source={content} components={components} />
+                    </div>
                 </article>
             </div>
         </main>

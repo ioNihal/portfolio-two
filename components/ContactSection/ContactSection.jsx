@@ -86,7 +86,7 @@ export default function ContactSection() {
       aria-labelledby="contact-heading"
       className="w-full bg-background px-6 py-24"
     >
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-4xl">
         <h2
           id="contact-heading"
           className="mb-6 font-mono text-[13px] font-normal text-muted"

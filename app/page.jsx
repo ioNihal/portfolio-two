@@ -9,7 +9,7 @@ import TimelineSection from "@/components/TimelineSection/TimelineSection";
 
 export default function Home() {
   return (
-    <main className="w-screen overflow-x-hidden">
+    <main className="w-full overflow-x-hidden">
       <HeroSection />
       <SkillSection />
       <ProjectSection />

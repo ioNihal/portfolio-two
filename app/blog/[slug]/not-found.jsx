@@ -1,36 +1,23 @@
 import Link from "next/link";
 
+const link =
+    "text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline focus-visible:underline";
+
 export default function NotFound() {
     return (
-        <main className="relative min-h-screen bg-background text-foreground flex items-center justify-center">
-            <div className="relative mx-auto flex max-w-2xl flex-col items-center justify-center px-6 py-20 text-center">
-                <span className="mb-4 font-digital text-xs tracking-widest text-subtle">
-                    SYSTEM ERROR (fun dont panic)
-                </span>
-
-                <h1 className="text-6xl font-future font-semibold tracking-tight sm:text-7xl">
-                    404<span className="text-accent">_</span>
+        <main className="flex min-h-svh flex-col justify-center bg-background px-6 py-24 text-foreground">
+            <div className="mx-auto w-full max-w-4xl">
+                <p className="font-mono text-[13px] text-muted">404</p>
+                <h1 className="mt-6 font-serif text-6xl leading-[1.05] sm:text-7xl">
+                    Article not found
                 </h1>
-
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-                    The requested article does not exist or has been relocated.
+                <p className="mt-4 max-w-md font-serif text-xl leading-snug text-foreground/80 sm:text-2xl">
+                    It doesn&apos;t exist or has moved.
                 </p>
-
-                <div className="mt-8 flex gap-4">
-                    <Link
-                        href="/"
-                        className="border border-btn-border bg-btn-sec px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-btn-sec-hover"
-                    >
-                        Go Home
-                    </Link>
-
-                    <Link
-                        href="/blog"
-                        className="border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/20"
-                    >
-                        View Blog
-                    </Link>
-                </div>
+                <nav className="mt-10 flex gap-8 font-mono text-sm">
+                    <Link href="/blog" className={link}>all posts ↗</Link>
+                    <Link href="/" className={link}>home</Link>
+                </nav>
             </div>
         </main>
     );

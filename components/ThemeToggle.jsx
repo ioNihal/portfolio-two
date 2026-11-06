@@ -18,7 +18,8 @@ export default function ThemeToggle() {
     <button
       onClick={() => setTheme(next)}
       aria-label={`Theme: ${current}. Switch to ${next}.`}
-      className="fixed right-6 top-6 z-50 cursor-pointer font-mono text-xs text-muted underline-offset-4 transition-colors hover:text-accent hover:underline focus-visible:underline"
+      className={`fixed right-6 top-6 z-50 cursor-pointer font-mono text-xs text-muted underline-offset-4 transition-colors hover:text-accent hover:underline focus-visible:underline ${mounted ? "" : "invisible"
+        }`}
     >
       {current}
     </button>

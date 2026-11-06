@@ -32,7 +32,7 @@ export default function TimelineSection() {
       aria-labelledby="experience-heading"
       className="w-full bg-background px-6 py-24"
     >
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-4xl">
         <h2
           id="experience-heading"
           className="mb-16 font-mono text-[13px] font-normal text-muted"
