@@ -101,3 +101,46 @@ img,
     transition: none !important;
   }
 }
+
+
+/* Micro animations */
+
+@keyframes doodle-heart {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.6)
+  }
+
+  20% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), -1.75rem) scale(1)
+  }
+}
+
+@keyframes doodle-purr {
+
+  0%,
+  100% {
+    transform: translateX(0)
+  }
+
+  25% {
+    transform: translateX(-1px)
+  }
+
+  75% {
+    transform: translateX(1px)
+  }
+}
+
+.doodle-heart {
+  animation: doodle-heart 1.2s ease-out forwards;
+}
+
+.doodle-purr {
+  animation: doodle-purr 0.12s linear infinite;
+}
