@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Walker } from "../MicroAnimation/Retro";
 
 const projects = [
     {
@@ -60,6 +61,7 @@ export default function ProjectSection() {
                 >
                     Projects
                 </h2>
+                <Walker className="text-subtle" />
 
                 <p className="text-balance text-center text-lg leading-[1.9] tracking-[0.02em] text-foreground/80 [word-spacing:0.12em] sm:text-xl sm:tracking-[0.03em] md:text-2xl lg:tracking-[0.04em] lg:[word-spacing:0.18em]">
                     {projects.map(({ title, desc, href }) => (

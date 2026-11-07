@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PixelHeart } from "../MicroAnimation/Retro";
 
 const pages = ["home", "skills", "projects", "experience", "about", "contact"];
 
@@ -50,7 +51,7 @@ export default function FooterSection() {
           </ul>
         </div>
 
-        <p className="pt-8 text-xs text-subtle">ioNihal © {year}</p>
+        <p className="pt-8 text-xs text-subtle">ioNihal © {year} &middot; <span className="inline-flex items-center gap-2">made with <PixelHeart /></span></p>
       </div>
     </footer >
   );

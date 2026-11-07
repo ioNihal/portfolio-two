@@ -1,3 +1,5 @@
+import { Prompt } from "../MicroAnimation/Retro";
+
 const timeline = [
   {
     year: "2026 - present",
@@ -37,7 +39,7 @@ export default function TimelineSection() {
           id="experience-heading"
           className="mb-16 font-mono text-[13px] font-normal text-muted"
         >
-          Experience
+          <Prompt className="mt-10 block" user="experience" />
         </h2>
 
         <ol className="space-y-14">

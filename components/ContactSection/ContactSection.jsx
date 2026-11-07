@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ContactCat } from "../MicroAnimation/ContactCat";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const noErrors = { subject: "", email: "", message: "" };
@@ -35,6 +36,17 @@ function Field({ id, label, error, children }) {
 export default function ContactSection() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errors, setErrors] = useState(noErrors);
+
+  const [focused, setFocused] = useState(false);
+
+  const hasErrors = Object.values(errors).some(Boolean);
+  const mood =
+    status === "sent" ? "happy"
+      : status === "error" ? "sad"
+        : status === "sending" ? "waiting"
+          : hasErrors ? "oops"
+            : focused ? "curious"
+              : "idle";
 
   const inputProps = (id) => ({
     id,
@@ -98,7 +110,18 @@ export default function ContactSection() {
           Got a project in mind? Let&apos;s talk.
         </p>
 
-        <form onSubmit={handleSubmit} noValidate className="space-y-8">
+        <form
+          onSubmit={handleSubmit}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          onInput={(e) => {
+            const { name } = e.target;
+            if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+            if (status === "sent" || status === "error") setStatus("idle");
+          }}
+          noValidate
+          className="space-y-8"
+        >
           <div className="grid gap-8 sm:grid-cols-2">
             <Field id="subject" label="subject" error={errors.subject}>
               <input type="text" placeholder="What is it about?" {...inputProps("subject")} />
@@ -130,6 +153,7 @@ export default function ContactSection() {
               {status === "sent" && "Message sent. I'll get back to you soon."}
               {status === "error" && "Couldn't send your message. Please try again."}
             </p>
+            <ContactCat mood={mood} className="ml-auto" />
           </div>
         </form>
       </div>

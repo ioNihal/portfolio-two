@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LazyCoffeeSip } from "../MicroAnimation";
 
 export default function AboutSection() {
     return (
@@ -29,6 +30,7 @@ export default function AboutSection() {
                             ideas, or with a cup of filter coffee while learning something
                             new.
                         </p>
+                        <LazyCoffeeSip className="text-muted [&_svg]:h-8" />
                     </div>
 
                     <Image

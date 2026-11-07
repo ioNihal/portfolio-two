@@ -1,3 +1,5 @@
+import { SoundCassette } from "../MicroAnimation/SoundCassette";
+
 const skills = [
     {
         label: "Frontend",
@@ -27,9 +29,9 @@ export default function SkillSection() {
             <div className="mx-auto max-w-4xl">
                 <h2
                     id="skills-heading"
-                    className="mb-16 font-mono text-[13px] font-normal text-muted"
+                    className="mb-16 font-mono text-[13px] font-normal text-muted relative"
                 >
-                    Tools and technologies
+                    Tools and technologies <SoundCassette className="inline-block h-4 sm:h-5 text-subtle" />
                 </h2>
 
                 <dl className="space-y-10">

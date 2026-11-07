@@ -144,3 +144,241 @@ img,
 .doodle-purr {
   animation: doodle-purr 0.12s linear infinite;
 }
+
+/* retro chips */
+@keyframes rt-toggle {
+
+  0%,
+  49.99% {
+    opacity: 1
+  }
+
+  50%,
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes rt-pellets {
+  to {
+    transform: translateX(-12px)
+  }
+}
+
+@keyframes rt-reel {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes rt-eq {
+
+  0%,
+  100% {
+    transform: scaleY(0.2)
+  }
+
+  50% {
+    transform: scaleY(1)
+  }
+}
+
+@keyframes rt-beat {
+
+  0%,
+  60%,
+  100% {
+    transform: scale(1)
+  }
+
+  15% {
+    transform: scale(1.18)
+  }
+
+  30% {
+    transform: scale(0.96)
+  }
+
+  45% {
+    transform: scale(1.1)
+  }
+}
+
+@keyframes rt-caret {
+  50% {
+    opacity: 0
+  }
+}
+
+@keyframes rt-twinkle {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.6)
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+
+@keyframes rt-walk {
+  to {
+    transform: translateX(calc(100cqw - 100%))
+  }
+}
+
+@keyframes rt-face {
+
+  0%,
+  49.99% {
+    transform: scaleX(1)
+  }
+
+  50%,
+  100% {
+    transform: scaleX(-1)
+  }
+}
+
+.rt-toggle {
+  animation: rt-toggle var(--t, 0.5s) step-end infinite;
+}
+
+.rt-toggle-b {
+  opacity: 0;
+  animation-delay: calc(var(--t, 0.5s) / -2);
+}
+
+.rt-pellets {
+  animation: rt-pellets 0.5s linear infinite;
+}
+
+.rt-reel {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rt-reel 2.4s linear infinite;
+}
+
+@layer components {
+  .rt-svg {
+    height: 1.5rem;
+    width: auto;
+  }
+}
+
+.rt-eq {
+  transform-origin: bottom;
+  animation: rt-eq 1s ease-in-out infinite;
+}
+
+.rt-beat {
+  animation: rt-beat 1.4s ease-in-out infinite;
+}
+
+.rt-caret {
+  animation: rt-caret 1s step-end infinite;
+}
+
+.rt-twinkle {
+  animation: rt-twinkle 2.4s ease-in-out infinite;
+}
+
+.rt-walk {
+  animation: rt-walk 9s linear infinite alternate;
+}
+
+.rt-face {
+  animation: rt-face 18s step-end infinite;
+}
+
+
+@keyframes rt-steam {
+  0% {
+    opacity: 0;
+    transform: translateY(2px)
+  }
+
+  30% {
+    opacity: 0.8
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-3px)
+  }
+}
+
+.rt-steam {
+  opacity: 0.5;
+  animation: rt-steam 2.4s ease-out infinite;
+}
+
+.rt-liquid {
+  transform-box: fill-box;
+  transition: transform 0.4s ease;
+}
+
+@keyframes tap-shake {
+
+  0%,
+  100% {
+    transform: translateX(0)
+  }
+
+  20% {
+    transform: translateX(-4px)
+  }
+
+  40% {
+    transform: translateX(4px)
+  }
+
+  60% {
+    transform: translateX(-3px)
+  }
+
+  80% {
+    transform: translateX(3px)
+  }
+}
+
+@keyframes tap-hop {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  40% {
+    transform: translateY(-8px)
+  }
+
+  70% {
+    transform: translateY(0)
+  }
+
+  85% {
+    transform: translateY(-3px)
+  }
+}
+
+@keyframes tap-bob {
+  50% {
+    transform: translateY(-3px)
+  }
+}
+
+.tap-shake {
+  animation: tap-shake 0.4s ease-in-out;
+}
+
+.tap-hop {
+  animation: tap-hop 0.6s ease-out;
+}
+
+.tap-bob {
+  animation: tap-bob 0.8s ease-in-out infinite;
+}
