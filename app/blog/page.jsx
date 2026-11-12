@@ -63,12 +63,17 @@ export default function BlogIndexPage() {
                     {posts.map((post) => (
                         <li key={post.slug} className="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
                             {post.date && (
-                                <time
-                                    dateTime={post.date}
-                                    className="mb-1 block font-mono text-xs text-subtle sm:mb-0 sm:pt-2"
-                                >
-                                    {formatDate(post.date)}
-                                </time>
+                                <div>
+                                    <time
+                                        dateTime={post.date}
+                                        className="mb-1 block font-mono text-xs text-subtle sm:mb-0 sm:pt-2"
+                                    >
+                                        {formatDate(post.date)}
+                                    </time>
+                                    <span className="font-mono text-xs text-accent">
+                                        {post.source ?? "AI Content"}
+                                    </span>
+                                </div>
                             )}
                             <div className="sm:col-start-2">
                                 <h2 className="font-serif text-3xl leading-tight text-balance">
